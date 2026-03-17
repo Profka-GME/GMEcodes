@@ -1,0 +1,201 @@
+{
+  "_meta": {
+    "defaultCodesPeriod": "March 2026",
+    "lastUpdated": "March 17, 2026",
+    "lastTested": "March 17, 2026",
+    "gameLastUpdated": {
+      "rivals": "March 17, 2026",
+      "99nights": "March 17, 2026",
+      "arsenal": "March 17, 2026",
+      "fishit": "March 17, 2026",
+      "rerangers": "March 17, 2026"
+    },
+    "gameLastTested": {
+      "rivals": "March 17, 2026",
+      "99nights": "March 17, 2026",
+      "arsenal": "March 17, 2026",
+      "fishit": "March 17, 2026",
+      "rerangers": "March 17, 2026"
+    }
+  },
+  "rivals": {
+    "workingCodes": [
+      {
+        "code": "x",
+        "reward": "x"
+      },
+      {
+        "code": "x",
+        "reward": "x"
+      },
+      {
+        "code": "x",
+        "reward": "x"
+      },
+      {
+        "code": "x",
+        "reward": "x"
+      },
+      {
+        "code": "x",
+        "reward": "x"
+      },
+      {
+        "code": "x",
+        "reward": "x"
+      }
+    ],
+    "expiredCodes": [
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x"
+    ]
+  },
+  "99nights": {
+    "workingCodes": [
+      {
+        "code": "x",
+        "reward": "x"
+      },
+      {
+        "code": "x",
+        "reward": "x"
+      },
+      {
+        "code": "x",
+        "reward": "x"
+      }
+    ],
+    "expiredCodes": [
+      "x",
+      "x",
+      "x"
+    ]
+  },
+  "arsenal": {
+    "workingCodes": [
+      {
+        "code": "x",
+        "reward": "x"
+      },
+      {
+        "code": "x",
+        "reward": "x"
+      },
+      {
+        "code": "x",
+        "reward": "x"
+      },
+      {
+        "code": "x",
+        "reward": "x"
+      }
+    ],
+    "expiredCodes": [
+      "x",
+      "x",
+      "x",
+      "x"
+    ]
+  },
+  "fishit": {
+    "workingCodes": [
+      {
+        "code": "x",
+        "reward": "x"
+      },
+      {
+        "code": "x",
+        "reward": "x"
+      },
+      {
+        "code": "x",
+        "reward": "x"
+      },
+      {
+        "code": "x",
+        "reward": "x"
+      }
+    ],
+    "expiredCodes": [
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x"
+    ]
+  },
+  "rerangers": {
+    "workingCodes": [
+      {
+        "code": "x",
+        "reward": "x"
+      },
+      {
+        "code": "x",
+        "reward": "x"
+      },
+      {
+        "code": "x",
+        "reward": "x"
+      },
+      {
+        "code": "x",
+        "reward": "x"
+      }
+    ],
+    "expiredCodes": [
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x"
+    ]
+  },
+  "bizlineage": {
+    "workingCodes": [
+      {
+        "code": "x",
+        "reward": "x"
+      },
+      {
+        "code": "x",
+        "reward": "x"
+      },
+      {
+        "code": "x",
+        "reward": "x"
+      },
+      {
+        "code": "x",
+        "reward": "x"
+      }
+    ],
+    "expiredCodes": [
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x",
+      "x"
+    ]
+  }
+}
