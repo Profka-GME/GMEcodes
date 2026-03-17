@@ -1,6 +1,12 @@
 // Global Authentication System
 document.addEventListener('DOMContentLoaded', function() {
     const userNav = document.getElementById('userNav');
+    const defaultAdminUser = {
+        username: 'Profka',
+        email: 'potatus120@gmail.com',
+        password: 'Almafa12345',
+        role: 'admin'
+    };
     let dropdownCloseHandler = null;
     let verificationContext = null;
     let pendingRegistration = null;
@@ -55,6 +61,50 @@ document.addEventListener('DOMContentLoaded', function() {
         return users.find(function(user) {
             return sameUser(user.username, username);
         });
+    }
+
+    function ensureDefaultAdminAccount() {
+        const users = getStoredUsers();
+        let changed = false;
+        let admin = findUserByUsername(users, defaultAdminUser.username);
+
+        if (!admin) {
+            admin = {
+                username: defaultAdminUser.username,
+                email: defaultAdminUser.email,
+                password: defaultAdminUser.password,
+                role: defaultAdminUser.role,
+                emailVerified: true,
+                registeredDate: new Date().toISOString()
+            };
+            users.push(admin);
+            changed = true;
+        } else {
+            const normalizedEmail = String(admin.email || '').trim().toLowerCase();
+            if (normalizedEmail !== defaultAdminUser.email.toLowerCase()) {
+                admin.email = defaultAdminUser.email;
+                changed = true;
+            }
+
+            if (admin.password !== defaultAdminUser.password) {
+                admin.password = defaultAdminUser.password;
+                changed = true;
+            }
+
+            if (admin.role !== defaultAdminUser.role) {
+                admin.role = defaultAdminUser.role;
+                changed = true;
+            }
+
+            if (!admin.registeredDate) {
+                admin.registeredDate = new Date().toISOString();
+                changed = true;
+            }
+        }
+
+        if (changed) {
+            saveStoredUsers(users);
+        }
     }
 
     function getEmailJsConfig() {
@@ -706,6 +756,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    ensureDefaultAdminAccount();
     ensureVerificationModal();
     renderUserNav();
     setupNavbarTogglerFallback();
