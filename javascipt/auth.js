@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const defaultAdminUser = {
         username: 'Profka',
         email: 'potatus120@gmail.com',
-        password: 'Almafa12345',
+        passwordHash: '45d1020b965b4277e0de3c43a8cc0c7236cef821eccfc1851fa6d562da11dbc4',
         role: 'admin'
     };
     let dropdownCloseHandler = null;
@@ -18,6 +18,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function sameUser(a, b) {
         return String(a || '').trim().toLowerCase() === String(b || '').trim().toLowerCase();
+    }
+
+    async function hashPassword(value) {
+        const text = String(value || '');
+        if (!window.crypto || !window.crypto.subtle || !window.TextEncoder) {
+            return text;
+        }
+
+        const data = new TextEncoder().encode(text);
+        const digest = await window.crypto.subtle.digest('SHA-256', data);
+        return Array.from(new Uint8Array(digest))
+            .map(function(byte) { return byte.toString(16).padStart(2, '0'); })
+            .join('');
     }
 
     function setupNavbarTogglerFallback() {
@@ -63,6 +76,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    async function verifyUserPassword(user, inputPassword) {
+        if (!user) {
+            return false;
+        }
+
+        if (user.passwordHash) {
+            const inputHash = await hashPassword(inputPassword);
+            return inputHash === String(user.passwordHash);
+        }
+
+        return user.password === inputPassword;
+    }
+
     function ensureDefaultAdminAccount() {
         const users = getStoredUsers();
         let changed = false;
@@ -72,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
             admin = {
                 username: defaultAdminUser.username,
                 email: defaultAdminUser.email,
-                password: defaultAdminUser.password,
+                passwordHash: defaultAdminUser.passwordHash,
                 role: defaultAdminUser.role,
                 emailVerified: true,
                 registeredDate: new Date().toISOString()
@@ -86,8 +112,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 changed = true;
             }
 
-            if (admin.password !== defaultAdminUser.password) {
-                admin.password = defaultAdminUser.password;
+            if (admin.passwordHash !== defaultAdminUser.passwordHash) {
+                admin.passwordHash = defaultAdminUser.passwordHash;
+                changed = true;
+            }
+
+            if (admin.password) {
+                delete admin.password;
                 changed = true;
             }
 
@@ -620,7 +651,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
-        loginForm.addEventListener('submit', function(e) {
+        loginForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             const usernameInput = document.getElementById('loginUsername');
             const passwordInput = document.getElementById('loginPassword');
@@ -631,12 +662,21 @@ document.addEventListener('DOMContentLoaded', function() {
             const username = usernameInput.value.trim();
             const password = passwordInput.value;
             const users = getStoredUsers();
-            const user = users.find(function(u) {
-                return sameUser(u.username, username) && u.password === password;
-            });
+            const user = findUserByUsername(users, username);
 
-            if (!user) {
+            const passwordMatches = await verifyUserPassword(user, password);
+
+            if (!user || !passwordMatches) {
                 alert('Invalid username or password');
+                return;
+            }
+
+            // Local admin bypasses email verification to avoid lockout from email provider issues.
+            if (user.role === 'admin') {
+                localStorage.setItem('loggedIn', 'true');
+                localStorage.setItem('currentUser', user.username);
+                renderUserNav();
+                window.dispatchEvent(new CustomEvent('userLoggedIn', { detail: { username: user.username } }));
                 return;
             }
 
@@ -670,7 +710,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const registerForm = document.getElementById('registerForm');
     if (registerForm) {
-        registerForm.addEventListener('submit', function(e) {
+        registerForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
             const usernameInput = document.getElementById('registerUsername');
@@ -709,7 +749,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const newUser = {
                 username: username,
                 email: email,
-                password: password,
+                passwordHash: await hashPassword(password),
                 registeredDate: new Date().toISOString()
             };
             const verificationState = assignVerificationState(newUser);
