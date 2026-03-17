@@ -110,6 +110,24 @@ document.addEventListener('DOMContentLoaded', function() {
         return String(a || '').trim().toLowerCase() === String(b || '').trim().toLowerCase();
     }
 
+    function getUserRole(username) {
+        const users = JSON.parse(localStorage.getItem('users') || '[]');
+        const user = users.find(function(u) {
+            return sameUser(u.username, username);
+        });
+
+        return String(user && user.role ? user.role : '').trim().toLowerCase();
+    }
+
+    function getRoleBadgeMarkup(username) {
+        const role = getUserRole(username);
+        if (role === 'admin') {
+            return '<span class="owner-title-badge ms-2">Owner</span>';
+        }
+
+        return '';
+    }
+
     function normalizeVoteUsers(list) {
         if (!Array.isArray(list)) {
             return [];
@@ -586,7 +604,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function renderIncomingReplies(items, listElement, listKey) {
         renderPaginated(items, listElement, 'No one has replied to your comments yet.', listKey, function(item) {
-            return '\n                <div class="border rounded p-3 mb-3" style="border-color: rgba(84,170,207,0.45) !important; background: rgba(10, 20, 30, 0.55);">\n                    <div class="d-flex justify-content-between align-items-start gap-2 flex-wrap">\n                        <div>\n                            <strong>' + escapeHtml(item.source) + '</strong>\n                            <span class="badge text-bg-info ms-2">From ' + escapeHtml(item.fromUser) + '</span>\n                            <div class="small text-info mt-1">' + escapeHtml(item.createdAt) + '</div>\n                        </div>\n                    </div>\n                    <p class="mb-1 mt-2">' + escapeHtml(item.text) + '</p>\n                    <p class="mb-0 small text-muted">On your comment: ' + escapeHtml(item.parentText || '') + '</p>\n                </div>\n            ';
+            const fromUserBadge = getRoleBadgeMarkup(item.fromUser);
+            return '\n                <div class="border rounded p-3 mb-3" style="border-color: rgba(84,170,207,0.45) !important; background: rgba(10, 20, 30, 0.55);">\n                    <div class="d-flex justify-content-between align-items-start gap-2 flex-wrap">\n                        <div>\n                            <strong>' + escapeHtml(item.source) + '</strong>\n                            <span class="badge text-bg-info ms-2">From ' + escapeHtml(item.fromUser) + '</span>' + fromUserBadge + '\n                            <div class="small text-info mt-1">' + escapeHtml(item.createdAt) + '</div>\n                        </div>\n                    </div>\n                    <p class="mb-1 mt-2">' + escapeHtml(item.text) + '</p>\n                    <p class="mb-0 small text-muted">On your comment: ' + escapeHtml(item.parentText || '') + '</p>\n                </div>\n            ';
         });
     }
 
@@ -658,7 +677,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const isOwnProfile = isLoggedIn && currentUser && sameUser(user.username, currentUser);
 
     profileShell.style.display = 'block';
-    usernameEl.textContent = user.username;
+    if (usernameEl) {
+        usernameEl.innerHTML = escapeHtml(user.username) + getRoleBadgeMarkup(user.username);
+    }
     emailEl.textContent = user.email || 'No email';
     joinedEl.textContent = user.registeredDate ? new Date(user.registeredDate).toLocaleString() : 'Unknown';
     descriptionInput.value = user.description || '';

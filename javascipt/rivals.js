@@ -92,6 +92,24 @@ document.addEventListener('DOMContentLoaded', function() {
         return String(a || '').trim().toLowerCase() === String(b || '').trim().toLowerCase();
     }
 
+    function getUserRole(username) {
+        const users = JSON.parse(localStorage.getItem('users') || '[]');
+        const user = users.find(function(u) {
+            return sameUser(u.username, username);
+        });
+
+        return String(user && user.role ? user.role : '').trim().toLowerCase();
+    }
+
+    function getRoleBadgeMarkup(username) {
+        const role = getUserRole(username);
+        if (role === 'admin') {
+            return '<span class="owner-title-badge ms-2">Owner</span>';
+        }
+
+        return '';
+    }
+
     function normalizeId(id) {
         return String(id);
     }
@@ -545,6 +563,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const commentId = normalizeId(comment.id);
         const mine = sameUser(comment.username, currentUser());
         const avatarPath = getUserAvatarPath(comment.username);
+        const roleBadge = getRoleBadgeMarkup(comment.username);
         const likes = Array.isArray(comment.likes) ? comment.likes : [];
         const dislikes = Array.isArray(comment.dislikes) ? comment.dislikes : [];
         const likedByMe = likes.some(function(name) { return sameUser(name, currentUser()); });
@@ -559,7 +578,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
                         <div>
-                            <h6 class="card-title mb-1 comment-user-meta"><img class="comment-user-avatar" src="${avatarPath}" alt="${escapeHtml(comment.username)} avatar"><a class="comment-user-link" href="${profileHref}">${escapeHtml(comment.username)}</a> ${edited}</h6>
+                            <h6 class="card-title mb-1 comment-user-meta"><img class="comment-user-avatar" src="${avatarPath}" alt="${escapeHtml(comment.username)} avatar"><a class="comment-user-link" href="${profileHref}">${escapeHtml(comment.username)}</a>${roleBadge} ${edited}</h6>
                             <small class="comment-time">${created}</small>
                         </div>
                         <div class="comment-actions d-flex gap-2 flex-wrap">
