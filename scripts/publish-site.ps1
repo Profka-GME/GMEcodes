@@ -36,12 +36,14 @@ if ([string]::IsNullOrWhiteSpace($Message)) {
 }
 
 $changes = & git status --porcelain
-if (-not [string]::IsNullOrWhiteSpace(($changes -join ''))) {
+$hadChanges = -not [string]::IsNullOrWhiteSpace(($changes -join ''))
+if ($hadChanges) {
     Write-Host "Staging and committing local changes..." -ForegroundColor Cyan
     Invoke-Git -Args @('add', '-A')
     Invoke-Git -Args @('commit', '-m', $Message)
 } else {
     Write-Host "No local changes to commit." -ForegroundColor Yellow
+    Write-Host "Tip: Save your edited files first, then run update-site.cmd again." -ForegroundColor Yellow
 }
 
 if (-not $SkipPull.IsPresent) {
@@ -53,6 +55,11 @@ Write-Host "Pushing to origin/$branch..." -ForegroundColor Cyan
 Invoke-Git -Args @('push', 'origin', $branch)
 
 $remoteUrl = (& git remote get-url origin).Trim()
+$latestCommit = (& git rev-parse --short HEAD).Trim()
 Write-Host "Done. Site changes are pushed." -ForegroundColor Green
 Write-Host "Remote: $remoteUrl" -ForegroundColor Green
+Write-Host "Latest commit on this branch: $latestCommit" -ForegroundColor Green
+if (-not $hadChanges) {
+    Write-Host "No new commit was created in this run because no file changes were detected." -ForegroundColor Yellow
+}
 Write-Host "If GitHub Pages is enabled, your site will update in about 1-3 minutes." -ForegroundColor Green
