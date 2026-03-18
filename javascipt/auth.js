@@ -344,12 +344,12 @@
             otpContainer.id = 'otpFormContainer';
             otpContainer.innerHTML =
                 '<h4 class="text-center mb-3">Verify Your Identity</h4>' +
-                '<p id="otpEmailText" class="text-center small mb-3">A 6-digit code was sent to <strong>' + escapeHtml(email) + '</strong>.</p>' +
+                '<p id="otpEmailText" class="text-center small mb-3">An 8-digit code was sent to <strong>' + escapeHtml(email) + '</strong>.</p>' +
                 '<form id="otpForm">' +
                     '<div class="mb-3">' +
                         '<label for="otpCode" class="form-label"><i class="bi bi-shield-check me-2"></i>Verification Code</label>' +
                         '<input type="text" class="form-control form-control-lg auth-input" id="otpCode" ' +
-                               'placeholder="Enter 6-digit code" maxlength="6" pattern="[0-9]{6}" ' +
+                               'placeholder="Enter 8-digit code" maxlength="8" pattern="[0-9]{8}" ' +
                                'required autocomplete="one-time-code" inputmode="numeric">' +
                     '</div>' +
                     '<div class="d-grid">' +
@@ -369,7 +369,7 @@
             otpContainer.style.display = '';
             var emailText = document.getElementById('otpEmailText');
             if (emailText) {
-                emailText.innerHTML = 'A 6-digit code was sent to <strong>' + escapeHtml(email) + '</strong>.';
+                emailText.innerHTML = 'An 8-digit code was sent to <strong>' + escapeHtml(email) + '</strong>.';
             }
         }
 
@@ -435,8 +435,8 @@
 
         var codeInput = document.getElementById('otpCode');
         var token = String(codeInput ? codeInput.value : '').trim().replace(/\s/g, '');
-        if (!/^\d{6}$/.test(token)) {
-            alert('Please enter a valid 6-digit code.');
+        if (!/^\d{8}$/.test(token)) {
+            alert('Please enter a valid 8-digit code.');
             return;
         }
 
@@ -543,7 +543,7 @@
             // Step 2: discard the password session — real login completes after OTP.
             await sb.auth.signOut();
 
-            // Step 3: send 6-digit code to their email.
+            // Step 3: send 8-digit code to their email.
             var otpResult = await sb.auth.signInWithOtp({
                 email: email,
                 options: { shouldCreateUser: false }
