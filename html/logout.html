@@ -59,6 +59,8 @@
         </div>
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script src="../javascipt/supabase-config.js"></script>
     <script src="../javascipt/auth.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
@@ -68,10 +70,13 @@
             const logoutMessage = document.getElementById('logoutMessage');
 
             confirmLogoutBtn.addEventListener('click', function() {
-                // Perform logout
-                localStorage.removeItem('loggedIn');
-                localStorage.removeItem('currentUser');
-                window.dispatchEvent(new CustomEvent('userLoggedOut'));
+                // Sign out of Supabase (auth.js bridge clears localStorage automatically)
+                if (typeof window.gmecodes_signOut === 'function') {
+                    window.gmecodes_signOut();
+                } else {
+                    localStorage.removeItem('loggedIn');
+                    localStorage.removeItem('currentUser');
+                }
 
                 // Show success message
                 logoutMessage.style.display = 'block';
