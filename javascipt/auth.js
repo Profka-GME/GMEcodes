@@ -250,7 +250,7 @@
                 syncSessionToLocalStorage(session);
                 renderUserNav(session);
 
-                if (event === 'SIGNED_IN') {
+                if (event === 'SIGNED_IN' && session && session.user) {
                     window.dispatchEvent(new CustomEvent('userLoggedIn', {
                         detail: { username: getUsername(session) }
                     }));
@@ -309,9 +309,26 @@
 
                 if (result.error) {
                     alert(result.error.message || 'Login failed. Check your email and password.');
+                    return;
                 }
-                // Success: onAuthStateChange fires SIGNED_IN which dispatches userLoggedIn
-                // login.html listens for userLoggedIn and redirects to home
+
+                // Apply session immediately so UI is consistent even if auth-state callback lags.
+                var session = result && result.data ? result.data.session : null;
+                if (!session) {
+                    var sessionResult = await sb.auth.getSession();
+                    session = sessionResult && sessionResult.data ? sessionResult.data.session : null;
+                }
+
+                if (!session || !session.user) {
+                    alert('Login response was received, but no active session was found. Please try again.');
+                    return;
+                }
+
+                syncSessionToLocalStorage(session);
+                renderUserNav(session);
+                window.dispatchEvent(new CustomEvent('userLoggedIn', {
+                    detail: { username: getUsername(session) }
+                }));
             });
         }
 
