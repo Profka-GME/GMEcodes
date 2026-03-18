@@ -598,7 +598,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                     ${activeEditCommentId === commentId ? `
                         <div class="mt-3">
-                            <textarea class="form-control mb-2" rows="3" data-edit-input="${commentId}">${escapeHtml(comment.text)}</textarea>
+                            <textarea class="form-control mb-2" rows="3" maxlength="40" data-edit-input="${commentId}">${escapeHtml(comment.text)}</textarea>
                             <div class="d-flex gap-2">
                                 <button class="btn btn-sm btn-success" data-action="save-edit" data-id="${commentId}">Save</button>
                                 <button class="btn btn-sm btn-secondary" data-action="cancel-edit">Cancel</button>
@@ -607,7 +607,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     ` : ''}
                     ${activeReplyParentId === commentId ? `
                         <div class="mt-3">
-                            <textarea class="form-control mb-2" rows="2" placeholder="Write a reply..." data-reply-input="${commentId}"></textarea>
+                            <textarea class="form-control mb-2" rows="2" maxlength="40" placeholder="Write a reply..." data-reply-input="${commentId}"></textarea>
                             <div class="d-flex gap-2">
                                 <button class="btn btn-sm btn-primary" data-action="post-reply" data-id="${commentId}">Post Reply</button>
                                 <button class="btn btn-sm btn-secondary" data-action="cancel-reply">Cancel</button>
@@ -753,6 +753,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
+            if (text.length > 40) {
+                window.alert('Comments cannot be longer than 40 characters.');
+                return;
+            }
+
             const comments = getComments();
             const violation = getContentViolation(text, {
                 username: username,
@@ -828,6 +833,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 const replyInput = commentsList.querySelector('[data-reply-input="' + id + '"]');
                 const replyText = replyInput ? replyInput.value.trim() : '';
                 if (!replyText || !username) {
+                    return;
+                }
+
+                if (replyText.length > 40) {
+                    window.alert('Replies cannot be longer than 40 characters.');
                     return;
                 }
 
@@ -914,6 +924,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 const editInput = commentsList.querySelector('[data-edit-input="' + id + '"]');
                 const editedText = editInput ? editInput.value.trim() : '';
                 if (!editedText || !target) {
+                    return;
+                }
+
+                if (editedText.length > 40) {
+                    window.alert('Comments cannot be longer than 40 characters.');
                     return;
                 }
 

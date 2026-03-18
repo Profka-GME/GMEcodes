@@ -180,7 +180,7 @@ const lastTested = game.lastTested || lastUpdated;
       <h5>Leave a Comment</h5>
       <form id="addCommentForm">
         <div class="mb-3">
-          <textarea class="form-control" id="commentText" rows="3" placeholder="Write your comment..." required></textarea>
+          <textarea class="form-control" id="commentText" rows="3" maxlength="40" placeholder="Write your comment..." required></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Post Comment</button>
       </form>
