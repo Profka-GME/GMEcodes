@@ -1,7 +1,3 @@
-window.EMAILJS_CONFIG = {
-    publicKey: 'BDyigy5MsO7c3Rbng',
-    serviceId: 'service_fd0lgar',
-    templateId: 'template_umty8ug',
-    appName: 'GMEcodes',
-    codeExpiresMinutes: 10
-};
+// EmailJS has been removed. Email verification is now handled by Supabase + Resend.
+// This file is kept as a placeholder and can be deleted once Supabase auth is live.
+window.EMAILJS_CONFIG = null;

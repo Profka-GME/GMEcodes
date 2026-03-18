@@ -236,15 +236,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function sendVerificationEmail(user, code) {
-        return ensureEmailJsLoaded().then(function(emailjs) {
-            const config = getEmailJsConfig();
-            return emailjs.send(config.serviceId, config.templateId, {
-                to_email: user.email,
-                to_name: user.username,
-                verification_code: code,
-                app_name: config.appName || 'GMEcodes',
-                expires_minutes: String(getVerificationExpiryMinutes())
-            });
+        return fetch('/api/send-code', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                email: user.email,
+                username: user.username,
+                code: code,
+                expiresMinutes: getVerificationExpiryMinutes()
+            })
+        }).then(function(res) {
+            if (!res.ok) {
+                return res.json().then(function(body) {
+                    throw new Error(body.error || 'Failed to send verification email.');
+                });
+            }
         });
     }
 
@@ -671,40 +677,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Local admin bypasses email verification to avoid lockout from email provider issues.
-            if (user.role === 'admin') {
-                localStorage.setItem('loggedIn', 'true');
-                localStorage.setItem('currentUser', user.username);
-                renderUserNav();
-                window.dispatchEvent(new CustomEvent('userLoggedIn', { detail: { username: user.username } }));
-                return;
-            }
-
-            const verificationState = assignVerificationState(user);
-            saveStoredUsers(users);
-
-            sendVerificationEmail(user, verificationState.code)
-                .then(function() {
-                    openVerificationModal({
-                        username: user.username,
-                        email: user.email,
-                        code: verificationState.code,
-                        loginAfterVerify: true,
-                        sendSucceeded: true
-                    });
-                    window.dispatchEvent(new CustomEvent('verificationEmailSent', { detail: { username: user.username, email: user.email } }));
-                })
-                .catch(function(error) {
-                    openVerificationModal({
-                        username: user.username,
-                        email: user.email,
-                        code: verificationState.code,
-                        loginAfterVerify: true,
-                        sendSucceeded: false,
-                        sendError: error.message || 'Verification email failed to send.'
-                    });
-                    alert(error.message || 'Verification email failed to send.');
-                });
+            localStorage.setItem('loggedIn', 'true');
+            localStorage.setItem('currentUser', user.username);
+            renderUserNav();
+            window.dispatchEvent(new CustomEvent('userLoggedIn', { detail: { username: user.username } }));
         });
     }
 
@@ -741,11 +717,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            if (!isEmailJsConfigured()) {
-                alert('Email verification is not configured yet. Update javascipt/email-config.js with your EmailJS keys first.');
-                return;
-            }
-
             const newUser = {
                 username: username,
                 email: email,
@@ -759,7 +730,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const originalBtnText = submitBtn ? submitBtn.textContent : 'Register';
             if (submitBtn) {
                 submitBtn.disabled = true;
-                submitBtn.textContent = 'Checking email...';
+                submitBtn.textContent = 'Sending code...';
             }
 
             sendVerificationEmail(newUser, verificationState.code)
@@ -773,19 +744,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         loginAfterVerify: false,
                         sendSucceeded: true
                     });
-                    window.dispatchEvent(new CustomEvent('userRegistered', {
-                        detail: {
-                            username: username,
-                            verificationRequired: true,
-                            emailSent: true
-                        }
-                    }));
-                    window.dispatchEvent(new CustomEvent('verificationEmailSent', { detail: { username: username, email: email } }));
                 })
                 .catch(function(error) {
                     pendingRegistration = null;
-                    const details = error && (error.text || error.message) ? ' (' + (error.text || error.message) + ')' : '';
-                    alert('Email does not exist or cannot receive messages. Please use a valid email address.' + details);
+                    alert('Could not send verification email: ' + (error.message || 'Unknown error.'));
                 })
                 .finally(function() {
                     if (submitBtn) {
