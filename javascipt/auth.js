@@ -243,6 +243,11 @@
     // ── Core init ────────────────────────────────────────────────────────────
     document.addEventListener('DOMContentLoaded', function () {
         var sb = getSb();
+        var startupOwnerSession = getOwnerSession();
+
+        // Render immediately from local state so UI does not depend on async auth callbacks.
+        syncSessionToLocalStorage(startupOwnerSession);
+        renderUserNav(startupOwnerSession);
 
         if (sb) {
             // onAuthStateChange fires INITIAL_SESSION immediately with current session
@@ -259,8 +264,6 @@
                     window.dispatchEvent(new CustomEvent('userLoggedOut'));
                 }
             });
-        } else {
-            renderUserNav(null);
         }
 
         // ── Login form (login.html) ──────────────────────────────────────────
@@ -286,6 +289,8 @@
                     var ownerPasswordHash = await hashPassword(password);
                     if (ownerPasswordHash === defaultAdminUser.passwordHash) {
                         localStorage.setItem(OWNER_SESSION_KEY, 'true');
+                        localStorage.setItem('loggedIn', 'true');
+                        localStorage.setItem('currentUser', defaultAdminUser.username);
                         ensureOwnerUserRecord();
                         syncSessionToLocalStorage(getOwnerSession());
                         renderUserNav(getOwnerSession());
