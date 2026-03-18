@@ -36,6 +36,14 @@
 
     function toRootPath(rel) { return getRootPrefix() + rel; }
 
+    function getAuthRedirectUrl() {
+        var origin = String(window.location.origin || '').trim();
+        if (!origin || /localhost|127\.0\.0\.1/i.test(origin)) {
+            origin = 'https://gmecodes.com';
+        }
+        return origin.replace(/\/$/, '') + '/html/login.html';
+    }
+
     function sameUser(a, b) {
         return String(a || '').trim().toLowerCase() === String(b || '').trim().toLowerCase();
     }
@@ -366,7 +374,10 @@
                 var result = await sb.auth.signUp({
                     email: email,
                     password: password,
-                    options: { data: { username: username } }
+                    options: {
+                        data: { username: username },
+                        emailRedirectTo: getAuthRedirectUrl()
+                    }
                 });
 
                 if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalText; }
