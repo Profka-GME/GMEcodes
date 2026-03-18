@@ -65,6 +65,32 @@
                                 </div>
                             </div>
 
+                            <!-- OTP Verification Step -->
+                            <div id="otpFormContainer" style="display: none;">
+                                <h4 class="text-center mb-3">Verify Your Identity</h4>
+                                <p id="otpEmailText" class="text-center small mb-3">A 6-digit verification code has been sent to your email.</p>
+                                <form id="otpForm">
+                                    <div class="mb-3">
+                                        <label for="otpCode" class="form-label">
+                                            <i class="bi bi-shield-check me-2"></i>Verification Code
+                                        </label>
+                                        <input type="text" class="form-control form-control-lg auth-input" id="otpCode"
+                                               placeholder="Enter 6-digit code" maxlength="6" pattern="[0-9]{6}"
+                                               required autocomplete="one-time-code" inputmode="numeric">
+                                    </div>
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-lg auth-primary-btn">
+                                            <i class="bi bi-check-circle me-2"></i>Verify Code
+                                        </button>
+                                    </div>
+                                </form>
+                                <div class="text-center mt-3">
+                                    <p class="mb-0 auth-switch-text">Didn't receive it?
+                                        <a href="#" id="resendOtpBtn" class="auth-link-switch">Resend code</a>
+                                    </p>
+                                </div>
+                            </div>
+
                             <!-- Register Form -->
                             <div id="registerFormContainer" style="display: none;">
                                 <h4 class="text-center mb-3">Create New Account</h4>
@@ -167,18 +193,18 @@
                 e.preventDefault();
                 loginContainer.style.display = 'none';
                 registerContainer.style.display = 'block';
-                if (successMessage) {
-                    successMessage.style.display = 'none';
-                }
+                var otpContainer = document.getElementById('otpFormContainer');
+                if (otpContainer) { otpContainer.style.display = 'none'; }
+                if (successMessage) { successMessage.style.display = 'none'; }
             });
 
             showLogin.addEventListener('click', function(e) {
                 e.preventDefault();
                 registerContainer.style.display = 'none';
                 loginContainer.style.display = 'block';
-                if (successMessage) {
-                    successMessage.style.display = 'none';
-                }
+                var otpContainer = document.getElementById('otpFormContainer');
+                if (otpContainer) { otpContainer.style.display = 'none'; }
+                if (successMessage) { successMessage.style.display = 'none'; }
             });
 
             // Listen for successful registration

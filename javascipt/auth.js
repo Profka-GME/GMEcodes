@@ -13,6 +13,8 @@
     var _sb = null;
     var _userNav = null;
     var _dropdownCloseHandler = null;
+    var _otpInProgress = false;
+    var _pendingOtpEmail = '';
 
     function sameUser(a, b) {
         return String(a || '').trim().toLowerCase() === String(b || '').trim().toLowerCase();
@@ -324,6 +326,160 @@
         window.dispatchEvent(new CustomEvent('userLoggedOut'));
     }
 
+    // ---- OTP step UI -------------------------------------------------------
+
+    function showOtpStep(sb, email) {
+        _pendingOtpEmail = email;
+
+        // Hide the credential form and its container.
+        var loginForm = document.getElementById('loginForm');
+        if (loginForm) { loginForm.style.display = 'none'; }
+        var loginContainer = document.getElementById('loginFormContainer');
+        if (loginContainer) { loginContainer.style.display = 'none'; }
+
+        // Find a pre-existing static OTP container (login.html) or build one.
+        var otpContainer = document.getElementById('otpFormContainer');
+        if (!otpContainer) {
+            otpContainer = document.createElement('div');
+            otpContainer.id = 'otpFormContainer';
+            otpContainer.innerHTML =
+                '<h4 class="text-center mb-3">Verify Your Identity</h4>' +
+                '<p id="otpEmailText" class="text-center small mb-3">A 6-digit code was sent to <strong>' + escapeHtml(email) + '</strong>.</p>' +
+                '<form id="otpForm">' +
+                    '<div class="mb-3">' +
+                        '<label for="otpCode" class="form-label"><i class="bi bi-shield-check me-2"></i>Verification Code</label>' +
+                        '<input type="text" class="form-control form-control-lg auth-input" id="otpCode" ' +
+                               'placeholder="Enter 6-digit code" maxlength="6" pattern="[0-9]{6}" ' +
+                               'required autocomplete="one-time-code" inputmode="numeric">' +
+                    '</div>' +
+                    '<div class="d-grid">' +
+                        '<button type="submit" class="btn btn-lg auth-primary-btn">' +
+                            '<i class="bi bi-check-circle me-2"></i>Verify Code' +
+                        '</button>' +
+                    '</div>' +
+                '</form>' +
+                '<div class="text-center mt-3">' +
+                    '<p class="mb-0 auth-switch-text">Didn\'t receive it? ' +
+                        '<a href="#" id="resendOtpBtn" class="auth-link-switch">Resend code</a>' +
+                    '</p>' +
+                '</div>';
+            var parent = loginForm ? loginForm.parentNode : document.body;
+            parent.appendChild(otpContainer);
+        } else {
+            otpContainer.style.display = '';
+            var emailText = document.getElementById('otpEmailText');
+            if (emailText) {
+                emailText.innerHTML = 'A 6-digit code was sent to <strong>' + escapeHtml(email) + '</strong>.';
+            }
+        }
+
+        // Bind form submit (only once).
+        var otpForm = document.getElementById('otpForm');
+        if (otpForm && !otpForm.dataset.otpBound) {
+            otpForm.dataset.otpBound = 'true';
+            otpForm.addEventListener('submit', function (e) { handleOtpSubmit(e, sb); });
+        }
+        var resendBtn = document.getElementById('resendOtpBtn');
+        if (resendBtn && !resendBtn.dataset.otpBound) {
+            resendBtn.dataset.otpBound = 'true';
+            resendBtn.addEventListener('click', function (e) { e.preventDefault(); resendOtp(sb); });
+        }
+
+        var codeInput = document.getElementById('otpCode');
+        if (codeInput) { setTimeout(function () { codeInput.focus(); }, 50); }
+    }
+
+    function hideOtpStep() {
+        var otpContainer = document.getElementById('otpFormContainer');
+        if (otpContainer) { otpContainer.style.display = 'none'; }
+
+        var loginForm = document.getElementById('loginForm');
+        if (loginForm) { loginForm.style.display = ''; loginForm.reset(); }
+
+        var loginContainer = document.getElementById('loginFormContainer');
+        if (loginContainer) { loginContainer.style.display = ''; }
+
+        var codeInput = document.getElementById('otpCode');
+        if (codeInput) { codeInput.value = ''; }
+
+        _pendingOtpEmail = '';
+    }
+
+    async function resendOtp(sb) {
+        if (!sb || !_pendingOtpEmail) { return; }
+        var btn = document.getElementById('resendOtpBtn');
+        if (btn) { btn.textContent = 'Sending\u2026'; btn.style.pointerEvents = 'none'; }
+        try {
+            var result = await sb.auth.signInWithOtp({
+                email: _pendingOtpEmail,
+                options: { shouldCreateUser: false }
+            });
+            if (result.error) { throw new Error(result.error.message); }
+            if (btn) {
+                btn.textContent = 'Code resent!';
+                setTimeout(function () { btn.textContent = 'Resend code'; btn.style.pointerEvents = ''; }, 3000);
+            }
+        } catch (err) {
+            if (btn) { btn.textContent = 'Resend code'; btn.style.pointerEvents = ''; }
+            alert(err && err.message ? err.message : 'Failed to resend code.');
+        }
+    }
+
+    async function handleOtpSubmit(e, sb) {
+        e.preventDefault();
+        if (!sb || !_pendingOtpEmail) {
+            alert('Session expired. Please log in again.');
+            hideOtpStep();
+            return;
+        }
+
+        var codeInput = document.getElementById('otpCode');
+        var token = String(codeInput ? codeInput.value : '').trim().replace(/\s/g, '');
+        if (!/^\d{6}$/.test(token)) {
+            alert('Please enter a valid 6-digit code.');
+            return;
+        }
+
+        var otpForm = document.getElementById('otpForm');
+        var submitBtn = otpForm ? otpForm.querySelector('[type="submit"]') : null;
+        var originalText = submitBtn ? submitBtn.textContent : 'Verify Code';
+        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Verifying\u2026'; }
+
+        try {
+            var result = await sb.auth.verifyOtp({
+                email: _pendingOtpEmail,
+                token: token,
+                type: 'email'
+            });
+
+            if (result.error) {
+                throw new Error(result.error.message || 'Invalid or expired code.');
+            }
+
+            var session = result.data && result.data.session ? result.data.session : null;
+            _otpInProgress = false;
+            hideOtpStep();
+
+            if (session) {
+                applySessionToLocal(session);
+                renderUserNav();
+                emitLoggedIn(getUsernameFromSession(session));
+            }
+
+            // Close Bootstrap modal if this is a modal page (e.g. Astro).
+            var loginModal = document.getElementById('loginModal');
+            if (loginModal && window.bootstrap && window.bootstrap.Modal) {
+                var modal = window.bootstrap.Modal.getInstance(loginModal);
+                if (modal) { modal.hide(); }
+            }
+        } catch (err) {
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalText; }
+            alert(err && err.message ? err.message : 'Verification failed. Check the code and try again.');
+        }
+    }
+
+    // ---- end OTP step UI ---------------------------------------------------
+
     async function handleLoginSubmit(e, sb) {
         e.preventDefault();
 
@@ -370,28 +526,37 @@
                 throw new Error('Please use your email address to log in.');
             }
 
+            // Step 1: verify password credentials.
+            _otpInProgress = true;
             var signIn = await sb.auth.signInWithPassword({
                 email: identifier.toLowerCase(),
                 password: password
             });
 
             if (signIn.error) {
+                _otpInProgress = false;
                 throw new Error(signIn.error.message || 'Login failed.');
             }
 
-            var session = signIn.data && signIn.data.session ? signIn.data.session : null;
-            if (!session) {
-                var sessionResult = await sb.auth.getSession();
-                session = sessionResult && sessionResult.data ? sessionResult.data.session : null;
+            var email = identifier.toLowerCase();
+
+            // Step 2: discard the password session — real login completes after OTP.
+            await sb.auth.signOut();
+
+            // Step 3: send 6-digit code to their email.
+            var otpResult = await sb.auth.signInWithOtp({
+                email: email,
+                options: { shouldCreateUser: false }
+            });
+
+            if (otpResult.error) {
+                _otpInProgress = false;
+                throw new Error(otpResult.error.message || 'Could not send verification code. Please try again.');
             }
 
-            if (!session || !session.user) {
-                throw new Error('Login succeeded but no session was created. Please try again.');
-            }
-
-            applySessionToLocal(session);
-            renderUserNav();
-            emitLoggedIn(getUsernameFromSession(session));
+            window.dispatchEvent(new CustomEvent('verificationEmailSent', { detail: { email: email } }));
+            showOtpStep(sb, email);
+            // Login completes inside handleOtpSubmit once the user enters the code.
         } catch (error) {
             alert(error && error.message ? error.message : 'Login failed.');
         } finally {
@@ -504,6 +669,29 @@
                 handleRegisterSubmit(e, sb);
             });
         }
+
+        // If user switches to registration while OTP is pending, cancel the flow.
+        var showRegisterLink = document.getElementById('showRegister');
+        if (showRegisterLink) {
+            showRegisterLink.addEventListener('click', function () {
+                if (_otpInProgress) {
+                    _otpInProgress = false;
+                    _pendingOtpEmail = '';
+                }
+            });
+        }
+
+        // Reset OTP state when the Bootstrap login modal is dismissed (Astro pages).
+        var loginModal = document.getElementById('loginModal');
+        if (loginModal) {
+            loginModal.addEventListener('hidden.bs.modal', function () {
+                if (_otpInProgress) {
+                    _otpInProgress = false;
+                    _pendingOtpEmail = '';
+                }
+                hideOtpStep();
+            });
+        }
     }
 
     function exposeGlobals() {
@@ -547,6 +735,10 @@
             renderUserNav();
 
             sb.auth.onAuthStateChange(function (event, session) {
+                // Suppress state changes while we are mid-OTP flow to avoid
+                // flickering nav and premature login/logout events.
+                if (_otpInProgress) { return; }
+
                 applySessionToLocal(session);
                 renderUserNav();
 
