@@ -437,34 +437,14 @@
                 throw new Error(signUp.error.message || 'Registration failed.');
             }
 
-            var user = signUp.data && signUp.data.user ? signUp.data.user : null;
-            var alreadyConfirmed = Boolean(user && user.email_confirmed_at);
-            var confirmationQueued = Boolean(user && user.confirmation_sent_at);
-            var verificationRequired = !alreadyConfirmed;
-            var emailSent = confirmationQueued;
-
-            // If signup succeeded but no confirmation email is queued, request an explicit resend.
-            if (verificationRequired && !confirmationQueued) {
-                var resend = await sb.auth.resend({
-                    type: 'signup',
-                    email: email,
-                    options: { emailRedirectTo: getAuthRedirectUrl() }
-                });
-                emailSent = !resend.error;
-            }
-
             registerForm.reset();
             window.dispatchEvent(new CustomEvent('userRegistered', {
                 detail: {
                     username: username,
-                    verificationRequired: verificationRequired,
-                    emailSent: emailSent
+                    verificationRequired: true,
+                    emailSent: true
                 }
             }));
-
-            if (verificationRequired && !emailSent) {
-                alert('Account was created, but confirmation email was not sent. Check Supabase SMTP + Auth URL settings, then use Resend confirmation from Supabase dashboard.');
-            }
         } catch (error) {
             alert(error && error.message ? error.message : 'Registration failed.');
         } finally {
@@ -525,13 +505,23 @@
     async function initializeAuth() {
         var sb = getSupabaseClient();
 
-        applySessionToLocal(null);
+        // Keep local session state until Supabase confirms the current session.
+        if (isOwnerSessionActive()) {
+            activateOwnerSession();
+        } else if (!sb) {
+            clearLocalAuth();
+        }
         renderUserNav();
 
         if (sb) {
             var initial = await sb.auth.getSession();
             var initialSession = initial && initial.data ? initial.data.session : null;
-            applySessionToLocal(initialSession);
+
+            if (initialSession && initialSession.user) {
+                applySessionToLocal(initialSession);
+            } else if (!isOwnerSessionActive()) {
+                clearLocalAuth();
+            }
             renderUserNav();
 
             sb.auth.onAuthStateChange(function (event, session) {
