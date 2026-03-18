@@ -30,6 +30,12 @@ const schemaJson = schema ? JSON.stringify(schema, null, 2) : '';
     <meta property="og:description" content={ogDescription} />
     <meta property="og:url" content={ogUrl} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="GMEcodes" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@GMEcodes_com" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImage} />
     <title>{title}</title>
     {stylesheets.map((href) => <link rel="stylesheet" href={href} />)}
     <link rel="icon" type="image/png" href="/images/logo/Mainlogo.png" />
