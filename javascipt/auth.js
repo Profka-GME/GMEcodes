@@ -48,10 +48,32 @@
         return /^(?:\.\.\/)?images\/avatars\/avatar-[1-6]\.svg$/i.test(String(path || '').trim());
     }
 
+    function normalizeAvatarPath(path) {
+        return String(path || '').trim().replace(/^(\.\.\/)+/, '');
+    }
+
     function getStoredAvatar(username) {
-        var key = 'avatar_' + String(username || '').toLowerCase();
+        var cleanUsername = String(username || '').trim();
+        if (!cleanUsername) {
+            return 'images/avatars/avatar-1.svg';
+        }
+
+        var users = JSON.parse(localStorage.getItem('users') || '[]');
+        var user = users.find(function (u) {
+            return sameUser(u.username, cleanUsername);
+        });
+        if (user && safeAvatarPath(user.avatar)) {
+            return normalizeAvatarPath(user.avatar);
+        }
+
+        // Backward compatibility with older key-based avatar storage.
+        var key = 'avatar_' + cleanUsername.toLowerCase();
         var stored = localStorage.getItem(key);
-        return (stored && safeAvatarPath(stored)) ? stored : 'images/avatars/avatar-1.svg';
+        if (stored && safeAvatarPath(stored)) {
+            return normalizeAvatarPath(stored);
+        }
+
+        return 'images/avatars/avatar-1.svg';
     }
 
     function getSupabaseClient() {
@@ -541,6 +563,14 @@
         bindForms(sb);
         setupNavbarFallback();
         exposeGlobals();
+
+        // Keep navbar avatar in sync with profile edits and cross-tab auth changes.
+        window.addEventListener('userProfileUpdated', renderUserNav);
+        window.addEventListener('storage', function (e) {
+            if (e.key === 'users' || e.key === 'currentUser' || e.key === 'loggedIn') {
+                renderUserNav();
+            }
+        });
     }
 
     document.addEventListener('DOMContentLoaded', function () {
