@@ -5,7 +5,20 @@
         "lastTested": "March 17, 2026"
     },
     "rivals": {
-        "workingCodes": [],
+        "workingCodes": [
+            {
+                "code": "RIVAL2026",
+                "reward": "Exclusive Rival's Emblem"
+            },
+            {
+                "code": "MARCHMADNESS",
+                "reward": "1000 Coins"
+            },
+            {
+                "code": "SPRINGFLING",
+                "reward": "500 Coins + 1 Random Skin"
+            }
+        ],
         "expiredCodes": []
     },
     "99nights": {
