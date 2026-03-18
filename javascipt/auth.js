@@ -268,9 +268,12 @@
         if (loginForm) {
             loginForm.addEventListener('submit', async function (e) {
                 e.preventDefault();
-                var emailInput = document.getElementById('loginEmail');
+                var emailInput = document.getElementById('loginEmail') || document.getElementById('loginUsername');
                 var passwordInput = document.getElementById('loginPassword');
-                if (!emailInput || !passwordInput) return;
+                if (!emailInput || !passwordInput) {
+                    alert('Login form is missing required fields. Please refresh and try again.');
+                    return;
+                }
 
                 var identifier = emailInput.value.trim();
                 var password = passwordInput.value;
