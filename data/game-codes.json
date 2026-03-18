@@ -1,44 +1,95 @@
 ﻿{
     "_meta": {
         "defaultCodesPeriod": "March 2026",
-        "lastUpdated": "March 17, 2026",
-        "lastTested": "March 17, 2026"
+        "lastUpdated": "March 19, 2026",
+        "lastTested": "March 19, 2026"
     },
     "rivals": {
         "workingCodes": [
-            {
-                "code": "RIVAL2026",
-                "reward": "Exclusive Rival's Emblem"
-            },
-            {
-                "code": "MARCHMADNESS",
-                "reward": "1000 Coins"
-            },
-            {
-                "code": "SPRINGFLING",
-                "reward": "500 Coins + 1 Random Skin"
-            }
+                { "code": "COMMUNITY22", "reward": "x1 Community Wrap" },
+                { "code": "FREE162", "reward": "x3 keys" },
+                { "code": "BONUS", "reward": "x1 key" },
+                { "code": "BOOST", "reward": "x1 key" },
+                { "code": "ROBLOX_RTC", "reward": "x5 keys" },
+                { "code": "ELBILLUG", "reward": "nothing (fake skin case notification)" },
+                { "code": "LIMITEDTIMECODEYUP", "reward": "x3 Wrap Box 1" }
         ],
-        "expiredCodes": []
+        "expiredCodes": [
+            "REWARD1", "100MVISTIS", "RELEASE", "SORRY", "REWARD5", "THANKYOU_1BVISITS!", "5B_VISITS_WHATTTTTT", "BESTSHOOTERGAME", "FREE161"
+        ]
     },
     "99nights": {
-        "workingCodes": [],
-        "expiredCodes": []
+        "workingCodes": [
+            { "code": "afterparty", "reward": "x15 Gems" },
+            { "code": "\"yay fising\"", "reward": "x2 gems (in game chat, while in fishing minigame)" }
+        ],
+        "expiredCodes": [
+            "happyhalloween"
+        ]
     },
     "arsenal": {
-        "workingCodes": [],
-        "expiredCodes": []
+        "workingCodes": [
+            { "code": "merrychristmas25", "reward": "2.5k bucks" },
+            { "code": "10YRS", "reward": "thumbnail beret" },
+            { "code": "scarybug", "reward": "herobrine delinquent" },
+            { "code": "wake up", "reward": "nothing (\"code… doesn't exist? that's weird…\" Message)" },
+            { "code": "enforcer", "reward": "Enforcer announcer" },
+            { "code": "FLAMINGO", "reward": "Flamingo announcer" },
+            { "code": "TRGTBOARD", "reward": "1.2k bucks" },
+            { "code": "EPRIKA", "reward": "eprika announcer" },
+            { "code": "GARCELLO", "reward": "Garcello skin and kill effect" },
+            { "code": "XONAE", "reward": "Xonae announcer" },
+            { "code": "POKE", "reward": "Poke skin" },
+            { "code": "ROLVE", "reward": "Rabblerouser skin" },
+            { "code": "Bandites", "reward": "bandites announcer" },
+            { "code": "fate", "reward": "teleport to fate" }
+        ],
+        "expiredCodes": [
+            "kenis22", "EZ-G4M3", "E", "4MLIKES", "JOHN", "POG", "ANNA", "NEVERBROKEN", "PET", "THE BANANA MAN",
+            "BLOXY", "F00LISH", "BRUTE", "dhmubruh", "MIGHTYBANDITES21", "3BILLY", "KITTEN", "NEWMILO", "Soggy", "birth"
+        ]
     },
     "fishit": {
-        "workingCodes": [],
-        "expiredCodes": []
+        "workingCodes": [
+            { "code": "NEWYEARLANTERN", "reward": "x1 Chinese New Year's lantern" },
+            { "code": "THEDEN", "reward": "rewards (been to the leviathan's den)" },
+            { "code": "DIVING", "reward": "x2 luck II potions" },
+            { "code": "SCALEREFUND", "reward": "one leviathan scale (must be level 10 with the leviathan quest completed)" }
+        ],
+        "expiredCodes": [
+            "FREECRYSTAL", "CELEBRATE", "PIRATEMAJA", "FREEPRESENTS", "GO2026", "1BILLION", "2BILLION", "GIFTGIVING",
+            "3BILLION", "COUNTTRANSCENDEDSTONES", "SCALE2", "EXPANSION"
+
+        ]
     },
     "rerangers": {
-        "workingCodes": [],
-        "expiredCodes": []
+        "workingCodes": [
+            { "code": "RANGERRERELEASE", "reward": "x25 Trait Rerolls, x12 Soul Fragments, x1000 Gems, x20000 Sol Tokens" },
+            { "code": "LATOM", "reward": "x50 Trait Rerolls, x50000 Gold, x2500 Gems, x50000 Sol Tokens" },
+            { "code": "SERIALIZED", "reward": "x25 Trait Rerolls, x10 Dr. Megga Punks, x10000 Sol Tokens" },
+            { "code": "CALAMITY", "reward": "x12 soul fragments, x25 trait rerolls, x25 cursed scrolls" },
+            { "code": "ThanksFor30KCCU!", "reward": "x30 Trait Rerolls, x3000 Gems, 30K Gold" },
+            { "code": "RAIDSAREBACK", "reward": "x25 trait rerolls, x2500 gems" },
+            { "code": "JJKUPD!", "reward": "x50 trait rerolls, x75 cursed scrolls, x10 vega punks" },
+            { "code": "SORRYFORBUGS!", "reward": "x3000 gems and x10 ranger crystals" },
+            { "code": "SorryAboutEvo", "reward": "20K Gold and x20 Ranger Crystals" },
+            { "code": "OOPSRAMEN", "reward": "x3000 gems" },
+            { "code": "RERELEASE!!!", "reward": "x5 Dr. Megga Punk, x25 Stats Key, x10 Cursed Finger, x50 Trait Rerolls, and x5000 Gold" },
+            { "code": "SORRYFORDELAYS", "reward": "x25 Stats Key, x5 Cursed Finger, x50 Trait Rerolls, and x5000 Gold" },
+            { "code": "GHOULHUNT", "reward": "x5 Dr. Megga Punk, x25 Stats Key, x10 Cursed Finger, x50 Trait Rerolls, and x5000 Gold" }
+        ],
+        "expiredCodes": [
+            "SorryForTheDelay!", "HolyGrailRework!", "RuptureHero!", "MoreQoL!", "BugFixes10.5", "RANGERSRELEASE6",
+            "ThankYouFor7KCCU!", "SorryForCodes!", "DraculaQuestPatch", "HappyExtraLateHalloween!", "KoromuBossEvent", "SorryForDelays!!","OverlordIsHere", "DraculaIsHere", "WeAreSorrySoSorry", "YggDrasilRaid", "RANGERSRELEASE17", "HalloweenSoon!","DivineEventUpdate!", "NewQOLGamepass!"
+        ]
     },
     "bizlineage": {
-        "workingCodes": [],
+        "workingCodes": [
+            { "code": "!code 30kLikes", "reward": "x1 Stat Point Essence" },
+            { "code": "!code 100kLikes", "reward": "x1 Stat Point Essence, x1 Rare Chest" },
+            { "code": "!code shutdownwoops", "reward": "x1 Stat Point Essence" },
+            { "code": "!code 1week", "reward": "x1 Stand Personality Essence" }
+        ],
         "expiredCodes": []
     }
 }
