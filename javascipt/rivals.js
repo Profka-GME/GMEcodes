@@ -598,7 +598,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                     ${activeEditCommentId === commentId ? `
                         <div class="mt-3">
-                            <textarea class="form-control mb-2" rows="3" maxlength="40" data-edit-input="${commentId}">${escapeHtml(comment.text)}</textarea>
+                            <textarea class="form-control mb-2" rows="3" maxlength="100" data-edit-input="${commentId}">${escapeHtml(comment.text)}</textarea>
                             <div class="d-flex gap-2">
                                 <button class="btn btn-sm btn-success" data-action="save-edit" data-id="${commentId}">Save</button>
                                 <button class="btn btn-sm btn-secondary" data-action="cancel-edit">Cancel</button>
@@ -607,7 +607,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     ` : ''}
                     ${activeReplyParentId === commentId ? `
                         <div class="mt-3">
-                            <textarea class="form-control mb-2" rows="2" maxlength="40" placeholder="Write a reply..." data-reply-input="${commentId}"></textarea>
+                            <textarea class="form-control mb-2" rows="2" maxlength="100" placeholder="Write a reply..." data-reply-input="${commentId}"></textarea>
                             <div class="d-flex gap-2">
                                 <button class="btn btn-sm btn-primary" data-action="post-reply" data-id="${commentId}">Post Reply</button>
                                 <button class="btn btn-sm btn-secondary" data-action="cancel-reply">Cancel</button>
@@ -753,8 +753,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            if (text.length > 40) {
-                window.alert('Comments cannot be longer than 40 characters.');
+            if (text.length > 100) {
+                window.alert('Comments cannot be longer than 100 characters.');
                 return;
             }
 
@@ -836,8 +836,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     return;
                 }
 
-                if (replyText.length > 40) {
-                    window.alert('Replies cannot be longer than 40 characters.');
+                if (replyText.length > 100) {
+                    window.alert('Replies cannot be longer than 100 characters.');
                     return;
                 }
 
@@ -927,8 +927,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     return;
                 }
 
-                if (editedText.length > 40) {
-                    window.alert('Comments cannot be longer than 40 characters.');
+                if (editedText.length > 100) {
+                    window.alert('Comments cannot be longer than 100 characters.');
                     return;
                 }
 
