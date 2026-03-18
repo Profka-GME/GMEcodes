@@ -437,14 +437,34 @@
                 throw new Error(signUp.error.message || 'Registration failed.');
             }
 
+            var user = signUp.data && signUp.data.user ? signUp.data.user : null;
+            var alreadyConfirmed = Boolean(user && user.email_confirmed_at);
+            var confirmationQueued = Boolean(user && user.confirmation_sent_at);
+            var verificationRequired = !alreadyConfirmed;
+            var emailSent = confirmationQueued;
+
+            // If signup succeeded but no confirmation email is queued, request an explicit resend.
+            if (verificationRequired && !confirmationQueued) {
+                var resend = await sb.auth.resend({
+                    type: 'signup',
+                    email: email,
+                    options: { emailRedirectTo: getAuthRedirectUrl() }
+                });
+                emailSent = !resend.error;
+            }
+
             registerForm.reset();
             window.dispatchEvent(new CustomEvent('userRegistered', {
                 detail: {
                     username: username,
-                    verificationRequired: true,
-                    emailSent: true
+                    verificationRequired: verificationRequired,
+                    emailSent: emailSent
                 }
             }));
+
+            if (verificationRequired && !emailSent) {
+                alert('Account was created, but confirmation email was not sent. Check Supabase SMTP + Auth URL settings, then use Resend confirmation from Supabase dashboard.');
+            }
         } catch (error) {
             alert(error && error.message ? error.message : 'Registration failed.');
         } finally {
