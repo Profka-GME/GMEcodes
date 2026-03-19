@@ -8,7 +8,6 @@ const publicDir = path.join(astroRoot, 'public');
 const directoriesToCopy = [
   'css',
   'data',
-  'games',
   'html',
   'images',
   'javascipt'
