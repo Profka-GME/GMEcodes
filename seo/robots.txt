@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://gmecodes.com/sitemap.xml
-Sitemap: https://gmecodes.com/seo/sitemap.xml

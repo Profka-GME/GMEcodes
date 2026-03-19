@@ -16,7 +16,8 @@ const directoriesToCopy = [
 const filesToCopy = [
   { from: path.join('seo', 'robots.txt'), to: 'robots.txt' },
   { from: path.join('seo', 'sitemap.xml'), to: 'sitemap.xml' },
-  { from: path.join('images', 'logo', 'Mainlogo.png'), to: 'favicon.png' }
+  { from: path.join('images', 'logo', 'Mainlogo.png'), to: 'favicon.png' },
+  { from: path.join('images', 'logo', 'Mainlogo.png'), to: 'favicon.ico' }
 ];
 
 async function copyDirectory(name) {
