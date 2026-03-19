@@ -11,7 +11,8 @@
         arsenal: { name: "Arsenal", href: "games/Arsenal.html", image: "images/logo/Arsenal2.jpg" },
         fishit: { name: "Fish It", href: "games/fishit.html", image: "images/logo/Fishit2.jpg" },
         rerangers: { name: "Re:Rangers X", href: "games/ReRangersX.html", image: "images/logo/rerangers2.jpg" },
-        bizlineage: { name: "Bizarre Lineage", href: "games/bizarrelineage.html", image: "images/logo/bizarrelineage2.jpg" }
+        bizlineage: { name: "Bizarre Lineage", href: "games/bizarrelineage.html", image: "images/logo/bizarrelineage2.jpg" },
+        sailorpiece: { name: "Sailor Piece", href: "games/sailorpiece.html", image: "images/logo/sailorpiece2.jpg" }
     };
     const LATEST_LIMIT = 4;
     const BROWSE_PAGE_SIZE = 6;

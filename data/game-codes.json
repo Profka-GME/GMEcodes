@@ -91,5 +91,21 @@
             { "code": "!code 1week", "reward": "x1 Stand Personality Essence" }
         ],
         "expiredCodes": []
+    },
+    "sailorpiece": {
+        "workingCodes": [
+            { "code": "ALTERUPDATE", "reward": "Rewards" },
+            { "code": "BIGGESTUPDATENEXT", "reward": "Rewards" },
+            { "code": "SMALLDELAYVERYSORRY", "reward": "Rewards" },
+            { "code": "45KFOLLOWSTYY", "reward": "Rewards" },
+            { "code": "HOGFRAGBUGSORRY", "reward": "Rewards" },
+            { "code": "TYFOR130KCCU", "reward": "Rewards" },
+            { "code": "TYFOR140KCCUILY", "reward": "Rewards" },
+            { "code": "THEINSANE150KCCU", "reward": "Rewards" },
+            { "code": "OP160KCCUWOW", "reward": "Rewards" }
+        ],
+        "expiredCodes": [
+            "THEBIG100KOMG", "95KCCUSOCLOSE", "TY90KCCUWWWWW", "85KCCUABSURD", "TY80KCCUWOWWW", "75KCCUWOAH", "65KCCUWOWW", "INSANE60KCCU", "55KCCUWOWW", "INSANE50KCCU", "SORRYFORRESTARTS"
+        ]
     }
 }

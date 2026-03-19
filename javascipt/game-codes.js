@@ -126,6 +126,13 @@
                 page: "bizarrelineage.html",
                 image: "../images/logo/bizarrelineage2.jpg",
                 summary: "Anime-themed Roblox action RPG with lineage progression and battles."
+            },
+            {
+                id: "sailorpiece",
+                name: "Sailor Piece",
+                page: "sailorpiece.html",
+                image: "../images/logo/sailorpiece2.jpg",
+                summary: "Anime-themed Roblox action RPG with sailor progression and battles."
             }
         ];
 

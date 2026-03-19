@@ -30,6 +30,11 @@ image: "images/logo/rerangers2.jpg"
 name: "Bizarre Lineage(Roblox)",
 page: "games/bizarrelineage.html",
 image: "images/logo/bizarrelineage2.jpg"
+},
+{
+name: "Sailor Piece(Roblox)",
+page: "games/sailorpiece.html",
+image: "images/logo/sailorpiece2.jpg"
 }
 ]
 
@@ -39,7 +44,8 @@ const availablePages = new Set([
 "games/Arsenal.html",
 "games/fishit.html",
 "games/ReRangersX.html",
-"games/bizarrelineage.html"
+"games/bizarrelineage.html",
+"games/sailorpiece.html"
 ])
 
 const input = document.getElementById("search-input")

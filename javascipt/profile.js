@@ -406,6 +406,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (normalized === 'rerangers') {
             return 'Re:Rangers X';
         }
+        if (normalized === 'sailorpiece') {
+            return 'Sailor Piece';
+        }
         return raw.charAt(0).toUpperCase() + raw.slice(1);
     }
 

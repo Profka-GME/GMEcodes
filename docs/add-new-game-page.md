@@ -298,3 +298,9 @@ Run through this before every new game page push:
 | Logo thumbnail path wrong in `games.json` or `home-updates.js` | Broken image on homepage cards |
 | Sitemap not updated | Google won't crawl the new page quickly |
 | HTML filename has capital letters | Works on Windows but breaks on Vercel (Linux); always use lowercase filenames |
+
+
+Run terminal to update Astro
+
+1. command line : cd astro-site
+2. command line: npm run build
