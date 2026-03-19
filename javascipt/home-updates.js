@@ -13,7 +13,8 @@
         rerangers: { name: "Re:Rangers X", href: "games/ReRangersX.html", image: "images/logo/rerangers2.jpg" },
         bizlineage: { name: "Bizarre Lineage", href: "games/bizarrelineage.html", image: "images/logo/bizarrelineage2.jpg" },
         sailorpiece: { name: "Sailor Piece", href: "games/sailorpiece.html", image: "images/logo/sailorpiece2.jpg" },
-        hooked: { name: "Hooked!", href: "games/hooked.html", image: "images/logo/hooked2.jpg" }
+        hooked: { name: "Hooked!", href: "games/hooked.html", image: "images/logo/hooked2.jpg" },
+        kinglegacy: { name: "King Legacy", href: "games/kinglegacy.html", image: "images/logo/kinglegacy2.jpg" }
     };
     const LATEST_LIMIT = 4;
     const BROWSE_PAGE_SIZE = 6;

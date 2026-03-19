@@ -140,6 +140,13 @@
                 page: "hooked.html",
                 image: "../images/logo/hooked2.jpg",
                 summary: "Fast-paced physics-based brawler on small platforms."
+            },
+            {
+                id: "kinglegacy",
+                name: "King Legacy",
+                page: "kinglegacy.html",
+                image: "../images/logo/kinglegacy2.jpg",
+                summary: "Adventurous Roblox game with exploration and quests."
             }
         ];
 

@@ -1,8 +1,8 @@
 ﻿{
     "_meta": {
         "defaultCodesPeriod": "March 2026",
-        "lastUpdated": "March 19, 2026",
-        "lastTested": "March 19, 2026"
+        "lastUpdated": "March 20, 2026",
+        "lastTested": "March 20, 2026"
     },
     "rivals": {
         "workingCodes": [
@@ -104,6 +104,22 @@
             { "code": "JOINHOOKEDDC", "reward": "x500 Gold" },
             { "code": "HOOKED1KLIKES", "reward": "x300 Gold" },
             { "code": "HOOKED", "reward": "x500 Gold" }
+        ],
+        "expiredCodes": []
+    },
+    "kinglegacy": {
+        "workingCodes": [
+            { "code": "Update10Release", "reward": "2x EXP (15 Minutes)" },
+            { "code": "Serpent10", "reward": "x10 Gems" },
+            { "code": "DinoxLive", "reward": "100,000 $" },
+            { "code": "Peodiz", "reward": "100,000 $" },
+            { "code": "<3LEEPUNGG", "reward": "Free 2x EXP for 30 minutes" },
+            { "code": "WELCOMETOKINGLEGACY", "reward": "Free 2x EXP for 30 minutes" },
+            { "code": "DragonColorRefund", "reward": "50 gems (If your Dragon color before Update 7 was the original red, you will only get 10 gems)" },
+            { "code": "RainbowDragon", "reward": "100 gems (Only works if you owned / unlocked the Rainbow Dragon Color before Update 7)" },
+            { "code": "FREESTATSRESET", "reward": "Free Refund Stats" },
+            { "code": "2MFAV", "reward": "Free Refund Stats" },
+            { "code": "FreePterSpin", "reward": "x10 Copper Key Hope you guys get pter fruit" }
         ],
         "expiredCodes": []
     }
