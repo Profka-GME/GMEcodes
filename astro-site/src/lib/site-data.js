@@ -179,6 +179,31 @@ const GAME_PAGE_DETAILS = [
       'Press Enter to claim your reward.',
       'If the code is valid and active, you will receive a confirmation message and the reward will be added to your account.'
     ]
+  },
+  {
+    slug: 'sailorpiece',
+    codeKey: 'sailorpiece',
+    commentStorage: 'sailorpiece',
+    gameId: 'sailorpiece',
+    title: 'Roblox Sailor Piece Codes | Working and Expired Codes | GMEcodes',
+    metaDescription: 'Updated Roblox Sailor Piece codes with active rewards, expired codes, and redeem instructions.',
+    ogDescription: 'Find working and expired Roblox Sailor Piece codes with regular updates.',
+    canonical: 'https://gmecodes.com/games/sailorpiece.html',
+    ogImage: 'https://gmecodes.com/images/pictures/sailorpiece.jpg',
+    heroImage: '../images/pictures/sailorpiece.jpg',
+    heroAlt: 'Sailor Piece',
+    heading: 'Roblox Sailor Piece Codes',
+    sectionHeading: 'Roblox Sailor Piece Codes',
+    intro: 'Sailor Piece is a Roblox anime-inspired game where players explore, complete quests, and collect rewards. Codes usually reward gems and other in-game items, so this page keeps the current working and expired Sailor Piece codes together with redeem instructions.',
+    redeemHeading: 'How to Redeem Roblox Sailor Piece Codes?',
+    redeemLead: 'To redeem Roblox Sailor Piece codes, follow these steps:',
+    redeemSteps: [
+      'Launch the Sailor Piece game on Roblox',
+      'Look for the Codes menu in-game.',
+      'Enter the code you want to redeem in the text box.',
+      'Click the "Redeem" or "Submit" button to claim your reward.',
+      'If the code is valid and active, you will receive a confirmation message and the reward will be added to your account.'
+    ]
   }
 ];
 
