@@ -409,6 +409,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (normalized === 'sailorpiece') {
             return 'Sailor Piece';
         }
+        if (normalized === 'hooked') {
+            return 'Hooked!';
+        }
         return raw.charAt(0).toUpperCase() + raw.slice(1);
     }
 

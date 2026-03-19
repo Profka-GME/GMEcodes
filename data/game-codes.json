@@ -107,5 +107,13 @@
         "expiredCodes": [
             "THEBIG100KOMG", "95KCCUSOCLOSE", "TY90KCCUWWWWW", "85KCCUABSURD", "TY80KCCUWOWWW", "75KCCUWOAH", "65KCCUWOWW", "INSANE60KCCU", "55KCCUWOWW", "INSANE50KCCU", "SORRYFORRESTARTS"
         ]
+    },
+    "hooked": {
+        "workingCodes": [
+            { "code": "JOINHOOKEDDC", "reward": "x500 Gold" },
+            { "code": "HOOKED1KLIKES", "reward": "x300 Gold" },
+            { "code": "HOOKED", "reward": "x500 Gold" }
+        ],
+        "expiredCodes": []
     }
 }

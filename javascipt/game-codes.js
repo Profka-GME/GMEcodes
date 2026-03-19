@@ -133,6 +133,13 @@
                 page: "sailorpiece.html",
                 image: "../images/logo/sailorpiece2.jpg",
                 summary: "Anime-themed Roblox action RPG with sailor progression and battles."
+            },
+            {
+                id: "hooked",
+                name: "Hooked!",
+                page: "hooked.html",
+                image: "../images/logo/hooked2.jpg",
+                summary: "Fast-paced physics-based brawler on small platforms."
             }
         ];
 
