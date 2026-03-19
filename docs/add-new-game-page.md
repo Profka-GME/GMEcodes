@@ -1,5 +1,8 @@
 # How to Add a New Game Page
 
+
+**✅ SIMPLIFIED:** You now only update `data/games.json` for Astro — no need to edit `astro-site/src/lib/site-data.js` manually anymore.  
+`site-data.js` auto-generates all Astro page definitions from `games.json`.
 Follow every step below in order. Nothing is optional — skipping any step will cause
 broken search results, missing related-games links, wrong codes data, or bad SEO.
 
@@ -144,22 +147,48 @@ The following are identical on every game page — copy them from the template a
 
 ## Step 3 — Add the game to `data/games.json`
 
-This file drives the homepage browse list and the search bar.
+
+This file drives the homepage browse list, search bar, **AND** Astro page generation.
 
 Open `data/games.json` and add a new entry to the JSON array:
 
 ```json
 {
-    "name": "Pixel Battlegrounds(Roblox)",
-    "page": "games/pixelbg.html",
-    "image": "images/logo/pixelbg2.jpg"
+  "name": "Pixel Battlegrounds(Roblox)",
+  "slug": "pixelbg",
+  "codeKey": "pixelbg",
+  "page": "games/pixelbg.html",
+  "image": "images/logo/pixelbg2.jpg",
+  "picture": "images/pictures/pixelbg.jpg",
+  "title": "Roblox Pixel Battlegrounds Codes | Working and Expired Codes | GMEcodes",
+  "metaDescription": "Updated Roblox Pixel Battlegrounds codes with active rewards, expired codes, and redeem instructions.",
+  "ogDescription": "Find working and expired Roblox Pixel Battlegrounds codes with regular updates.",
+  "intro": "Pixel Battlegrounds is a Roblox game... [2-3 sentences about the game]",
+  "redeemSteps": [
+    "Open Pixel Battlegrounds on Roblox",
+    "Click the Codes button",
+    "Type the code and press Redeem",
+    "Your reward will be added automatically"
+  ],
+  "mainStyle": "background-color: rgb(82, 101, 134);"
 }
 ```
 
-- `name` — display name shown on cards and in search results
+**Required fields:**
+- `name` — display name (include `(Roblox)` suffix)
+- `slug` — lowercase, no spaces, used for URL and internal IDs
+- `codeKey` — usually matches `slug`, used to link to codes in `data/game-codes.json`
 - `page` — relative path from the site root (no leading `./`)
-- `image` — relative path to the logo thumbnail from the site root
+- `image` — relative path to the logo/thumbnail
+- `picture` — relative path to the hero image
+- `title` — full SEO page title (70 chars max)
+- `metaDescription` — meta description (155 chars max)
+- `ogDescription` — social media description
+- `intro` — 2-3 sentence description of the game
+- `redeemSteps` — array of 4-5 steps to redeem codes
 
+**Optional fields:**
+- `mainStyle` — CSS for the hero section background color
 ---
 
 ## Step 4 — Add the game to `data/game-codes.json`
@@ -181,8 +210,12 @@ If even the capitalisation differs, no codes will load.
 
 ---
 
-## Step 5 — Add the game to `javascipt/home-updates.js`
 
+
+
+
+
+## Step 5 — Add the game to `javascipt/home-updates.js`
 Open `javascipt/home-updates.js` and find the `gameMeta` object near the top (around line 10).
 Add your new entry:
 
@@ -196,12 +229,12 @@ pixelbg: { name: "Pixel Battlegrounds", href: "games/pixelbg.html", image: "imag
 
 ---
 
-## Step 6 — Add the game to `javascipt/search.js`
 
+## Step 6 — Add the game to `javascipt/search.js`
 Open `javascipt/search.js`. There are **two** places to update:
 
-### 6a — Add to `fallbackGames` array (around line 4)
 
+### 6a — Add to `fallbackGames` array (around line 4)
 ```js
 {
 name: "Pixel Battlegrounds(Roblox)",
@@ -210,8 +243,8 @@ image: "images/logo/pixelbg2.jpg"
 },
 ```
 
-### 6b — Add to `availablePages` Set (around line 35)
 
+### 6b — Add to `availablePages` Set (around line 35)
 ```js
 "games/pixelbg.html",
 ```
@@ -221,8 +254,8 @@ never appear in search results even if it is in `fallbackGames`.
 
 ---
 
-## Step 7 — Add the page to `seo/sitemap.xml`
 
+## Step 7 — Add the page to `seo/sitemap.xml`
 Open `seo/sitemap.xml` and add a `<url>` block after the last existing game entry:
 
 ```xml
@@ -238,16 +271,17 @@ Use today's date as `lastmod`. Update it whenever you change the page content.
 
 ---
 
-## Step 8 — Verify everything looks right locally
 
+## Step 8 — Verify everything looks right locally
 Before pushing, do a quick sanity check:
 
 1. Open `games/pixelbg.html` in your browser (double-click it or use Live Server).
 2. Confirm the hero image loads.
 3. Confirm the page title and headings say the correct game name.
 4. Open `index.html` in the browser — the new game should appear in the browse grid.
-5. Type part of the game name in the search bar — it should appear in results.
 
+5. Type part of the game name in the search bar — it should appear in results.
+6. Run `npm run build` from the `astro-site` folder to make sure the Astro build succeeds. It auto-generates from `games.json` now, so this should always pass if you filled out all required fields in Step 3.
 ---
 
 ## Step 9 — Push to GitHub / deploy to Vercel
