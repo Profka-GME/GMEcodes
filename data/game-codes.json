@@ -67,20 +67,11 @@
             { "code": "RANGERRERELEASE", "reward": "x25 Trait Rerolls, x12 Soul Fragments, x1000 Gems, x20000 Sol Tokens" },
             { "code": "LATOM", "reward": "x50 Trait Rerolls, x50000 Gold, x2500 Gems, x50000 Sol Tokens" },
             { "code": "SERIALIZED", "reward": "x25 Trait Rerolls, x10 Dr. Megga Punks, x10000 Sol Tokens" },
-            { "code": "CALAMITY", "reward": "x12 soul fragments, x25 trait rerolls, x25 cursed scrolls" },
-            { "code": "ThanksFor30KCCU!", "reward": "x30 Trait Rerolls, x3000 Gems, 30K Gold" },
-            { "code": "RAIDSAREBACK", "reward": "x25 trait rerolls, x2500 gems" },
-            { "code": "JJKUPD!", "reward": "x50 trait rerolls, x75 cursed scrolls, x10 vega punks" },
-            { "code": "SORRYFORBUGS!", "reward": "x3000 gems and x10 ranger crystals" },
-            { "code": "SorryAboutEvo", "reward": "20K Gold and x20 Ranger Crystals" },
-            { "code": "OOPSRAMEN", "reward": "x3000 gems" },
-            { "code": "RERELEASE!!!", "reward": "x5 Dr. Megga Punk, x25 Stats Key, x10 Cursed Finger, x50 Trait Rerolls, and x5000 Gold" },
-            { "code": "SORRYFORDELAYS", "reward": "x25 Stats Key, x5 Cursed Finger, x50 Trait Rerolls, and x5000 Gold" },
-            { "code": "GHOULHUNT", "reward": "x5 Dr. Megga Punk, x25 Stats Key, x10 Cursed Finger, x50 Trait Rerolls, and x5000 Gold" }
+            { "code": "ThanksFor30KCCU!", "reward": "x30 Trait Rerolls, x3000 Gems, 30K Gold" }
         ],
         "expiredCodes": [
             "SorryForTheDelay!", "HolyGrailRework!", "RuptureHero!", "MoreQoL!", "BugFixes10.5", "RANGERSRELEASE6",
-            "ThankYouFor7KCCU!", "SorryForCodes!", "DraculaQuestPatch", "HappyExtraLateHalloween!", "KoromuBossEvent", "SorryForDelays!!","OverlordIsHere", "DraculaIsHere", "WeAreSorrySoSorry", "YggDrasilRaid", "RANGERSRELEASE17", "HalloweenSoon!","DivineEventUpdate!", "NewQOLGamepass!"
+            "ThankYouFor7KCCU!", "JJKUPD!", "DraculaQuestPatch", "OOPSRAMEN!", "KoromuBossEvent", "SorryForDelays!!","GHOULHUNT", "RAIDSAREBACK", "WeAreSorrySoSorry", "YggDrasilRaid", "SORRYFORBUGS", "HalloweenSoon!","DivineEventUpdate!", "SORRYFORDELAYS!"
         ]
     },
     "bizlineage": {
