@@ -764,34 +764,37 @@ document.addEventListener('DOMContentLoaded', async function() {
         return sameUser(u.username, targetUsername);
     });
 
-    // If user not found locally, try to fetch from Supabase
+    // Fallback: derive a lightweight public profile from known comments.
     if (!user) {
-        const url = window.SUPABASE_URL;
-        const key = window.SUPABASE_ANON_KEY;
-        const validKeys = Boolean(url && key && String(url).indexOf('YOUR_') === -1 && String(key).indexOf('YOUR_') === -1);
-        
-        if (validKeys && window.supabase && typeof window.supabase.createClient === 'function') {
-            try {
-                const sb = window.supabase.createClient(url, key);
-                const { data, error } = await sb
-                    .from('accounts')
-                    .select('username, email, avatar, description, created_at, role')
-                    .ilike('username', targetUsername)
-                    .single();
-                
-                if (data && !error) {
-                    user = {
-                        username: data.username,
-                        email: data.email,
-                        avatar: data.avatar,
-                        description: data.description,
-                        registeredDate: data.created_at,
-                        role: data.role || 'user'
-                    };
+        const stores = await getCommentStores();
+        const matchedComments = [];
+
+        stores.forEach(function(store) {
+            const comments = Array.isArray(store && store.comments) ? store.comments : [];
+            comments.forEach(function(comment) {
+                if (sameUser(comment && comment.username, targetUsername)) {
+                    matchedComments.push(comment);
                 }
-            } catch (err) {
-                // Supabase lookup failed, user not found
-            }
+            });
+        });
+
+        if (matchedComments.length > 0) {
+            const firstCreatedMs = matchedComments.reduce(function(minMs, comment) {
+                const value = Number(comment && comment.createdAtMs);
+                if (!Number.isFinite(value) || value <= 0) {
+                    return minMs;
+                }
+                return minMs === 0 ? value : Math.min(minMs, value);
+            }, 0);
+
+            user = {
+                username: targetUsername,
+                email: '',
+                avatar: DEFAULT_AVATAR,
+                description: '',
+                registeredDate: firstCreatedMs > 0 ? new Date(firstCreatedMs).toISOString() : null,
+                role: 'user'
+            };
         }
     }
 

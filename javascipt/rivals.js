@@ -247,14 +247,28 @@ document.addEventListener('DOMContentLoaded', function() {
             return false;
         }
 
+        const normalizedId = String(comment && comment.id != null ? comment.id : '').trim();
+        if (!normalizedId) {
+            return false;
+        }
+
+        const numericId = Number(normalizedId);
+        const idValue = Number.isFinite(numericId) && String(numericId) === normalizedId ? numericId : normalizedId;
+
         const result = await sb
             .from(SUPABASE_COMMENTS_TABLE)
             .update({ body: buildSharedBody(comment) })
-            .eq('id', Number(comment.id))
+            .select('id')
+            .eq('id', idValue)
             .eq('game_id', STORAGE_ID);
 
         if (result.error) {
             sharedCommentsCachedError = result.error;
+            return false;
+        }
+
+        if (!Array.isArray(result.data) || result.data.length === 0) {
+            sharedCommentsCachedError = new Error('No rows were updated. Check comments table update policy and ownership rules.');
             return false;
         }
 
@@ -269,19 +283,24 @@ document.addEventListener('DOMContentLoaded', function() {
             return false;
         }
 
-        const numericIds = ids
-            .map(function(id) { return Number(id); })
-            .filter(function(id) { return Number.isFinite(id); });
+        const normalizedIds = ids
+            .map(function(id) { return String(id == null ? '' : id).trim(); })
+            .filter(Boolean);
 
-        if (numericIds.length === 0) {
+        if (normalizedIds.length === 0) {
             return false;
         }
+
+        const allNumeric = normalizedIds.every(function(id) { return /^\d+$/.test(id); });
+        const deleteIds = allNumeric
+            ? normalizedIds.map(function(id) { return Number(id); })
+            : normalizedIds;
 
         const result = await sb
             .from(SUPABASE_COMMENTS_TABLE)
             .delete()
             .eq('game_id', STORAGE_ID)
-            .in('id', numericIds);
+            .in('id', deleteIds);
 
         if (result.error) {
             sharedCommentsCachedError = result.error;
@@ -1176,6 +1195,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     const updated = await updateSharedComment(target);
                     if (!updated) {
                         warnSharedReadOnly();
+                        const details = getSharedErrorMessage();
+                        if (details) {
+                            window.alert('Could not update this vote.\n\n' + details);
+                        }
                     }
                 } else {
                     saveComments(comments);
