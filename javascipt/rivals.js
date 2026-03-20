@@ -280,6 +280,14 @@ document.addEventListener('DOMContentLoaded', function() {
         window.alert('Comments are shared across devices, but this action needs Supabase update/delete policies enabled for the comments table.');
     }
 
+    function getSharedErrorMessage() {
+        if (!sharedCommentsCachedError) {
+            return '';
+        }
+
+        return String(sharedCommentsCachedError.message || sharedCommentsCachedError.details || sharedCommentsCachedError.hint || '').trim();
+    }
+
     function isLoggedIn() {
         return localStorage.getItem('loggedIn') === 'true' && !!currentUser();
     }
@@ -986,14 +994,13 @@ document.addEventListener('DOMContentLoaded', function() {
             if (commentsSource === 'shared') {
                 const inserted = await insertSharedComment(nextComment);
                 if (!inserted) {
-                    window.alert('Could not save to shared comments. Falling back to local comments on this device.');
-                    comments.push(nextComment);
-                    saveComments(comments);
-                    commentsSource = 'local';
+                    const details = getSharedErrorMessage();
+                    window.alert('Could not save comment to shared storage.' + (details ? '\n\n' + details : ' Please log in with email and try again.'));
+                    return;
                 }
             } else {
-                comments.push(nextComment);
-                saveComments(comments);
+                window.alert('Shared comments are unavailable on this page right now. Please refresh and log in again.');
+                return;
             }
 
             currentCommentsPage = Math.max(1, Math.ceil((await getComments()).filter(function(c) { return c.parentId == null; }).length / COMMENTS_PER_PAGE));
@@ -1081,14 +1088,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (commentsSource === 'shared') {
                     const inserted = await insertSharedComment(replyComment);
                     if (!inserted) {
-                        window.alert('Could not save reply to shared comments. Falling back to local comments on this device.');
-                        comments.push(replyComment);
-                        saveComments(comments);
-                        commentsSource = 'local';
+                        const details = getSharedErrorMessage();
+                        window.alert('Could not save reply to shared storage.' + (details ? '\n\n' + details : ' Please log in with email and try again.'));
+                        return;
                     }
                 } else {
-                    comments.push(replyComment);
-                    saveComments(comments);
+                    window.alert('Shared comments are unavailable on this page right now. Please refresh and log in again.');
+                    return;
                 }
 
                 activeReplyParentId = null;

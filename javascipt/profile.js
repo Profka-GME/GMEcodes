@@ -774,7 +774,9 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (usernameEl) {
         usernameEl.innerHTML = escapeHtml(user.username) + getRoleBadgeMarkup(user.username);
     }
-    emailEl.textContent = user.email || 'No email';
+    if (emailEl) {
+        emailEl.textContent = 'Hidden';
+    }
     joinedEl.textContent = user.registeredDate ? new Date(user.registeredDate).toLocaleString() : 'Unknown';
     descriptionInput.value = user.description || '';
 
