@@ -1003,14 +1003,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            currentCommentsPage = Math.max(1, Math.ceil((await getComments()).filter(function(c) { return c.parentId == null; }).length / COMMENTS_PER_PAGE));
-
             if (commentText) {
                 commentText.value = '';
             }
 
             activeReplyParentId = null;
             activeEditCommentId = null;
+            currentCommentsPage = 1;
             await loadComments();
         });
     }
