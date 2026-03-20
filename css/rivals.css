@@ -180,8 +180,8 @@ body{
 
 
 .card:hover{
-    transform: scale(1.1);
-    transition: 0.2s;
+    box-shadow: 0 12px 30px rgba(68, 178, 224, 0.4), 0 0 20px rgba(68, 178, 224, 0.25) !important;
+    transition: box-shadow 0.2s ease;
 }
 
 .back:hover{
