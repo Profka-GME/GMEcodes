@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     const profileIncomingRepliesTitle = document.getElementById('profileIncomingRepliesTitle');
     const profileDescriptionTitle = document.getElementById('profileDescriptionTitle');
     const usernameEl = document.getElementById('profileUsername');
-    const emailEl = document.getElementById('profileEmail');
+
     const joinedEl = document.getElementById('profileJoined');
     const totalLikesEl = document.getElementById('profileTotalLikes');
     const totalDislikesEl = document.getElementById('profileTotalDislikes');
@@ -775,7 +775,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         usernameEl.innerHTML = escapeHtml(user.username) + getRoleBadgeMarkup(user.username);
     }
     if (emailEl) {
-        emailEl.textContent = 'Hidden';
+
     }
     joinedEl.textContent = user.registeredDate ? new Date(user.registeredDate).toLocaleString() : 'Unknown';
     descriptionInput.value = user.description || '';
