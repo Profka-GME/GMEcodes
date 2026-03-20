@@ -542,13 +542,14 @@ body{
 
 .footer-shell {
     display: grid;
-    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 2.25rem;
     align-items: start;
     padding-bottom: 1.15rem;
 }
 
 .footer-about,
+.footer-links,
 .footer-community {
     border: none;
     border-radius: 0;
@@ -567,6 +568,7 @@ body{
 }
 
 .footer-about h2,
+.footer-links h3,
 .footer-community h3 {
     color: #eef8fc;
     margin-bottom: 0.55rem;
@@ -589,6 +591,26 @@ body{
 .footer-community {
     padding-left: 1rem;
     border-left: 1px solid rgba(149, 214, 240, 0.2);
+}
+
+.footer-links {
+    padding-left: 1rem;
+    border-left: 1px solid rgba(149, 214, 240, 0.2);
+}
+
+.footer-link-list {
+    display: grid;
+    gap: 0.55rem;
+}
+
+.footer-link-list a {
+    color: rgba(220, 241, 249, 0.9);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-link-list a:hover {
+    color: #ffffff;
 }
 
 .footer-socials {
@@ -636,6 +658,11 @@ body{
     }
 
     .footer-community {
+        padding-left: 0;
+        border-left: none;
+    }
+
+    .footer-links {
         padding-left: 0;
         border-left: none;
     }

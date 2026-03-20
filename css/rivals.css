@@ -588,10 +588,6 @@ h2{
     pointer-events: auto;
 }
 
-.comment-node:hover {
-    /* No hover effect to prevent re-render flickering */
-}
-
 .comment-time {
     color: #bde7fb;
     font-weight: 600;
@@ -849,6 +845,102 @@ h2{
     background: rgba(7, 15, 24, 0.8);
 }
 
+.footer-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2.25rem;
+    align-items: start;
+    padding-bottom: 1.15rem;
+}
+
+.footer-about,
+.footer-links,
+.footer-community {
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.footer-kicker {
+    margin: 0 0 0.35rem;
+    color: #addff0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04rem;
+    text-transform: none;
+}
+
+.footer-about h2,
+.footer-links h3,
+.footer-community h3 {
+    color: #eef8fc;
+    margin-bottom: 0.55rem;
+    font-weight: 650;
+}
+
+.footer-about p,
+.footer-community p {
+    color: rgba(220, 241, 249, 0.84);
+    line-height: 1.55;
+    margin-bottom: 0.6rem;
+    max-width: 50ch;
+}
+
+.footer-about p:last-child,
+.footer-community p:last-child {
+    margin-bottom: 0;
+}
+
+.footer-links,
+.footer-community {
+    padding-left: 1rem;
+    border-left: 1px solid rgba(149, 214, 240, 0.2);
+}
+
+.footer-link-list {
+    display: grid;
+    gap: 0.55rem;
+}
+
+.footer-link-list a {
+    color: rgba(220, 241, 249, 0.9);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-link-list a:hover {
+    color: #ffffff;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+}
+
+.footer-socials a {
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #dbf2fb;
+    text-decoration: none;
+    font-size: 1rem;
+    border: 1px solid rgba(149, 214, 240, 0.35);
+    background: rgba(38, 75, 97, 0.45);
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.footer-socials a:hover {
+    color: #ffffff;
+    background: rgba(52, 108, 136, 0.55);
+    border-color: rgba(162, 223, 247, 0.65);
+}
+
 .footer-bottom {
     margin-top: 0;
     padding: 0.9rem 1.25rem 1.05rem;
@@ -866,4 +958,16 @@ h2{
     padding-top: 1.8rem;
     background: rgba(8, 18, 28, 0.82);
     border-top: 1px solid rgba(149, 214, 240, 0.22);
+}
+
+@media (max-width: 992px) {
+    .footer-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-links,
+    .footer-community {
+        padding-left: 0;
+        border-left: none;
+    }
 }
