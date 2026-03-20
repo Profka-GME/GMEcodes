@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     const profileShell = document.getElementById('profileShell');
     const notLoggedInShell = document.getElementById('profileNotLoggedIn');
     const profileTitle = document.getElementById('profileTitle');
@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
         '../images/avatars/avatar-6.svg'
     ];
     const DEFAULT_AVATAR = AVATAR_OPTIONS[0];
+    const SUPABASE_COMMENTS_TABLE = 'comments';
 
     function escapeHtml(text) {
         return String(text)
@@ -385,6 +386,21 @@ document.addEventListener('DOMContentLoaded', function() {
         return allowed ? candidate : DEFAULT_AVATAR;
     }
 
+    function getSupabaseClient() {
+        const url = window.SUPABASE_URL;
+        const key = window.SUPABASE_ANON_KEY;
+        const validKeys = Boolean(url && key && String(url).indexOf('YOUR_') === -1 && String(key).indexOf('YOUR_') === -1);
+        if (!validKeys) {
+            return null;
+        }
+
+        if (!window.supabase || typeof window.supabase.createClient !== 'function') {
+            return null;
+        }
+
+        return window.supabase.createClient(url, key);
+    }
+
     function sourceFromStorageKey(key) {
         const raw = String(key || '').replace(/Comments$/i, '');
         if (!raw) {
@@ -424,7 +440,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function getCommentStores() {
+    function getLocalCommentStores() {
         const stores = [];
 
         const legacy = parseStoreComments('comments');
@@ -457,6 +473,75 @@ document.addEventListener('DOMContentLoaded', function() {
         return stores;
     }
 
+    function normalizeSharedCommentRow(row) {
+        let parsedBody = null;
+        if (typeof row.body === 'string') {
+            try {
+                parsedBody = JSON.parse(row.body);
+            } catch (e) {
+                parsedBody = null;
+            }
+        }
+
+        const createdAtText = (parsedBody && parsedBody.createdAt)
+            || (row.created_at ? new Date(row.created_at).toLocaleString() : 'Unknown time');
+        const parsedCreatedAtMs = Number((parsedBody && parsedBody.createdAtMs) || Date.parse(String(row.created_at || createdAtText)));
+
+        return {
+            id: String(row.id),
+            parentId: parsedBody && parsedBody.parentId != null ? String(parsedBody.parentId) : null,
+            username: (parsedBody && parsedBody.username) || 'User',
+            text: (parsedBody && parsedBody.text) || String(row.body || ''),
+            createdAt: createdAtText,
+            createdAtMs: Number.isFinite(parsedCreatedAtMs) ? parsedCreatedAtMs : 0,
+            updatedAt: (parsedBody && parsedBody.updatedAt) || null,
+            likes: normalizeVoteUsers(parsedBody && parsedBody.likes),
+            dislikes: normalizeVoteUsers(parsedBody && parsedBody.dislikes)
+        };
+    }
+
+    async function getSharedCommentStores() {
+        const sb = getSupabaseClient();
+        if (!sb) {
+            return [];
+        }
+
+        const result = await sb
+            .from(SUPABASE_COMMENTS_TABLE)
+            .select('id, game_id, body, created_at')
+            .order('created_at', { ascending: true });
+
+        if (result.error || !Array.isArray(result.data)) {
+            return [];
+        }
+
+        const storesByGame = new Map();
+        result.data.forEach(function(row) {
+            const gameId = String(row.game_id || '').trim().toLowerCase();
+            if (!gameId) {
+                return;
+            }
+
+            if (!storesByGame.has(gameId)) {
+                storesByGame.set(gameId, {
+                    key: 'shared-' + gameId,
+                    source: sourceFromStorageKey(gameId + 'Comments'),
+                    comments: []
+                });
+            }
+
+            storesByGame.get(gameId).comments.push(normalizeSharedCommentRow(row));
+        });
+
+        return Array.from(storesByGame.values());
+    }
+
+    async function getCommentStores() {
+        const localStores = getLocalCommentStores();
+        const sharedStores = await getSharedCommentStores();
+        return localStores.concat(sharedStores);
+    }
+
     function normalizeComment(store, c) {
         const localId = String(c.id || Date.now());
         const localParent = c.parentId == null ? null : String(c.parentId);
@@ -478,16 +563,18 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
-    function getAllNormalizedComments() {
-        return getCommentStores().flatMap(function(store) {
+    async function getAllNormalizedComments() {
+        const stores = await getCommentStores();
+        return stores.flatMap(function(store) {
             return store.comments.map(function(c) {
                 return normalizeComment(store, c);
             });
         });
     }
 
-    function getAllCommentsForUser(usernameToMatch) {
-        const mine = getAllNormalizedComments().filter(function(c) {
+    async function getAllCommentsForUser(usernameToMatch) {
+        const allComments = await getAllNormalizedComments();
+        const mine = allComments.filter(function(c) {
             return sameUser(c.username, usernameToMatch);
         });
 
@@ -571,8 +658,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    function getRepliesReceived(usernameToMatch) {
-        const all = getAllNormalizedComments();
+    async function getRepliesReceived(usernameToMatch) {
+        const all = await getAllNormalizedComments();
         const byScopedId = new Map();
 
         all.forEach(function(c) {
@@ -615,8 +702,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    function getReactionTotalsForUser(usernameToMatch) {
-        return getAllNormalizedComments().reduce(function(acc, c) {
+    async function getReactionTotalsForUser(usernameToMatch) {
+        const allComments = await getAllNormalizedComments();
+        return allComments.reduce(function(acc, c) {
             if (!sameUser(c.username, usernameToMatch)) {
                 return acc;
             }
@@ -627,8 +715,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }, { likes: 0, dislikes: 0 });
     }
 
-    function renderComments(usernameToMatch) {
-        const activity = getAllCommentsForUser(usernameToMatch);
+    async function renderComments(usernameToMatch) {
+        const activity = await getAllCommentsForUser(usernameToMatch);
         const topLevelComments = activity.filter(function(item) {
             return item.parentId == null;
         });
@@ -695,7 +783,7 @@ document.addEventListener('DOMContentLoaded', function() {
         profileAvatar.src = selectedAvatar;
     }
 
-    const totals = getReactionTotalsForUser(user.username);
+    const totals = await getReactionTotalsForUser(user.username);
     if (totalLikesEl) {
         totalLikesEl.textContent = String(totals.likes);
     }
@@ -745,7 +833,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     renderAvatarChoices(selectedAvatar, isOwnProfile);
 
-    const rendered = renderComments(user.username);
+    const rendered = await renderComments(user.username);
 
     if (isOwnProfile && repliesSection && repliesList) {
         repliesSection.style.display = 'block';
@@ -754,10 +842,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (isOwnProfile && incomingRepliesSection && incomingRepliesList) {
         incomingRepliesSection.style.display = 'block';
-        renderIncomingReplies(getRepliesReceived(user.username), incomingRepliesList, 'incoming');
+        renderIncomingReplies(await getRepliesReceived(user.username), incomingRepliesList, 'incoming');
     }
 
-    function handleProfilePageClick(e) {
+    async function handleProfilePageClick(e) {
         const btn = e.target.closest('[data-profile-page][data-page]');
         if (!btn) {
             return;
@@ -770,14 +858,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         pageState[key] = Math.max(1, targetPage);
-        const refreshed = renderComments(user.username);
+        const refreshed = await renderComments(user.username);
 
         if (isOwnProfile && repliesSection && repliesList) {
             renderActivityCards(refreshed.replies, repliesList, 'You have not posted any replies yet.', 'replies');
         }
 
         if (isOwnProfile && incomingRepliesSection && incomingRepliesList) {
-            renderIncomingReplies(getRepliesReceived(user.username), incomingRepliesList, 'incoming');
+            renderIncomingReplies(await getRepliesReceived(user.username), incomingRepliesList, 'incoming');
         }
     }
 

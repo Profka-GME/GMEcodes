@@ -75,13 +75,209 @@ document.addEventListener('DOMContentLoaded', function() {
     const DUPLICATE_LOOKBACK = 20;
     const COMMENTS_PER_PAGE = 8;
     const DEFAULT_AVATAR = '../images/avatars/avatar-1.svg';
+    const SUPABASE_COMMENTS_TABLE = 'comments';
 
     let activeReplyParentId = null;
     let activeEditCommentId = null;
     let currentCommentsPage = 1;
+    let commentsSource = 'local';
+    let sharedCommentsWarningShown = false;
+    let sharedCommentsCachedError = null;
 
     function currentUser() {
         return localStorage.getItem('currentUser');
+    }
+
+    function getSupabaseClient() {
+        const url = window.SUPABASE_URL;
+        const key = window.SUPABASE_ANON_KEY;
+        const validKeys = Boolean(url && key && String(url).indexOf('YOUR_') === -1 && String(key).indexOf('YOUR_') === -1);
+        if (!validKeys) {
+            return null;
+        }
+
+        if (!window.supabase || typeof window.supabase.createClient !== 'function') {
+            return null;
+        }
+
+        return window.supabase.createClient(url, key);
+    }
+
+    async function getSupabaseAuthUser() {
+        if (typeof window.gmecodes_getUser === 'function') {
+            try {
+                const user = await window.gmecodes_getUser();
+                if (user && user.id) {
+                    return user;
+                }
+            } catch (e) {
+                return null;
+            }
+        }
+
+        const sb = getSupabaseClient();
+        if (!sb || !sb.auth || typeof sb.auth.getUser !== 'function') {
+            return null;
+        }
+
+        const result = await sb.auth.getUser();
+        return result && result.data ? result.data.user : null;
+    }
+
+    function toDisplayTimestamp(value) {
+        const parsed = Date.parse(String(value || ''));
+        if (Number.isFinite(parsed)) {
+            return new Date(parsed).toLocaleString();
+        }
+        return new Date().toLocaleString();
+    }
+
+    function buildSharedBody(comment) {
+        return JSON.stringify({
+            parentId: comment.parentId == null ? null : String(comment.parentId),
+            username: comment.username || 'User',
+            text: comment.text || '',
+            createdAt: comment.createdAt || new Date().toLocaleString(),
+            createdAtMs: Number(comment.createdAtMs || Date.now()),
+            updatedAt: comment.updatedAt || null,
+            likes: normalizeVoteUsers(comment.likes),
+            dislikes: normalizeVoteUsers(comment.dislikes)
+        });
+    }
+
+    function normalizeSharedRow(row) {
+        let parsedBody = null;
+        if (typeof row.body === 'string') {
+            try {
+                parsedBody = JSON.parse(row.body);
+            } catch (e) {
+                parsedBody = null;
+            }
+        }
+
+        const createdAtText = (parsedBody && parsedBody.createdAt) || toDisplayTimestamp(row.created_at);
+        const parsedCreatedAtMs = Number((parsedBody && parsedBody.createdAtMs) || Date.parse(String(row.created_at || createdAtText)));
+
+        return {
+            id: String(row.id),
+            parentId: parsedBody && parsedBody.parentId != null ? String(parsedBody.parentId) : null,
+            username: (parsedBody && parsedBody.username) || 'User',
+            text: (parsedBody && parsedBody.text) || String(row.body || ''),
+            createdAt: createdAtText,
+            createdAtMs: Number.isFinite(parsedCreatedAtMs) ? parsedCreatedAtMs : Date.now(),
+            updatedAt: (parsedBody && parsedBody.updatedAt) || null,
+            likes: normalizeVoteUsers(parsedBody && parsedBody.likes),
+            dislikes: normalizeVoteUsers(parsedBody && parsedBody.dislikes)
+        };
+    }
+
+    async function readSharedComments() {
+        const sb = getSupabaseClient();
+        if (!sb) {
+            return null;
+        }
+
+        const result = await sb
+            .from(SUPABASE_COMMENTS_TABLE)
+            .select('id, game_id, user_id, body, created_at')
+            .eq('game_id', STORAGE_ID)
+            .order('created_at', { ascending: true });
+
+        if (result.error) {
+            sharedCommentsCachedError = result.error;
+            return null;
+        }
+
+        sharedCommentsCachedError = null;
+        const rows = Array.isArray(result.data) ? result.data : [];
+        return rows.map(normalizeSharedRow);
+    }
+
+    async function insertSharedComment(comment) {
+        const sb = getSupabaseClient();
+        if (!sb) {
+            return false;
+        }
+
+        const user = await getSupabaseAuthUser();
+        if (!user || !user.id) {
+            return false;
+        }
+
+        const result = await sb
+            .from(SUPABASE_COMMENTS_TABLE)
+            .insert({
+                game_id: STORAGE_ID,
+                user_id: user.id,
+                body: buildSharedBody(comment)
+            });
+
+        if (result.error) {
+            sharedCommentsCachedError = result.error;
+            return false;
+        }
+
+        sharedCommentsCachedError = null;
+        return true;
+    }
+
+    async function updateSharedComment(comment) {
+        const sb = getSupabaseClient();
+        if (!sb) {
+            return false;
+        }
+
+        const result = await sb
+            .from(SUPABASE_COMMENTS_TABLE)
+            .update({ body: buildSharedBody(comment) })
+            .eq('id', Number(comment.id))
+            .eq('game_id', STORAGE_ID);
+
+        if (result.error) {
+            sharedCommentsCachedError = result.error;
+            return false;
+        }
+
+        sharedCommentsCachedError = null;
+        return true;
+    }
+
+    async function deleteSharedComments(ids) {
+        const sb = getSupabaseClient();
+        if (!sb) {
+            return false;
+        }
+
+        const numericIds = ids
+            .map(function(id) { return Number(id); })
+            .filter(function(id) { return Number.isFinite(id); });
+
+        if (numericIds.length === 0) {
+            return false;
+        }
+
+        const result = await sb
+            .from(SUPABASE_COMMENTS_TABLE)
+            .delete()
+            .eq('game_id', STORAGE_ID)
+            .in('id', numericIds);
+
+        if (result.error) {
+            sharedCommentsCachedError = result.error;
+            return false;
+        }
+
+        sharedCommentsCachedError = null;
+        return true;
+    }
+
+    function warnSharedReadOnly() {
+        if (sharedCommentsWarningShown) {
+            return;
+        }
+
+        sharedCommentsWarningShown = true;
+        window.alert('Comments are shared across devices, but this action needs Supabase update/delete policies enabled for the comments table.');
     }
 
     function isLoggedIn() {
@@ -458,7 +654,14 @@ document.addEventListener('DOMContentLoaded', function() {
         return null;
     }
 
-    function getComments() {
+    async function getComments() {
+        const sharedComments = await readSharedComments();
+        if (sharedComments) {
+            commentsSource = 'shared';
+            return sharedComments;
+        }
+
+        commentsSource = 'local';
         let comments = JSON.parse(localStorage.getItem(COMMENTS_KEY) || '[]');
 
         if (comments.length === 0) {
@@ -676,12 +879,12 @@ document.addEventListener('DOMContentLoaded', function() {
         return html;
     }
 
-    function loadComments() {
+    async function loadComments() {
         if (!commentsList) {
             return;
         }
 
-        const comments = getComments();
+        const comments = await getComments();
         commentsList.innerHTML = '';
 
         if (comments.length === 0) {
@@ -720,7 +923,7 @@ document.addEventListener('DOMContentLoaded', function() {
         commentsList.innerHTML = html;
     }
 
-    function checkLogin() {
+    async function checkLogin() {
         if (!commentsSection || !loginPrompt) {
             return;
         }
@@ -728,7 +931,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isLoggedIn()) {
             commentsSection.style.display = 'block';
             loginPrompt.style.display = 'none';
-            loadComments();
+            await loadComments();
         } else {
             commentsSection.style.display = 'none';
             loginPrompt.style.display = 'block';
@@ -744,7 +947,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     if (addCommentForm) {
-        addCommentForm.addEventListener('submit', function(e) {
+        addCommentForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             const username = currentUser();
             const text = (commentText ? commentText.value : '').trim();
@@ -758,7 +961,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            const comments = getComments();
+            const comments = await getComments();
             const violation = getContentViolation(text, {
                 username: username,
                 comments: comments
@@ -768,7 +971,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            comments.push({
+            const nextComment = {
                 id: Date.now(),
                 parentId: null,
                 username: username,
@@ -778,9 +981,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 updatedAt: null,
                 likes: [],
                 dislikes: []
-            });
-            currentCommentsPage = Math.max(1, Math.ceil(comments.filter(function(c) { return c.parentId == null; }).length / COMMENTS_PER_PAGE));
-            saveComments(comments);
+            };
+
+            if (commentsSource === 'shared') {
+                const inserted = await insertSharedComment(nextComment);
+                if (!inserted) {
+                    window.alert('Could not save to shared comments. Falling back to local comments on this device.');
+                    comments.push(nextComment);
+                    saveComments(comments);
+                    commentsSource = 'local';
+                }
+            } else {
+                comments.push(nextComment);
+                saveComments(comments);
+            }
+
+            currentCommentsPage = Math.max(1, Math.ceil((await getComments()).filter(function(c) { return c.parentId == null; }).length / COMMENTS_PER_PAGE));
 
             if (commentText) {
                 commentText.value = '';
@@ -788,12 +1004,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
             activeReplyParentId = null;
             activeEditCommentId = null;
-            loadComments();
+            await loadComments();
         });
     }
 
     if (commentsList) {
-        commentsList.addEventListener('click', function(e) {
+        commentsList.addEventListener('click', async function(e) {
             const btn = e.target.closest('[data-action]');
             if (!btn) {
                 return;
@@ -803,13 +1019,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const pageTarget = Number(btn.getAttribute('data-page'));
             if (action === 'page' && Number.isFinite(pageTarget)) {
                 currentCommentsPage = Math.max(1, pageTarget);
-                loadComments();
+                await loadComments();
                 return;
             }
 
                 const id = normalizeId(btn.getAttribute('data-id'));
             const username = currentUser();
-            const comments = getComments();
+            const comments = await getComments();
                 const target = comments.find(function(c) { return normalizeId(c.id) === id; });
 
                 if ((action === 'edit' || action === 'delete') && (!target || !sameUser(target.username, username))) {
@@ -819,13 +1035,13 @@ document.addEventListener('DOMContentLoaded', function() {
             if (action === 'reply') {
                 activeReplyParentId = id;
                 activeEditCommentId = null;
-                loadComments();
+                await loadComments();
                 return;
             }
 
             if (action === 'cancel-reply') {
                 activeReplyParentId = null;
-                loadComments();
+                await loadComments();
                 return;
             }
 
@@ -850,7 +1066,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     return;
                 }
 
-                comments.push({
+                const replyComment = {
                     id: Date.now(),
                     parentId: id,
                     username: username,
@@ -860,10 +1076,23 @@ document.addEventListener('DOMContentLoaded', function() {
                     updatedAt: null,
                     likes: [],
                     dislikes: []
-                });
-                saveComments(comments);
+                };
+
+                if (commentsSource === 'shared') {
+                    const inserted = await insertSharedComment(replyComment);
+                    if (!inserted) {
+                        window.alert('Could not save reply to shared comments. Falling back to local comments on this device.');
+                        comments.push(replyComment);
+                        saveComments(comments);
+                        commentsSource = 'local';
+                    }
+                } else {
+                    comments.push(replyComment);
+                    saveComments(comments);
+                }
+
                 activeReplyParentId = null;
-                loadComments();
+                await loadComments();
                 return;
             }
 
@@ -902,21 +1131,28 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
 
-                saveComments(comments);
-                loadComments();
+                if (commentsSource === 'shared') {
+                    const updated = await updateSharedComment(target);
+                    if (!updated) {
+                        warnSharedReadOnly();
+                    }
+                } else {
+                    saveComments(comments);
+                }
+                await loadComments();
                 return;
             }
 
             if (action === 'edit') {
                 activeEditCommentId = id;
                 activeReplyParentId = null;
-                loadComments();
+                await loadComments();
                 return;
             }
 
             if (action === 'cancel-edit') {
                 activeEditCommentId = null;
-                loadComments();
+                await loadComments();
                 return;
             }
 
@@ -944,9 +1180,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 target.text = editedText;
                 target.updatedAt = new Date().toLocaleString();
-                saveComments(comments);
+                if (commentsSource === 'shared') {
+                    const updated = await updateSharedComment(target);
+                    if (!updated) {
+                        warnSharedReadOnly();
+                    }
+                } else {
+                    saveComments(comments);
+                }
                 activeEditCommentId = null;
-                loadComments();
+                await loadComments();
                 return;
             }
 
@@ -957,10 +1200,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
 
                 const filtered = deleteCommentAndReplies(comments, id);
-                saveComments(filtered);
+                if (commentsSource === 'shared') {
+                    const deletedIds = comments
+                        .filter(function(item) {
+                            return !filtered.some(function(kept) {
+                                return normalizeId(kept.id) === normalizeId(item.id);
+                            });
+                        })
+                        .map(function(item) {
+                            return item.id;
+                        });
+
+                    const deleted = await deleteSharedComments(deletedIds);
+                    if (!deleted) {
+                        warnSharedReadOnly();
+                    }
+                } else {
+                    saveComments(filtered);
+                }
                 activeEditCommentId = null;
                 activeReplyParentId = null;
-                loadComments();
+                await loadComments();
             }
         });
     }
