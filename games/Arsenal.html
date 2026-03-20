@@ -69,8 +69,8 @@
     <main class="container p-3 my-3 position-relative" id="L1" style="background-color: rgb(82, 101, 134);">
         <section class="row" >  
             <h1 class="text-center fw-bold">Roblox Arsenal Codes</h1>
-            <p id="lastUpdatedLabel" class="text-center small text-info mb-2">Last updated: March 17, 2026</p>
-            <p id="testedTodayLabel" class="text-center small text-info mb-2">Tested: March 17, 2026</p>
+            <p id="lastUpdatedLabel" class="text-center small text-info mb-2"></p>
+            <p id="testedTodayLabel" class="text-center small text-info mb-2"></p>
         </section>
 
         <section class="row" id="L2">
@@ -126,6 +126,28 @@
         </section>
 
     </main>
+
+        <!-- Comments Section -->
+    <section id="commentsSection" class="container my-5" style="display: none;">
+        <h3 class="text-center mb-4">Comments & Replies</h3>
+        <div id="commentForm" class="mb-4">
+            <h5>Leave a Comment</h5>
+            <form id="addCommentForm">
+                <div class="mb-3">
+                    <textarea class="form-control" id="commentText" rows="3" maxlength="100" placeholder="Write your comment..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Post Comment</button>
+            </form>
+        </div>
+        <div id="commentsList">
+            <!-- Comments will be loaded here -->
+        </div>
+    </section>
+    
+    <section id="loginPrompt" class="container my-5 text-center" style="display: none;">
+        <h3>Want to join the discussion?</h3>
+        <p>Please log in or register to view and post comments.</p>
+    </section>
 
     <footer class="site-footer">
         <div class="container footer-shell">
