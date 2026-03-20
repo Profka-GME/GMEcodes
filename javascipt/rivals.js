@@ -802,7 +802,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const likedByMe = likes.some(function(name) { return sameUser(name, currentUser()); });
         const dislikedByMe = dislikes.some(function(name) { return sameUser(name, currentUser()); });
         const created = escapeHtml(comment.createdAt || '');
-        const profileHref = `../html/profile.html?user=${encodeURIComponent(comment.username || '')}`;
+        const profileHref = `/html/profile.html?user=${encodeURIComponent(comment.username || '')}`;
         const edited = comment.updatedAt ? '<small class="text-info ms-2">(edited)</small>' : '';
         const marginClass = level > 0 ? 'comment-reply-level' : '';
 
@@ -1134,7 +1134,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             if (action === 'like' || action === 'dislike') {
-                if (!username || !target) {
+                if (!username) {
+                    window.alert('Please log in to like or dislike comments.');
+                    return;
+                }
+                if (!target) {
                     return;
                 }
 

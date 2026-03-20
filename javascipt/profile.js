@@ -760,14 +760,45 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 
     const users = JSON.parse(localStorage.getItem('users') || '[]');
-    const user = users.find(function(u) {
+    let user = users.find(function(u) {
         return sameUser(u.username, targetUsername);
     });
+
+    // If user not found locally, try to fetch from Supabase
+    if (!user) {
+        const url = window.SUPABASE_URL;
+        const key = window.SUPABASE_ANON_KEY;
+        const validKeys = Boolean(url && key && String(url).indexOf('YOUR_') === -1 && String(key).indexOf('YOUR_') === -1);
+        
+        if (validKeys && window.supabase && typeof window.supabase.createClient === 'function') {
+            try {
+                const sb = window.supabase.createClient(url, key);
+                const { data, error } = await sb
+                    .from('accounts')
+                    .select('username, email, avatar, description, created_at, role')
+                    .ilike('username', targetUsername)
+                    .single();
+                
+                if (data && !error) {
+                    user = {
+                        username: data.username,
+                        email: data.email,
+                        avatar: data.avatar,
+                        description: data.description,
+                        registeredDate: data.created_at,
+                        role: data.role || 'user'
+                    };
+                }
+            } catch (err) {
+                // Supabase lookup failed, user not found
+            }
+        }
+    }
 
     if (!user) {
         if (notLoggedInShell) {
             notLoggedInShell.style.display = 'block';
-            notLoggedInShell.innerHTML = '<article class="card bg-dark text-white shadow-lg border-0 mx-auto" style="max-width: 560px;"><div class="card-body p-4"><h2 class="h4 mb-3">Profile not found</h2><p class="text-muted">This user may not have created an account on this browser.</p><a class="btn btn-primary" href="../index.html"><i class="bi bi-house me-2"></i>Back Home</a></div></article>';
+            notLoggedInShell.innerHTML = '<article class="card bg-dark text-white shadow-lg border-0 mx-auto" style="max-width: 560px;"><div class="card-body p-4"><h2 class="h4 mb-3">Profile not found</h2><p class="text-muted">This user may not have created an account yet.</p><a class="btn btn-primary" href="../index.html"><i class="bi bi-house me-2"></i>Back Home</a></div></article>';
         }
         return;
     }
