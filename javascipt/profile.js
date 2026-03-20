@@ -432,6 +432,12 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (normalized === 'hooked') {
             return 'Hooked!';
         }
+        if (normalized === 'kinglegacy') {
+            return 'King Legacy';
+        }
+        if (normalized === 'animecardclash') {
+            return 'Anime Card Clash';
+        }
         return raw.charAt(0).toUpperCase() + raw.slice(1);
     }
 

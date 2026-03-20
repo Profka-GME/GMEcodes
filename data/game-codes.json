@@ -123,5 +123,15 @@
             { "code": "FreePterSpin", "reward": "x10 Copper Key Hope you guys get pter fruit" }
         ],
         "expiredCodes": []
+    },
+    "animecardclash": {
+        "workingCodes": [
+            { "code": "ANNI1", "reward": "x5 Large Luck Potion, x5 Large Roll Speed Potion, x2 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x2 50,000x Instant Roll" },
+            { "code": "ANNI2", "reward": "(Requires 500,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x2 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x2 100,000x Instant Roll" },
+            { "code": "ANNI3", "reward": "(Requires 5,000,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x5 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x2 250,000x Instant Roll" },
+            { "code": "ANNI4", "reward": "(Requires 50,000,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x5 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x3 250,000x Instant Roll" },
+            { "code": "ANNI5", "reward": "(Requires 350,000,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x5 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x5 250,000x Instant Roll" }
+        ],
+        "expiredCodes": []
     }
 }

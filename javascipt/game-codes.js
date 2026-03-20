@@ -147,6 +147,13 @@
                 page: "kinglegacy.html",
                 image: "../images/logo/kinglegacy2.jpg",
                 summary: "Adventurous Roblox game with exploration and quests."
+            },
+            {
+                id: "animecardclash",
+                name: "Anime Card Clash",
+                page: "animecardclash.html",
+                image: "../images/logo/animecardclash2.jpg",
+                summary: "Competitive Roblox card game with strategic battles and collectible cards."
             }
         ];
 
