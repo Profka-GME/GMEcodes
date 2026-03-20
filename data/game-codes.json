@@ -103,7 +103,8 @@
         "workingCodes": [
             { "code": "JOINHOOKEDDC", "reward": "x500 Gold" },
             { "code": "HOOKED1KLIKES", "reward": "x300 Gold" },
-            { "code": "HOOKED", "reward": "x500 Gold" }
+            { "code": "HOOKED", "reward": "x500 Gold" },
+            { "code": "HOOKED2KLIKES", "reward": "x300 Gold" }
         ],
         "expiredCodes": []
     },

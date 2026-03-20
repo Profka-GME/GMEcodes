@@ -84,24 +84,35 @@ document.addEventListener('DOMContentLoaded', function() {
     let sharedCommentsWarningShown = false;
     let sharedCommentsCachedError = null;
     let _loadCommentsInFlight = false;
+    let _sbClient = null;
+    let _sharedCommentsCache = null;
+    let _sharedCommentsCacheTs = 0;
+    const CACHE_TTL_MS = 20000; // reuse fetched comments for 20 seconds
 
     function currentUser() {
         return localStorage.getItem('currentUser');
     }
 
     function getSupabaseClient() {
+        if (_sbClient) {
+            return _sbClient;
+        }
         const url = window.SUPABASE_URL;
         const key = window.SUPABASE_ANON_KEY;
         const validKeys = Boolean(url && key && String(url).indexOf('YOUR_') === -1 && String(key).indexOf('YOUR_') === -1);
         if (!validKeys) {
             return null;
         }
-
         if (!window.supabase || typeof window.supabase.createClient !== 'function') {
             return null;
         }
+        _sbClient = window.supabase.createClient(url, key);
+        return _sbClient;
+    }
 
-        return window.supabase.createClient(url, key);
+    function invalidateCommentsCache() {
+        _sharedCommentsCache = null;
+        _sharedCommentsCacheTs = 0;
     }
 
     async function getSupabaseAuthUser() {
@@ -178,6 +189,11 @@ document.addEventListener('DOMContentLoaded', function() {
             return null;
         }
 
+        const now = Date.now();
+        if (_sharedCommentsCache && (now - _sharedCommentsCacheTs) < CACHE_TTL_MS) {
+            return _sharedCommentsCache;
+        }
+
         const result = await sb
             .from(SUPABASE_COMMENTS_TABLE)
             .select('id, game_id, user_id, body, created_at')
@@ -191,7 +207,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         sharedCommentsCachedError = null;
         const rows = Array.isArray(result.data) ? result.data : [];
-        return rows.map(normalizeSharedRow);
+        _sharedCommentsCache = rows.map(normalizeSharedRow);
+        _sharedCommentsCacheTs = now;
+        return _sharedCommentsCache;
     }
 
     async function insertSharedComment(comment) {
@@ -219,6 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         sharedCommentsCachedError = null;
+        invalidateCommentsCache();
         return true;
     }
 
@@ -240,6 +259,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         sharedCommentsCachedError = null;
+        invalidateCommentsCache();
         return true;
     }
 
@@ -269,6 +289,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         sharedCommentsCachedError = null;
+        invalidateCommentsCache();
         return true;
     }
 

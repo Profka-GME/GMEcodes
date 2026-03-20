@@ -386,22 +386,24 @@ document.addEventListener('DOMContentLoaded', async function() {
         return allowed ? candidate : DEFAULT_AVATAR;
     }
 
+    let _sbClient = null;
+
     function getSupabaseClient() {
+        if (_sbClient) {
+            return _sbClient;
+        }
         const url = window.SUPABASE_URL;
         const key = window.SUPABASE_ANON_KEY;
         const validKeys = Boolean(url && key && String(url).indexOf('YOUR_') === -1 && String(key).indexOf('YOUR_') === -1);
         if (!validKeys) {
             return null;
         }
-
         if (!window.supabase || typeof window.supabase.createClient !== 'function') {
             return null;
         }
-
-        return window.supabase.createClient(url, key);
+        _sbClient = window.supabase.createClient(url, key);
+        return _sbClient;
     }
-
-    function sourceFromStorageKey(key) {
         const raw = String(key || '').replace(/Comments$/i, '');
         if (!raw) {
             return 'Game';
