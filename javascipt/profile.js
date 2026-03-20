@@ -404,6 +404,8 @@ document.addEventListener('DOMContentLoaded', async function() {
         _sbClient = window.supabase.createClient(url, key);
         return _sbClient;
     }
+
+    function sourceFromStorageKey(key) {
         const raw = String(key || '').replace(/Comments$/i, '');
         if (!raw) {
             return 'Game';
