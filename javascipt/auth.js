@@ -739,11 +739,18 @@
                 // flickering nav and premature login/logout events.
                 if (_otpInProgress) { return; }
 
+                // Capture login state BEFORE applying session to detect actual sign-in vs token refresh.
+                var wasLoggedIn = localStorage.getItem('loggedIn') === 'true';
+
                 applySessionToLocal(session);
                 renderUserNav();
 
                 if (event === 'SIGNED_IN' && session && session.user) {
-                    emitLoggedIn(getUsernameFromSession(session));
+                    // Only emit if user wasn't already logged in — prevents Supabase token
+                    // refresh events from triggering a comment list rebuild mid-hover.
+                    if (!wasLoggedIn) {
+                        emitLoggedIn(getUsernameFromSession(session));
+                    }
                 }
 
                 if (event === 'SIGNED_OUT') {

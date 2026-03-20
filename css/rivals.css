@@ -179,9 +179,9 @@ body{
 }
 
 
-.card:hover{
-    box-shadow: 0 12px 30px rgba(68, 178, 224, 0.4), 0 0 20px rgba(68, 178, 224, 0.25) !important;
-    transition: box-shadow 0.2s ease;
+.card {
+    border: 1px solid rgba(84, 170, 207, 0.25);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
 }
 
 .back:hover{
@@ -585,6 +585,11 @@ h2{
 .comment-node {
     border: 1px solid rgba(84, 170, 207, 0.25);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+    pointer-events: auto;
+}
+
+.comment-node:hover {
+    /* No hover effect to prevent re-render flickering */
 }
 
 .comment-time {

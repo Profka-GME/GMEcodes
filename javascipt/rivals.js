@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let commentsSource = 'local';
     let sharedCommentsWarningShown = false;
     let sharedCommentsCachedError = null;
+    let _loadCommentsInFlight = false;
 
     function currentUser() {
         return localStorage.getItem('currentUser');
@@ -892,7 +893,17 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        const comments = await getComments();
+        if (_loadCommentsInFlight) {
+            return;
+        }
+        _loadCommentsInFlight = true;
+
+        let comments;
+        try {
+            comments = await getComments();
+        } finally {
+            _loadCommentsInFlight = false;
+        }
         commentsList.innerHTML = '';
 
         if (comments.length === 0) {
