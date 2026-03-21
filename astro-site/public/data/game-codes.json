@@ -85,13 +85,14 @@
             { "code": "SMALLDELAYVERYSORRY", "reward": "Rewards" },
             { "code": "45KFOLLOWSTYY", "reward": "Rewards" },
             { "code": "EIDMUBARAK", "reward": "Rewards" },
-            { "code": "THEBIG200KCCUTYSM", "reward": "Rewards" },
-            { "code": "OMG190KCCU", "reward": "Rewards" },
-            { "code": "INSANE180KCCU", "reward": "Rewards" },
-            { "code": "TYFOR170KCCUWOW", "reward": "Rewards" }
+            { "code": "260KCCUINSANE", "reward": "Rewards" },
+            { "code": "245KCCUGETTINGTOOCRAZY", "reward": "Rewards" },
+            { "code": "230KCCUYALLTHEBEST", "reward": "Rewards" },
+            { "code": "TYFOR215KCCU", "reward": "Rewards" },
+            {"code": "275KCCUOMG", "reward": "Rewards"}
         ],
         "expiredCodes": [
-            "THEBIG100KOMG", "95KCCUSOCLOSE", "TY90KCCUWWWWW", "85KCCUABSURD", "TY80KCCUWOWWW", "75KCCUWOAH", "65KCCUWOWW", "INSANE60KCCU"
+            "TYFOR170KCCUWOW", "INSANE180KCCU", "OMG190KCCU", "THEBIG200KCCUTYSM", "TY80KCCUWOWWW", "75KCCUWOAH", "65KCCUWOWW", "INSANE60KCCU"
         ]
     },
     "hooked": {

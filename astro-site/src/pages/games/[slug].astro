@@ -14,8 +14,17 @@ const meta = getGameCodesMeta();
 const lastUpdated = game.lastUpdated || 'Recently';
 const lastTested = game.lastTested || lastUpdated;
 const today = new Date();
-const currentMonthYear = today.toLocaleString('en-US', { month: 'long', year: 'numeric' });
-const exactDate = today.toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+const currentMonthYear = today.toLocaleString('en-US', { 
+  timeZone: 'Europe/Budapest', 
+  month: 'long', 
+  year: 'numeric' 
+});
+const exactDate = today.toLocaleString('en-US', { 
+  timeZone: 'Europe/Budapest', 
+  month: 'long', 
+  day: 'numeric', 
+  year: 'numeric' 
+});
 ---
 <BaseLayout
   title={game.title}
