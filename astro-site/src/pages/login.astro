@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Login/Register - GMEcodes">
+  <section class="hero">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card text-white shadow-lg auth-modal-content auth-panel-card mb-5">
+            <div class="card-body p-5 auth-modal-body">
+              <h2 class="card-title text-center mb-4">Welcome Back</h2>
+
+              <div id="loginFormContainer">
+                <h4 class="text-center mb-3">Login to Your Account</h4>
+                <form id="loginForm">
+                  <div class="mb-3">
+                    <label for="loginEmail" class="form-label">
+                      <i class="bi bi-person me-2"></i>Email or Username
+                    </label>
+                    <input type="text" class="form-control form-control-lg auth-input" id="loginEmail" placeholder="Enter your email or username" required />
+                  </div>
+                  <div class="mb-3">
+                    <label for="loginPassword" class="form-label">
+                      <i class="bi bi-lock me-2"></i>Password
+                    </label>
+                    <input type="password" class="form-control form-control-lg auth-input" id="loginPassword" placeholder="Enter your password" required />
+                  </div>
+                  <div class="d-grid">
+                    <button type="submit" class="btn btn-lg auth-primary-btn">
+                      <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                    </button>
+                  </div>
+                </form>
+                <div class="text-center mt-3">
+                  <p class="mb-0 auth-switch-text">
+                    Don't have an account? 
+                    <a href="#" id="showRegister" class="auth-link-switch">Register here</a>
+                  </p>
+                </div>
+              </div>
+
+              <div id="otpFormContainer" style="display: none;">
+                <h4 class="text-center mb-3">Verify Your Identity</h4>
+                <p id="otpEmailText" class="text-center small mb-3">An 8-digit verification code has been sent to your email.</p>
+                <form id="otpForm">
+                  <div class="mb-3">
+                    <label for="otpCode" class="form-label">
+                      <i class="bi bi-shield-check me-2"></i>Verification Code
+                    </label>
+                    <input type="text" class="form-control form-control-lg auth-input" id="otpCode" placeholder="Enter 8-digit code" maxlength="8" pattern="[0-9]{8}" required autocomplete="one-time-code" inputmode="numeric" />
+                  </div>
+                  <div class="d-grid">
+                    <button type="submit" class="btn btn-lg auth-primary-btn">
+                      <i class="bi bi-check-circle me-2"></i>Verify Code
+                    </button>
+                  </div>
+                </form>
+                <div class="text-center mt-3">
+                  <p class="mb-0 auth-switch-text">
+                    Didn't receive it? 
+                    <a href="#" id="resendOtpBtn" class="auth-link-switch">Resend code</a>
+                  </p>
+                </div>
+              </div>
+
+              <div id="registerFormContainer" style="display: none;">
+                <h4 class="text-center mb-3">Create New Account</h4>
+                <form id="registerForm">
+                  <div class="mb-3">
+                    <label for="registerUsername" class="form-label">
+                      <i class="bi bi-person-plus me-2"></i>Username
+                    </label>
+                    <input type="text" class="form-control form-control-lg auth-input" id="registerUsername" placeholder="Choose a username" required minlength="3" />
+                    <div class="form-text text-white-50">Minimum 3 characters</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="registerEmail" class="form-label">
+                      <i class="bi bi-envelope me-2"></i>Email
+                    </label>
+                    <input type="email" class="form-control form-control-lg auth-input" id="registerEmail" placeholder="Enter your email" required />
+                  </div>
+                  <div class="mb-3">
+                    <label for="registerPassword" class="form-label">
+                      <i class="bi bi-lock me-2"></i>Password
+                    </label>
+                    <input type="password" class="form-control form-control-lg auth-input" id="registerPassword" placeholder="Create a password" required minlength="6" />
+                    <div class="form-text text-white-50">Minimum 6 characters</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">
+                      <i class="bi bi-lock-fill me-2"></i>Confirm Password
+                    </label>
+                    <input type="password" class="form-control form-control-lg auth-input" id="confirmPassword" placeholder="Confirm your password" required />
+                  </div>
+                  <div class="d-grid">
+                    <button type="submit" class="btn btn-lg auth-primary-btn">
+                      <i class="bi bi-person-check me-2"></i>Register
+                    </button>
+                  </div>
+                </form>
+                <div class="text-center mt-3">
+                  <p class="mb-0 auth-switch-text">
+                    Already have an account? 
+                    <a href="#" id="showLogin" class="auth-link-switch">Login here</a>
+                  </p>
+                </div>
+              </div>
+
+              <div id="logoutSection" style="display: none;">
+                <h4 class="text-center mb-3">You are currently logged in</h4>
+                <div class="text-center mb-4">
+                  <p class="mb-0">Welcome back, <strong id="currentUserDisplay"></strong>!</p>
+                  <p class="text-muted small">You can access all features across the website.</p>
+                </div>
+                <div class="d-grid gap-2">
+                  <a href="/" class="btn btn-primary btn-lg">
+                    <i class="bi bi-house me-2"></i>Go to Home Page
+                  </a>
+                  <a href="/logout" class="btn btn-outline-danger btn-lg">
+                    <i class="bi bi-box-arrow-right me-2"></i>Logout
+                  </a>
+                </div>
+              </div>
+
+              <div id="successMessage" class="alert alert-success mt-3" style="display: none;">
+                <span id="successText"></span>
+              </div>
+
+              <div class="text-center mt-4">
+                <p class="text-muted small">By logging in, you can access exclusive content and participate in discussions across the site.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script is:inline src="/javascript/supabase-config.js"></script>
+<script is:inline src="/javascript/auth.js"></script>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    const loginContainer = document.getElementById('loginFormContainer');
+    const registerContainer = document.getElementById('registerFormContainer');
+    const showRegister = document.getElementById('showRegister');
+    const showLogin = document.getElementById('showLogin');
+    const successMessage = document.getElementById('successMessage');
+    const successText = document.getElementById('successText');
+    const logoutSection = document.getElementById('logoutSection');
+    const currentUserDisplay = document.getElementById('currentUserDisplay');
+
+    // Toggle forms
+    showRegister?.addEventListener('click', (e) => {
+      e.preventDefault();
+      loginContainer.style.display = 'none';
+      registerContainer.style.display = 'block';
+      document.getElementById('otpFormContainer').style.display = 'none';
+      if (successMessage) successMessage.style.display = 'none';
+    });
+
+    showLogin?.addEventListener('click', (e) => {
+      e.preventDefault();
+      registerContainer.style.display = 'none';
+      loginContainer.style.display = 'block';
+      document.getElementById('otpFormContainer').style.display = 'none';
+      if (successMessage) successMessage.style.display = 'none';
+    });
+
+    // Custom Events
+    window.addEventListener('userRegistered', (e) => {
+      if (successMessage && successText) {
+        successText.textContent = e.detail?.verificationRequired 
+          ? 'Registration successful! Check your email for a confirmation link.' 
+          : 'Registration successful! Please log in.';
+        successMessage.style.display = 'block';
+      }
+      registerContainer.style.display = 'none';
+      loginContainer.style.display = 'block';
+    });
+
+    window.addEventListener('userLoggedIn', (e) => {
+      if (successMessage && successText) {
+        successText.textContent = `Welcome back, ${e.detail.username}! Redirecting...`;
+        successMessage.style.display = 'block';
+      }
+      setTimeout(() => { window.location.href = '/'; }, 2000);
+    });
+
+    function checkLoginOnPage() {
+      const loggedIn = localStorage.getItem('loggedIn') === 'true';
+      const username = localStorage.getItem('currentUser');
+      if (loggedIn && username) {
+        if (currentUserDisplay) currentUserDisplay.textContent = username;
+        logoutSection.style.display = 'block';
+        loginContainer.style.display = 'none';
+        registerContainer.style.display = 'none';
+      } else {
+        logoutSection.style.display = 'none';
+        loginContainer.style.display = 'block';
+      }
+    }
+
+    window.addEventListener('userLoggedIn', checkLoginOnPage);
+    window.addEventListener('userLoggedOut', checkLoginOnPage);
+    checkLoginOnPage();
+  });
+</script>

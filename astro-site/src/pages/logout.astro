@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Logout - GMEcodes">
+  <section class="hero d-flex align-items-center" style="min-height: 70vh;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card bg-dark text-white shadow-lg p-5 text-center auth-panel-card" style="border: 1px solid #344a5c;">
+            
+            <div id="confirmLogoutSection">
+              <i class="bi bi-question-circle text-warning mb-3" style="font-size: 3rem;"></i>
+              <h2 class="mb-4">Confirm Logout</h2>
+              <p class="text-white-50 mb-4">Are you sure you want to end your session, <strong id="logoutUserTarget">User</strong>?</p>
+              
+              <div class="d-grid gap-3">
+                <button id="confirmBtn" class="btn btn-danger btn-lg fw-bold">
+                  <i class="bi bi-check-circle me-2"></i>Yes, Logout
+                </button>
+                <a href="/" class="btn btn-outline-light">
+                  <i class="bi bi-x-circle me-2"></i>Cancel
+                </a>
+              </div>
+            </div>
+
+            <div id="successLogoutSection" style="display: none;">
+              <i class="bi bi-check-circle-fill text-success mb-3" style="font-size: 3rem;"></i>
+              <h2 class="mb-3">Logged Out</h2>
+              <p class="mb-4">You have been safely logged out of your account.</p>
+              <div class="d-grid">
+                <a href="/" class="btn btn-primary btn-lg">
+                  <i class="bi bi-house-door me-2"></i>Back to Home Page
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<script is:inline>
+  // This code runs only on the logout page
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('confirmBtn');
+    const confirmBox = document.getElementById('confirmLogoutSection');
+    const successBox = document.getElementById('successLogoutSection');
+
+    if (btn) {
+      btn.onclick = function() {
+        console.log("Logout button clicked!");
+
+        // 1. THE DATA FIX: This is what actually logs you out
+        localStorage.clear(); // This wipes everything (loggedIn, currentUser, etc.)
+
+        // 2. THE NAVBAR FIX: Tell the BaseLayout to refresh the nav right now
+        window.dispatchEvent(new Event('userLoggedOut'));
+
+        // 3. THE VISUAL FIX: Swap the boxes
+        if (confirmBox) confirmBox.style.display = 'none';
+        if (successBox) successBox.style.display = 'block';
+
+        console.log("Data cleared. Redirecting in 2 seconds...");
+
+        // 4. THE ESCAPE: Send them home
+        setTimeout(() => {
+          window.location.href = '/';
+        }, 2000);
+      };
+    } else {
+      console.error("Could not find the button with ID 'confirmBtn'");
+    }
+  });
+</script>
+</BaseLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const confirmSection = document.getElementById('confirmLogoutSection');
+    const successSection = document.getElementById('successLogoutSection');
+    const confirmBtn = document.getElementById('confirmBtn');
+    const userTarget = document.getElementById('logoutUserTarget');
+
+    // 1. Show the current username in the confirmation text 
+    const currentUsername = localStorage.getItem('currentUser');
+    if (userTarget && currentUsername) {
+      userTarget.textContent = currentUsername;
+    }
+
+    // 2. Handle the actual logout click [cite: 143, 150]
+    confirmBtn?.addEventListener('click', () => {
+      // Clear the session data [cite: 145, 146, 149]
+      localStorage.removeItem('loggedIn');
+      localStorage.removeItem('currentUser');
+      localStorage.removeItem('supabase.auth.token'); // Clean up Supabase tokens if any
+
+      // Trigger the navbar update 
+      window.dispatchEvent(new CustomEvent('userLoggedOut'));
+
+      // Switch the UI steps [cite: 147, 148, 149]
+      if (confirmSection && successSection) {
+        confirmSection.style.display = 'none';
+        successSection.style.display = 'block';
+      }
+    });
+  });
+</script>

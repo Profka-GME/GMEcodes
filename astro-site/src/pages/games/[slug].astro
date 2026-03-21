@@ -30,27 +30,6 @@ const lastTested = game.lastTested || lastUpdated;
     '../css/rivals.css'
   ]}
 >
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(42, 66, 92);">
-    <div class="container">
-      <a href="/" class="navbar-brand fw-bold logo"><img src="../images/logo/Mainlogo.png" alt="GMEcodes logo" /></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#L4"><i class="bi bi-gift me-1"></i>Codes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#commentsSection"><i class="bi bi-people me-1"></i>Comment</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav ms-auto" id="userNav">
-          <!-- User login/register or welcome message will be inserted here -->
-        </ul>
-      </div>
-    </div>
-  </nav>
 
   <header></header>
   <main class="container p-3 my-3 position-relative" id="L1" style={game.mainStyle || undefined}>
@@ -191,35 +170,8 @@ const lastTested = game.lastTested || lastUpdated;
   <section id="loginPrompt" class="container my-5 text-center" style="display: none;">
     <h3>Want to join the discussion?</h3>
     <p>Please log in or register to view and post comments.</p>
-    <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
   </section>
 
-  <footer class="site-footer">
-    <div class="container footer-shell">
-      <div class="footer-links">
-        <h3>About this site</h3>
-        <ul class="footer-link-list list-unstyled mb-0">
-          <li><a href="../html/contact">Contact</a></li>
-          <li><a href="../html/privacy-policy">Privacy Policy</a></li>
-          <li><a href="../html/about-us">About Us</a></li>
-        </ul>
-      </div>
-      <div class="footer-community">
-        <h3>Community</h3>
-        <p>Updates are posted here. They might stay blank, but i dont mind a follow..</p>
-        <div class="footer-socials">
-          <a href="https://www.youtube.com/channel/UCHYGN_cE8Bz070ZIw5MJF0A" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-          <a href="https://x.com/GMEcodes_com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
-          <a href="https://www.instagram.com/gmecodes/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>GMEcodes</span>
-      <span>Made by a player, for players</span>
-    </div>
-  </footer>
 
   <script is:inline src="../javascipt/game-codes.js"></script>
   <script is:inline src="../javascipt/rivals.js"></script>

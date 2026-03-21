@@ -1032,3 +1032,19 @@ body{
         display: none;
     }
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+main {
+  flex: 1;
+}
+
+.navbar-brand:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}

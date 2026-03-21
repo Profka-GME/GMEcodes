@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Privacy Policy - GMEcodes">
+  <main class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <article class="card bg-dark text-white shadow-lg border-0 p-4 p-md-5">
+          <h1 class="mb-4 text-info"><i class="bi bi-shield-lock me-2"></i>Privacy Policy</h1>
+          <p class="text-white-50">Last Updated: March 2026</p>
+
+          <hr class="border-secondary my-4" />
+
+          <section class="mb-5">
+            <h2 class="h4 text-primary">1. Information We Collect</h2>
+            <p>At GMEcodes, we collect minimal information to provide our services:</p>
+            <ul>
+              <li><strong>Account Data:</strong> Username and email address provided during registration.</li>
+              <li><strong>Profile Data:</strong> Avatars and bios you choose to display.</li>
+              <li><strong>Interaction Data:</strong> Comments and likes/dislikes on game codes.</li>
+            </ul>
+          </section>
+
+          <section class="mb-5">
+            <h2 class="h4 text-primary">2. How We Use Your Information</h2>
+            <p>Your data is used solely to:</p>
+            <ul>
+              <li>Maintain your user profile and comment history.</li>
+              <li>Improve site functionality and user experience.</li>
+              <li>Prevent spam and maintain a safe community environment.</li>
+            </ul>
+          </section>
+
+          <section class="mb-5">
+            <h2 class="h4 text-primary">3. Data Storage (Supabase)</h2>
+            <p>We use <strong>Supabase</strong> for secure data storage. Your passwords are encrypted, and your email is kept private unless you choose to share it.</p>
+          </section>
+
+          <section class="mb-5">
+            <h2 class="h4 text-primary">4. Cookies</h2>
+            <p>We use local storage and cookies to keep you logged in and remember your preferences across sessions.</p>
+          </section>
+
+          <section>
+            <h2 class="h4 text-primary">5. Contact Us</h2>
+            <p>If you have questions about this policy, please reach out via our <a href="/contact" class="text-info">Contact Page</a>.</p>
+          </section>
+        </article>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

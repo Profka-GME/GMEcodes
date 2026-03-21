@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Your Profile - GMEcodes">
+  <main class="container py-4">
+    <section class="profile-shell" id="profileShell" style="display:none;">
+      <div class="row g-4">
+        <div class="col-12 col-lg-5">
+          <article class="card bg-dark text-white shadow-lg border-0 h-100">
+            <div class="card-body p-4">
+              <h2 class="h4 mb-3" id="profileTitle"><i class="bi bi-person-circle me-2"></i>Your Profile</h2>
+              <div class="profile-avatar-wrap mb-3 text-center">
+                <img id="profileAvatar" class="profile-avatar-image" src="/images/avatars/avatar-1.svg" alt="Profile picture">
+              </div>
+              <p class="mb-2"><strong>Username:</strong> <span id="profileUsername"></span></p>
+              <p class="mb-4"><strong>Member since:</strong> <span id="profileJoined"></span></p>
+
+              <section id="profilePictureSection" class="mb-4">
+                <h3 class="h6 text-info mb-2">Change Profile Picture</h3>
+                <div id="profileAvatarChoices" class="avatar-choice-grid"></div>
+              </section>
+
+              <div class="profile-reaction-stats mb-4">
+                <div class="reaction-pill likes-pill">
+                  <i class="bi bi-hand-thumbs-up-fill me-1"></i>
+                  Total Likes Received: <strong id="profileTotalLikes">0</strong>
+                </div>
+                <div class="reaction-pill dislikes-pill">
+                  <i class="bi bi-hand-thumbs-down-fill me-1"></i>
+                  Total Dislikes Received: <strong id="profileTotalDislikes">0</strong>
+                </div>
+              </div>
+
+              <h3 class="h6 text-info" id="profileDescriptionTitle">Description</h3>
+              <form id="profileDescriptionForm">
+                <textarea id="profileDescription" class="form-control mb-"2" rows="4" placeholder="Add a short bio about yourself..."></textarea>
+                <button type="submit" class="btn btn-primary btn-sm" id="profileSaveButton">Save Description</button>
+              </form>
+              <small id="profileSaveStatus" class="d-block mt-2 text-info"></small>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-lg-7">
+          <article class="card bg-dark text-white shadow-lg border-0">
+            <div class="card-body p-4">
+              <h2 class="h4 mb-3"><i class="bi bi-chat-left-text me-2"></i>Your Comments</h2>
+              <div id="profileCommentsList"></div>
+
+              <section id="profileRepliesSection" class="mt-4">
+                <h3 class="h5 mb-3"><i class="bi bi-reply me-2"></i>Your Replies</h3>
+                <div id="profileRepliesList"></div>
+              </section>
+
+              <section id="profileIncomingRepliesSection" class="mt-4">
+                <h3 class="h5 mb-3"><i class="bi bi-chat-dots me-2"></i>Replies You Got</h3>
+                <div id="profileIncomingRepliesList"></div>
+              </section>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="profile-shell text-center" id="profileNotLoggedIn" style="display:none;">
+      <article class="card bg-dark text-white shadow-lg border-0 mx-auto" style="max-width: 560px;">
+        <div class="card-body p-4">
+          <h2 class="h4 mb-3">Please log in to view your profile</h2>
+          <p class="text-white-50 mb-4">You need an active session to see your stats and comments.</p>
+          <a class="btn btn-primary btn-lg" href="/login">
+            <i class="bi bi-box-arrow-in-right me-2"></i>Go to Login
+          </a>
+        </div>
+      </article>
+    </section>
+  </main>
+</BaseLayout>

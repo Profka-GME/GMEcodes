@@ -243,7 +243,7 @@
         if (!username) {
             _userNav.innerHTML =
                 '<li class="nav-item nav-auth-item">' +
-                    '<a class="nav-link nav-auth-link nav-auth-login" href="' + toRootPath('html/login') + '">' +
+                    '<a class="nav-link nav-auth-link nav-auth-login" href="/login">' +
                         '<i class="bi bi-box-arrow-in-right me-1"></i>Login' +
                     '</a>' +
                 '</li>';
@@ -272,12 +272,12 @@
         var logoutBtn = document.getElementById('logoutBtn');
         if (viewProfileBtn) {
             viewProfileBtn.addEventListener('click', function () {
-                window.location.href = toRootPath('html/profile');
+                window.location.href = '/profile';
             });
         }
         if (logoutBtn) {
             logoutBtn.addEventListener('click', function () {
-                window.location.href = toRootPath('html/logout');
+               window.location.href = '/logout';
             });
         }
     }

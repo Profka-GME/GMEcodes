@@ -23,8 +23,14 @@ function pageSlugFromEntry(page) {
   return path.posix.basename(clean(page), '.html');
 }
 
-const gamesDatabase = readJson('data/game-codes.json');
-const gamesListing = readJson('data/games.json');
+// 1. Read and parse the main games list
+const gamesData = fs.readFileSync('./public/data/games.json', 'utf-8').trim();
+const gamesListing = JSON.parse(gamesData);
+
+// 2. Read and parse the specific game codes database
+const codesData = fs.readFileSync('./public/data/game-codes.json', 'utf-8').trim();
+const gamesDatabase = JSON.parse(codesData);
+
 const gameCodesMeta = gamesDatabase && typeof gamesDatabase._meta === 'object' ? gamesDatabase._meta : {};
 
 // Generate GAME_PAGE_DETAILS from gamesListing
