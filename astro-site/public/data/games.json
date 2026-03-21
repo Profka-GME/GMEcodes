@@ -193,5 +193,24 @@
             "Enter your code in the text box, and click the blue Redeem button.",
             "If the code is valid and active, you will receive a confirmation message and the reward will be added to your account."
         ]
+    },
+    {
+        "name": "Knockout!(Roblox)",
+        "slug": "knockout",
+        "codeKey": "knockout",
+        "page": "games/knockout",
+        "image": "images/logo/knockout2.jpg",
+        "picture": "images/pictures/knockout.jpg",
+        "title": "Roblox Knockout! Codes | Working and Expired Codes | GMEcodes",
+        "metaDescription": "Updated Roblox Knockout! codes with active rewards, expired codes, and redeem instructions.",
+        "ogDescription": "See working and expired Roblox Knockout! codes with frequent updates.",
+        "intro": "In Knockout! (the physics-based penguin brawler), codes are your primary way to skip the grind for cosmetics. Since the core gameplay is about survival and physics, the codes don't necessarily make you \"stronger,\" but they are the fastest way to customize your penguin.",
+        "redeemSteps": [
+            "Launch Knockout! on Roblox.",
+            "Click the Settings Cog icon (silver gear) in the bottom-left corner of the screen.",
+            "A menu will appear with a text box at the top labeled \"Enter Code Here...\"",
+            "Enter your code in the text box and click the Redeem button.",
+            "If the code is valid and active, you will receive a confirmation message and the reward will be added to your account."
+        ]
     }
 ]

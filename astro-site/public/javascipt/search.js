@@ -50,7 +50,13 @@ image: "images/logo/kinglegacy2.jpg"
 name: "Anime Card Clash(Roblox)",
 page: "games/animecardclash",
 image: "images/logo/animecardclash2.jpg"
+},
+{
+name: "Knockout(Roblox)",
+page: "games/knockout",
+image: "images/logo/knockout2.jpg"
 }
+
 ]
 
 const availablePages = new Set([
@@ -63,7 +69,8 @@ const availablePages = new Set([
 "games/sailorpiece",
 "games/hooked",
 "games/kinglegacy",
-"games/animecardclash"
+"games/animecardclash",
+"games/knockout"
 ])
 
 const input = document.getElementById("search-input")

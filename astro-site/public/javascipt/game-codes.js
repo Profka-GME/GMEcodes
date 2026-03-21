@@ -152,6 +152,13 @@
                 page: "animecardclash",
                 image: "../images/logo/animecardclash2.jpg",
                 summary: "Competitive Roblox card game with strategic battles and collectible cards."
+            },
+            {
+                id: "knockout",
+                name: "Knockout",
+                page: "knockout",
+                image: "../images/logo/knockout2.jpg",
+                summary: "Competitive Roblox game where players try to be the last one standing in a shrinking arena."
             }
         ];
 

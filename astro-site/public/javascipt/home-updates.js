@@ -15,7 +15,8 @@
         sailorpiece: { name: "Sailor Piece", href: "games/sailorpiece", image: "images/logo/sailorpiece2.jpg" },
         hooked: { name: "Hooked!", href: "games/hooked", image: "images/logo/hooked2.jpg" },
         kinglegacy: { name: "King Legacy", href: "games/kinglegacy", image: "images/logo/kinglegacy2.jpg" },
-        animecardclash: { name: "Anime Card Clash", href: "games/animecardclash", image: "images/logo/animecardclash2.jpg" }
+        animecardclash: { name: "Anime Card Clash", href: "games/animecardclash", image: "images/logo/animecardclash2.jpg" },
+        knockout: { name: "Knockout", href: "games/knockout", image: "images/logo/knockout2.jpg" }
     };
     const LATEST_LIMIT = 4;
     const BROWSE_PAGE_SIZE = 6;

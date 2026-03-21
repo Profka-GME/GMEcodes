@@ -128,5 +128,23 @@
             { "code": "ANNI5", "reward": "(Requires 350,000,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x5 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x5 250,000x Instant Roll" }
         ],
         "expiredCodes": []
+    },
+    "knockout": {
+        "workingCodes": [
+            { "code": "STEAK", "reward": "x750 Ice" },
+            { "code": "PUNCHMONKEY", "reward": "Limited Time Punchy Skin" },
+            { "code": "HOTPOTATOMODE", "reward": "x500 Ice" },
+            { "code": "POOLMAP", "reward": "x3 Spins" },
+            { "code": "STPATRICKS", "reward": "x25 Clover" },
+            { "code": "TEMPLETILES", "reward": "x5 Spins" },
+            { "code": "DOOMSDAY", "reward": "x25 Magma Crystals" },
+            { "code": "LAVA", "reward": "x750 Ice" },
+            { "code": "BOOGIE", "reward": "x3 Spins" },
+            { "code": "DISCO", "reward": "x50 Disco balls" },
+            { "code": "vindooly", "reward": "Vinguin skin" }
+        ],
+        "expiredCodes": [
+            "ADMINABUSE", "LUNAR", "LANARAE", "RUSSO", "VALENTINES", "SORRYVALENTINES", "TEAMS", "BUNDUN", "DELAY", "MAPS"
+        ]
     }
 }
