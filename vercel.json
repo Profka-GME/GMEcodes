@@ -1,8 +1,4 @@
 {
-  "rewrites": [
-    {
-      "source": "/games/:game",
-      "destination": "/games/:game.html"
-    }
-  ]
+  "cleanUrls": true,
+  "trailingSlash": false
 }
