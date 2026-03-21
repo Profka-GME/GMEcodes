@@ -1,9 +1,4 @@
 ﻿{
-    "_meta": {
-        "defaultCodesPeriod": "March 2026",
-        "lastUpdated": "March 21, 2026",
-        "lastTested": "March 21, 2026"
-    },
     "rivals": {
         "workingCodes": [
                 { "code": "COMMUNITY22", "reward": "x1 Community Wrap" },

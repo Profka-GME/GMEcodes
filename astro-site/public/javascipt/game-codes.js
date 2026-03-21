@@ -43,10 +43,10 @@
             return;
         }
 
-        const titleElement = document.querySelector("h1");
-        if (titleElement) {
-            titleElement.textContent = composeTitleWithPeriod(titleElement.textContent, periodLabel);
-        }
+       // const titleElement = document.querySelector("h1");
+       // if (titleElement) {
+       //     titleElement.textContent = composeTitleWithPeriod(titleElement.textContent, periodLabel);
+       // }
 
         document.title = composeTitleWithPeriod(document.title, periodLabel);
     }

@@ -2,7 +2,7 @@ let games = []
 
 const fallbackGames = [
 {
-name: "99 Nights in the Forest(Roblox)",
+name: "99 Nights in the Forest (Roblox)",
 page: "games/99nights",
 image: "images/logo/99nights2.jpg"
 },

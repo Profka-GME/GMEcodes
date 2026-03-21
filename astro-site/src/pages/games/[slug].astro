@@ -13,6 +13,9 @@ const { game } = Astro.props;
 const meta = getGameCodesMeta();
 const lastUpdated = game.lastUpdated || 'Recently';
 const lastTested = game.lastTested || lastUpdated;
+const today = new Date();
+const currentMonthYear = today.toLocaleString('en-US', { month: 'long', year: 'numeric' });
+const exactDate = today.toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 ---
 <BaseLayout
   title={game.title}
@@ -34,10 +37,13 @@ const lastTested = game.lastTested || lastUpdated;
   <header></header>
   <main class="container p-3 my-3 position-relative" id="L1" style={game.mainStyle || undefined}>
     <section class="row">
-      <h1 class="text-center fw-bold">{game.heading}</h1>
-      <p id="lastUpdatedLabel" class="text-center small text-info mb-2">Last updated: {lastUpdated}</p>
-      <p id="testedTodayLabel" class="text-center small text-info mb-2">Tested: {lastTested}</p>
-    </section>
+    <h1 class="text-center fw-bold">
+      {game.heading || `Latest ${game.name} Codes`} ({currentMonthYear})
+    </h1>
+    
+<p class="text-center small text-info mb-2">Last updated: {exactDate}</p>
+<p class="text-center small text-info mb-2">Verified: {exactDate}</p>
+  </section>
 
     <section class="row" id="L2">
       <div class="col-12 col-sm-12 col-md-6">
