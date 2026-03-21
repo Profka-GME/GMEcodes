@@ -154,7 +154,7 @@
                 summary: "Competitive Roblox card game with strategic battles and collectible cards."
             },
             {
-                id: "knockout",
+                id: "knockout!",
                 name: "Knockout",
                 page: "knockout",
                 image: "../images/logo/knockout2.jpg",

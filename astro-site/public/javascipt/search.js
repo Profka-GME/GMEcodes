@@ -52,7 +52,7 @@ page: "games/animecardclash",
 image: "images/logo/animecardclash2.jpg"
 },
 {
-name: "Knockout(Roblox)",
+name: "Knockout! (Roblox)",
 page: "games/knockout",
 image: "images/logo/knockout2.jpg"
 }
