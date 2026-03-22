@@ -87,77 +87,77 @@
                 id: "rivals",
                 name: "Rivals",
                 page: "rivals",
-                image: "../images/logo/rivals2.jpg",
+                image: "../images/logo/rivals2.webp",
                 summary: "Fast Roblox FPS with 1v1 and 5v5 matches."
             },
             {
                 id: "99nights",
                 name: "99 Nights in the Forest",
                 page: "99nights",
-                image: "../images/logo/99nights2.jpg",
+                image: "../images/logo/99nights2.webp",
                 summary: "Survival-horror where you try to outlast 99 nights."
             },
             {
                 id: "arsenal",
                 name: "Arsenal",
                 page: "Arsenal",
-                image: "../images/logo/Arsenal2.jpg",
+                image: "../images/logo/Arsenal2.webp",
                 summary: "Popular Roblox shooter by ROLVe with fast-paced combat."
             },
             {
                 id: "fishit",
                 name: "Fish It",
                 page: "fishit",
-                image: "../images/logo/Fishit2.jpg",
+                image: "../images/logo/Fishit2.webp",
                 summary: "Relaxed fishing game with upgrades and progression."
             },
             {
                 id: "rerangers",
                 name: "Re:Rangers X",
                 page: "ReRangersX",
-                image: "../images/logo/rerangers2.jpg",
+                image: "../images/logo/rerangers2.webp",
                 summary: "Anime-themed Roblox action RPG with ranger progression and battles."
             },
             {
                 id: "bizlineage",
                 name: "Bizarre Lineage",
                 page: "bizarrelineage",
-                image: "../images/logo/bizarrelineage2.jpg",
+                image: "../images/logo/bizarrelineage2.webp",
                 summary: "Anime-themed Roblox action RPG with lineage progression and battles."
             },
             {
                 id: "sailorpiece",
                 name: "Sailor Piece",
                 page: "sailorpiece",
-                image: "../images/logo/sailorpiece2.jpg",
+                image: "../images/logo/sailorpiece2.webp",
                 summary: "Anime-themed Roblox action RPG with sailor progression and battles."
             },
             {
                 id: "hooked",
                 name: "Hooked!",
                 page: "hooked",
-                image: "../images/logo/hooked2.jpg",
+                image: "../images/logo/hooked2.webp",
                 summary: "Fast-paced physics-based brawler on small platforms."
             },
             {
                 id: "kinglegacy",
                 name: "King Legacy",
                 page: "kinglegacy",
-                image: "../images/logo/kinglegacy2.jpg",
+                image: "../images/logo/kinglegacy2.webp",
                 summary: "Adventurous Roblox game with exploration and quests."
             },
             {
                 id: "animecardclash",
                 name: "Anime Card Clash",
                 page: "animecardclash",
-                image: "../images/logo/animecardclash2.jpg",
+                image: "../images/logo/animecardclash2.webp",
                 summary: "Competitive Roblox card game with strategic battles and collectible cards."
             },
             {
                 id: "knockout!",
                 name: "Knockout",
                 page: "knockout",
-                image: "../images/logo/knockout2.jpg",
+                image: "../images/logo/knockout2.webp",
                 summary: "Competitive Roblox game where players try to be the last one standing in a shrinking arena."
             }
         ];

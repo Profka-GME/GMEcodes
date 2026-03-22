@@ -6,17 +6,17 @@
     }
 
     const gameMeta = {
-        rivals: { name: "Rivals", href: "games/rivals", image: "images/logo/rivals2.jpg" },
-        "99nights": { name: "99 Nights in the Forest", href: "games/99nights", image: "images/logo/99nights2.jpg" },
-        arsenal: { name: "Arsenal", href: "games/Arsenal", image: "images/logo/Arsenal2.jpg" },
-        fishit: { name: "Fish It", href: "games/fishit", image: "images/logo/Fishit2.jpg" },
-        rerangers: { name: "Re:Rangers X", href: "games/ReRangersX", image: "images/logo/rerangers2.jpg" },
-        bizlineage: { name: "Bizarre Lineage", href: "games/bizarrelineage", image: "images/logo/bizarrelineage2.jpg" },
-        sailorpiece: { name: "Sailor Piece", href: "games/sailorpiece", image: "images/logo/sailorpiece2.jpg" },
-        hooked: { name: "Hooked!", href: "games/hooked", image: "images/logo/hooked2.jpg" },
-        kinglegacy: { name: "King Legacy", href: "games/kinglegacy", image: "images/logo/kinglegacy2.jpg" },
-        animecardclash: { name: "Anime Card Clash", href: "games/animecardclash", image: "images/logo/animecardclash2.jpg" },
-        knockout: { name: "Knockout!", href: "games/knockout", image: "images/logo/knockout2.jpg" }
+        rivals: { name: "Rivals", href: "games/rivals", image: "images/logo/rivals2.webp" },
+        "99nights": { name: "99 Nights in the Forest", href: "games/99nights", image: "images/logo/99nights2.webp" },
+        arsenal: { name: "Arsenal", href: "games/Arsenal", image: "images/logo/Arsenal2.webp" },
+        fishit: { name: "Fish It", href: "games/fishit", image: "images/logo/Fishit2.webp" },
+        rerangers: { name: "Re:Rangers X", href: "games/ReRangersX", image: "images/logo/rerangers2.webp" },
+        bizlineage: { name: "Bizarre Lineage", href: "games/bizarrelineage", image: "images/logo/bizarrelineage2.webp" },
+        sailorpiece: { name: "Sailor Piece", href: "games/sailorpiece", image: "images/logo/sailorpiece2.webp" },
+        hooked: { name: "Hooked!", href: "games/hooked", image: "images/logo/hooked2.webp" },
+        kinglegacy: { name: "King Legacy", href: "games/kinglegacy", image: "images/logo/kinglegacy2.webp" },
+        animecardclash: { name: "Anime Card Clash", href: "games/animecardclash", image: "images/logo/animecardclash2.webp" },
+        knockout: { name: "Knockout!", href: "games/knockout", image: "images/logo/knockout2.webp" }
     };
     const LATEST_LIMIT = 4;
     const BROWSE_PAGE_SIZE = 6;

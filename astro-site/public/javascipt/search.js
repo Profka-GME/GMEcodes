@@ -4,57 +4,57 @@ const fallbackGames = [
 {
 name: "99 Nights in the Forest (Roblox)",
 page: "games/99nights",
-image: "images/logo/99nights2.jpg"
+image: "images/logo/99nights2.webp"
 },
 {
 name: "Rivals(Roblox)",
 page: "games/rivals",
-image: "images/logo/rivals2.jpg"
+image: "images/logo/rivals2.webp"
 },
 {
 name: "Arsenal(Roblox)",
 page: "games/Arsenal",
-image: "images/logo/Arsenal2.jpg"
+image: "images/logo/Arsenal2.webp"
 },
 {
 name: "Fish it(Roblox)",
 page: "games/fishit",
-image: "images/logo/Fishit2.jpg"
+image: "images/logo/Fishit2.webp"
 },
 {
 name: "Re:Rangers X(Roblox)",
 page: "games/ReRangersX",
-image: "images/logo/rerangers2.jpg"
+image: "images/logo/rerangers2.webp"
 },
 {
 name: "Bizarre Lineage(Roblox)",
 page: "games/bizarrelineage",
-image: "images/logo/bizarrelineage2.jpg"
+image: "images/logo/bizarrelineage2.webp"
 },
 {
 name: "Sailor Piece(Roblox)",
 page: "games/sailorpiece",
-image: "images/logo/sailorpiece2.jpg"
+image: "images/logo/sailorpiece2.webp"
 },
 {
 name: "Hooked!(Roblox)",
 page: "games/hooked",
-image: "images/logo/hooked2.jpg"
+image: "images/logo/hooked2.webp"
 },
 {
 name: "King Legacy(Roblox)",
 page: "games/kinglegacy",
-image: "images/logo/kinglegacy2.jpg"
+image: "images/logo/kinglegacy2.webp"
 },
 {
 name: "Anime Card Clash(Roblox)",
 page: "games/animecardclash",
-image: "images/logo/animecardclash2.jpg"
+image: "images/logo/animecardclash2.webp"
 },
 {
 name: "Knockout! (Roblox)",
 page: "games/knockout",
-image: "images/logo/knockout2.jpg"
+image: "images/logo/knockout2.webp"
 }
 
 ]
