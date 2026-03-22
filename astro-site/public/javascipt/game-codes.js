@@ -159,6 +159,13 @@
                 page: "knockout",
                 image: "../images/logo/knockout2.webp",
                 summary: "Competitive Roblox game where players try to be the last one standing in a shrinking arena."
+            },
+            {
+                id: "animeoverload",
+                name: "Anime Overload!",
+                page: "animeoverload",
+                image: "../images/logo/animeoverload2.webp",
+                summary: "Anime-themed Roblox action game with overload progression and battles."
             }
         ];
 

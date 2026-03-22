@@ -148,5 +148,14 @@
         "expiredCodes": [
             "ADMINABUSE", "LUNAR", "LANARAE", "RUSSO", "VALENTINES", "SORRYVALENTINES", "TEAMS", "BUNDUN", "DELAY", "MAPS"
         ]
+    },
+    "animeoverload": {
+        "workingCodes": [
+            { "code": "HappyEarlyAccess", "reward": "x25 trait rerolls, x10 of every star" },
+            { "code": "Sorry4Delay", "reward": "x100 trait rerolls, x5.000 Crystals" },
+            { "code": "OurBadWeWillDoOurBest", "reward": "x100 trait rerolls" },
+            { "code": "Enjoy Release!", "reward": "x4 Cosmic Stars, x1 Stat Locker" }
+        ],
+        "expiredCodes": []
     }
 }
