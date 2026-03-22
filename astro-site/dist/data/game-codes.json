@@ -59,14 +59,15 @@
     },
     "rerangers": {
         "workingCodes": [
-            { "code": "RANGERRERELEASE", "reward": "x25 Trait Rerolls, x12 Soul Fragments, x1000 Gems, x20000 Sol Tokens" },
-            { "code": "LATOM", "reward": "x50 Trait Rerolls, x50000 Gold, x2500 Gems, x50000 Sol Tokens" },
-            { "code": "SERIALIZED", "reward": "x25 Trait Rerolls, x10 Dr. Megga Punks, x10000 Sol Tokens" },
-            { "code": "ThanksFor30KCCU!", "reward": "x30 Trait Rerolls, x3000 Gems, 30K Gold" }
+            { "code": "UNLIMITED", "reward": "x25 Trait Rerolls, x50000 Gold, x2500 Gems" },
+            { "code": "BOSSATTACK", "reward": "x25 Trait Rerolls, x12 Soul Fragments, x1000 Gems" },
+            { "code": "LEADERBOARDS", "reward": "x25 Trait Rerolls, x10 Dr. Megga Punks, x5 Stat Boosters" },
+            { "code": "RANGERSRELEASE", "reward": "x25 Trait Rerolls, x10 Dr. Megga Punks, x5 Stat Boosters" },
+            { "code": "ThanksFor50KCCU!", "reward": "x50 Trait Rerolls, x5000 Gems" }
         ],
         "expiredCodes": [
-            "SorryForTheDelay!", "HolyGrailRework!", "RuptureHero!", "MoreQoL!", "BugFixes10.5", "RANGERSRELEASE6",
-            "ThankYouFor7KCCU!", "JJKUPD!", "DraculaQuestPatch", "OOPSRAMEN!", "KoromuBossEvent", "SorryForDelays!!","GHOULHUNT", "RAIDSAREBACK", "WeAreSorrySoSorry", "YggDrasilRaid", "SORRYFORBUGS", "HalloweenSoon!","DivineEventUpdate!", "SORRYFORDELAYS!"
+            "LATOM", "HolyGrailRework!", "RANGERRERELEASE", "MoreQoL!", "BugFixes10.5", "RANGERSRELEASE6",
+            "ThankYouFor7KCCU!", "SERIALIZED", "DraculaQuestPatch", "OOPSRAMEN!", "KoromuBossEvent", "SorryForDelays!!","GHOULHUNT", "RAIDSAREBACK", "WeAreSorrySoSorry", "YggDrasilRaid", "SORRYFORBUGS", "ThanksFor30KCCU!","DivineEventUpdate!", "SORRYFORDELAYS!"
         ]
     },
     "bizlineage": {
