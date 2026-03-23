@@ -166,6 +166,13 @@
                 page: "animeoverload",
                 image: "../images/logo/animeoverload2.webp",
                 summary: "Anime-themed Roblox action game with overload progression and battles."
+            },
+            {
+                id: "allstartowerdefense",
+                name: "All Star Tower Defense",
+                page: "allstartowerdefense",
+                image: "../images/logo/allstartowerdefense2.webp",
+                summary: "Anime-themed Roblox tower defense game with strategic battles and character progression."
             }
         ];
 

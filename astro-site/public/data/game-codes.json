@@ -159,5 +159,14 @@
             { "code": "Enjoy Release!", "reward": "x4 Cosmic Stars, x1 Stat Locker" }
         ],
         "expiredCodes": []
-    }
+    },
+        "allstartowerdefense": {
+            "workingCodes": [
+                { "code": "ultramicro", "reward": "x100 Currencies, x300 Gems" },
+                { "code": "game11", "reward": "x100 Currencies, x300 Gems" }
+            ],
+            "expiredCodes": [
+                "NEWUPDATESTUFF", "SORRY4BREAK", "UPDATE7ORISIT8", "DEVLOG1", "DELAYYY5"
+            ]
+        }
 }

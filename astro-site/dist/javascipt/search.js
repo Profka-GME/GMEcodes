@@ -60,6 +60,11 @@ image: "images/logo/knockout2.webp"
 name: "Anime Overload!(Roblox)",
 page: "games/animeoverload",
 image: "images/logo/animeoverload2.webp"
+},
+{
+name: "All Star Tower Defense(Roblox)",
+page: "games/allstartowerdefense",
+image: "images/logo/allstartowerdefense2.webp"
 }
 ]
 
@@ -75,7 +80,8 @@ const availablePages = new Set([
 "games/kinglegacy",
 "games/animecardclash",
 "games/knockout",
-"games/animeoverload"
+"games/animeoverload",
+"games/allstartowerdefense"
 ])
 
 const input = document.getElementById("search-input")

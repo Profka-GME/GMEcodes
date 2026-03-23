@@ -17,7 +17,8 @@
         kinglegacy: { name: "King Legacy", href: "games/kinglegacy", image: "images/logo/kinglegacy2.webp" },
         animecardclash: { name: "Anime Card Clash", href: "games/animecardclash", image: "images/logo/animecardclash2.webp" },
         knockout: { name: "Knockout!", href: "games/knockout", image: "images/logo/knockout2.webp" },
-        animeoverload: { name: "Anime Overload!", href: "games/animeoverload", image: "images/logo/animeoverload2.webp" }
+        animeoverload: { name: "Anime Overload!", href: "games/animeoverload", image: "images/logo/animeoverload2.webp" },
+        allstartowerdefense: { name: "All Star Tower Defense", href: "games/allstartowerdefense", image: "images/logo/allstartowerdefense2.webp" }
     };
     const LATEST_LIMIT = 4;
     const BROWSE_PAGE_SIZE = 6;
