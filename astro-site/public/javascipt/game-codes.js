@@ -173,6 +173,13 @@
                 page: "allstartowerdefense",
                 image: "../images/logo/allstartowerdefense2.webp",
                 summary: "Anime-themed Roblox tower defense game with strategic battles and character progression."
+            },
+            {
+                id: "animevanguards",
+                name: "Anime Vanguards",
+                page: "animevanguards",
+                image: "../images/logo/animevanguards2.webp",
+                summary: "Anime-themed Roblox tower defense game with battles and Gacha character collection."
             }
         ];
 

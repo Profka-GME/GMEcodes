@@ -145,12 +145,12 @@ const schemaJson = schema ? JSON.stringify(schema, null, 2) : '';
         }
       }
 
-      // Initial run [cite: 75, 150]
+      // Initial run
       updateNavbar();
 
-      // Listen for login/logout events across the site [cite: 75, 150]
-      window.addEventListener('userLoggedIn', updateNavbar); [cite: 75, 150]
-      window.addEventListener('userLoggedOut', updateNavbar); [cite: 75, 150]
+      // Listen for login/logout events across the site
+      window.addEventListener('userLoggedIn', updateNavbar);
+      window.addEventListener('userLoggedOut', updateNavbar);
       </script>
 
       <script is:inline src="/javascipt/search.js"></script>

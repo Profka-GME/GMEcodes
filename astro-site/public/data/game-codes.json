@@ -168,5 +168,11 @@
             "expiredCodes": [
                 "NEWUPDATESTUFF", "SORRY4BREAK", "UPDATE7ORISIT8", "DEVLOG1", "DELAYYY5"
             ]
-        }
+    },
+    "animevanguards": {
+        "workingCodes": [],
+        "expiredCodes": [
+            "BugDemonAttacked", "NoCustoms", "1WeekDelay", "Chainsaws", "ALMOST100K", "ItsCold","Memoria", "Winter26", "SorryForBugs", "PinkVillainRaid"
+        ]
+    }
 }
