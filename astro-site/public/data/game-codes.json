@@ -103,7 +103,8 @@
             { "code": "JOINHOOKEDDC", "reward": "x500 Gold" },
             { "code": "HOOKED1KLIKES", "reward": "x300 Gold" },
             { "code": "HOOKED", "reward": "x500 Gold" },
-            { "code": "HOOKED2KLIKES", "reward": "x300 Gold" }
+            { "code": "HOOKED2KLIKES", "reward": "x300 Gold" },
+            { "code": "MASTEROFSKILLS", "reward": "x50 Skill Shards" }
         ],
         "expiredCodes": []
     },
@@ -119,7 +120,8 @@
             { "code": "RainbowDragon", "reward": "100 gems (Only works if you owned / unlocked the Rainbow Dragon Color before Update 7)" },
             { "code": "FREESTATSRESET", "reward": "Free Refund Stats" },
             { "code": "2MFAV", "reward": "Free Refund Stats" },
-            { "code": "FreePterSpin", "reward": "x10 Copper Key Hope you guys get pter fruit" }
+            { "code": "FreePterSpin", "reward": "x10 Copper Key Hope you guys get pter fruit" },
+            { "code": "FIXEDDROPBOOST", "reward": "x10 Fortune Tales " }
         ],
         "expiredCodes": []
     },
