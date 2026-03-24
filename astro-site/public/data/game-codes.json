@@ -145,7 +145,8 @@
             { "code": "LAVA", "reward": "x750 Ice" },
             { "code": "BOOGIE", "reward": "x3 Spins" },
             { "code": "DISCO", "reward": "x50 Disco balls" },
-            { "code": "vindooly", "reward": "Vinguin skin" }
+            { "code": "vindooly", "reward": "Vinguin skin" },
+            { "code": "SORRYQUESTS", "reward": "x5 Spins" }
         ],
         "expiredCodes": [
             "ADMINABUSE", "LUNAR", "LANARAE", "RUSSO", "VALENTINES", "SORRYVALENTINES", "TEAMS", "BUNDUN", "DELAY", "MAPS"
