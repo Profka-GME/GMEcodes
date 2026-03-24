@@ -268,5 +268,26 @@
             "Enter your code in the text box and click the green Redeem Code button.",
             "If the code is valid and active, you will receive a confirmation message and the reward will be added to your account."
         ]
+    },
+    {
+        "name": "Sol's RNG(Roblox)",
+        "slug": "solsrng",
+        "codeKey": "solsrng",
+        "page": "games/solsrng",
+        "image": "images/logo/solsrng2.webp",
+        "picture": "images/pictures/solsrng.webp",
+        "title": "Roblox Sol's RNG Codes | Working and Expired Codes | GMEcodes",
+        "metaDescription": "Discover the latest working Roblox Sol's RNG codes! We provide regularly updated lists of active codes, expired codes, and step-by-step redeem instructions to help you get free rewards fast.",
+        "ogDescription": "See working and expired Roblox Sol's RNG codes with frequent updates.",
+        "intro": "In Sol’s RNG, codes are a bit different from most other Roblox games. While they do provide free items, the game also uses a unique Gifting System where codes are the primary way to send and receive paid Game Passes.",
+        "redeemSteps": [
+            "Launch Sol's RNG on Roblox.",
+            "Open the Menu (the three lines/bullet points icon on the bottom left).",
+            "Click the Settings (cog icon).",
+            "Click the purple Miscellaneous tab at the top of the settings window.",
+            "Find the Redeem Code section and click the \"Open\" button.",
+            "Type or paste your code into the text box and click the Redeem button.",
+            "If the code is valid and active, you will receive a confirmation message and the reward will be added to your account."
+        ]
     }
 ]

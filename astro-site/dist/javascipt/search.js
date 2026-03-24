@@ -70,6 +70,11 @@ image: "images/logo/allstartowerdefense2.webp"
 name: "Anime Vanguards(Roblox)",
 page: "games/animevanguards",
 image: "images/logo/animevanguards2.webp"
+},
+{
+name: "SolsRNG(Roblox)",
+page: "games/solsrng",
+image: "images/logo/solsrng2.webp"
 }
 ]
 
@@ -87,7 +92,8 @@ const availablePages = new Set([
 "games/knockout",
 "games/animeoverload",
 "games/allstartowerdefense",
-"games/animevanguards"
+"games/animevanguards",
+"games/solsrng"
 ])
 
 const input = document.getElementById("search-input")

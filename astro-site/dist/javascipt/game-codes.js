@@ -180,6 +180,13 @@
                 page: "animevanguards",
                 image: "../images/logo/animevanguards2.webp",
                 summary: "Anime-themed Roblox tower defense game with battles and Gacha character collection."
+            },
+            {
+                id: "solsrng",
+                name: "SolsRNG",
+                page: "solsrng",
+                image: "../images/logo/solsrng2.webp",
+                summary: "Anime-themed Roblox game with RNG mechanics and strategic battles."
             }
         ];
 

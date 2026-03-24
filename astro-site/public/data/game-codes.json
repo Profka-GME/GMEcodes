@@ -177,5 +177,15 @@
         "expiredCodes": [
             "BugDemonAttacked", "NoCustoms", "1WeekDelay", "Chainsaws", "ALMOST100K", "ItsCold","Memoria", "Winter26", "SorryForBugs", "PinkVillainRaid"
         ]
+    },
+    "solsrng": {
+        "workingCodes": [
+            { "code": "AnotherRealmCH2", "reward": "x20 Potion Chests, x5 Rare Potion Chests" },
+            { "code": "RaidCH2", "reward": "x3 Red Potion, x1 Red Moon Potion" },
+            { "code": "UPD20260228", "reward": "x20 Potion Chests, x5 Rare Potion Chests" }
+        ],
+        "expiredCodes": [
+            "word9999aura", "word999aura", "2026ValentineDay", "transform", "UPDATE20260117", "50kSUB", "ChristmasPart1!", "HoHoHo", "UPDATE DELAYED", "2026GETRAREAURA"
+        ]
     }
 }
