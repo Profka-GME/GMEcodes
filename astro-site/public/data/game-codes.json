@@ -190,5 +190,15 @@
         "expiredCodes": [
             "word9999aura", "word999aura", "2026ValentineDay", "transform", "UPDATE20260117", "50kSUB", "ChristmasPart1!", "HoHoHo", "UPDATE DELAYED", "2026GETRAREAURA"
         ]
+    },
+    "volleyballlegends": {
+        "workingCodes": [
+            { "code": "UPDATE_62", "reward": "x5 Lucky Style Spins" },
+            { "code": "MIKAGE_IS_BACK", "reward": "x5 Lucky Style Spins" },
+            { "code": "BALL_MACHINES", "reward": "x5 Lucky Style Spins" }
+        ],
+        "expiredCodes": [
+            "STPATRICKS_DAY", "UPDATE_61", "SEASON_13", "KIJO", "SUPER_TILTS"
+        ]
     }
 }

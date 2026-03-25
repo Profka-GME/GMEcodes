@@ -20,7 +20,8 @@
         animeoverload: { name: "Anime Overload!", href: "games/animeoverload", image: "images/logo/animeoverload2.webp" },
         allstartowerdefense: { name: "All Star Tower Defense", href: "games/allstartowerdefense", image: "images/logo/allstartowerdefense2.webp" },
         animevanguards: { name: "Anime Vanguards", href: "games/animevanguards", image: "images/logo/animevanguards2.webp" },
-        solsrng: { name: "SolsRNG", href: "games/solsrng", image: "images/logo/solsrng2.webp" }
+        solsrng: { name: "SolsRNG", href: "games/solsrng", image: "images/logo/solsrng2.webp" },
+        volleyballlegends: { name: "Volleyball Legends", href: "games/volleyballlegends", image: "images/logo/volleyballlegends2.webp" }
     };
     const LATEST_LIMIT = 4;
     const BROWSE_PAGE_SIZE = 6;

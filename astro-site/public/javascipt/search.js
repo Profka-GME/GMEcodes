@@ -75,6 +75,11 @@ image: "images/logo/animevanguards2.webp"
 name: "SolsRNG(Roblox)",
 page: "games/solsrng",
 image: "images/logo/solsrng2.webp"
+},
+{
+name: "Volleyball Legends(Roblox)",
+page: "games/volleyballlegends",
+image: "images/logo/volleyballlegends2.webp"
 }
 ]
 
@@ -93,7 +98,8 @@ const availablePages = new Set([
 "games/animeoverload",
 "games/allstartowerdefense",
 "games/animevanguards",
-"games/solsrng"
+"games/solsrng",
+"games/volleyballlegends"
 ])
 
 const input = document.getElementById("search-input")

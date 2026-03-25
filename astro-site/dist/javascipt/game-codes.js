@@ -187,6 +187,13 @@
                 page: "solsrng",
                 image: "../images/logo/solsrng2.webp",
                 summary: "Anime-themed Roblox game with RNG mechanics and strategic battles."
+            },
+            {
+                id: "volleyballlegends",
+                name: "Volleyball Legends",
+                page: "volleyballlegends",
+                image: "../images/logo/volleyballlegends2.webp",
+                summary: "Competitive Roblox volleyball game with fast-paced matches and character progression."
             }
         ];
 
