@@ -83,19 +83,15 @@
         "workingCodes": [
             { "code": "ALTERUPDATE", "reward": "Rewards" },
             { "code": "BIGGESTUPDATENEXT", "reward": "Rewards" },
-            { "code": "SMALLDELAYVERYSORRY", "reward": "Rewards" },
-            { "code": "45KFOLLOWSTYY", "reward": "Rewards" },
-            { "code": "EIDMUBARAK", "reward": "Rewards" },
-            { "code": "260KCCUINSANE", "reward": "Rewards" },
-            { "code": "245KCCUGETTINGTOOCRAZY", "reward": "Rewards" },
-            { "code": "230KCCUYALLTHEBEST", "reward": "Rewards" },
-            { "code": "TYFOR215KCCU", "reward": "Rewards" },
-            {"code": "275KCCUOMG", "reward": "Rewards"},
-            { "code": "290KCCUSOMUCH", "reward": "Rewards" },
-            { "code": "305KCCUTYSMGUYS", "reward": "Rewards" }
+            { "code": "INFINITETOWER", "reward": "Rewards" },
+            { "code": "SEA2SOON", "reward": "Rewards" },
+            { "code": "175KFOLLOWSTYSM", "reward": "Rewards" },
+            { "code": "150MVISITS", "reward": "Rewards" },
+            { "code": "SORRYFORALLTHEBUGSS", "reward": "Rewards" },
+            { "code": "SORRYFORALLTHEBUGSBUTBETTER", "reward": "Rewards" }
         ],
         "expiredCodes": [
-            "TYFOR170KCCUWOW", "INSANE180KCCU", "OMG190KCCU", "THEBIG200KCCUTYSM", "TY80KCCUWOWWW", "75KCCUWOAH", "65KCCUWOWW", "INSANE60KCCU"
+            "BIGGESTUPDATENEXT", "45KFOLLOWSTYY", "EIDMUBARAK", "260KCCUINSANE", "245KCCUGETTINGTOOCRAZY", "230KCCUYALLTHEBEST", "TYFOR215KCCU", "275KCCUOMG", "290KCCUSOMUCH", "305KCCUTYSMGUYS"
         ]
     },
     "hooked": {
@@ -120,10 +116,11 @@
             { "code": "RainbowDragon", "reward": "100 gems (Only works if you owned / unlocked the Rainbow Dragon Color before Update 7)" },
             { "code": "FREESTATSRESET", "reward": "Free Refund Stats" },
             { "code": "2MFAV", "reward": "Free Refund Stats" },
-            { "code": "FreePterSpin", "reward": "x10 Copper Key Hope you guys get pter fruit" },
-            { "code": "FIXEDDROPBOOST", "reward": "x10 Fortune Tales " }
+            { "code": "FreePterSpin", "reward": "x10 Copper Key Hope you guys get pter fruit" }
         ],
-        "expiredCodes": []
+        "expiredCodes": [
+            "FIXEDDROPBOOST"
+        ]
     },
     "animecardclash": {
         "workingCodes": [
@@ -163,14 +160,14 @@
         ],
         "expiredCodes": []
     },
-        "allstartowerdefense": {
-            "workingCodes": [
-                { "code": "ultramicro", "reward": "x100 Currencies, x300 Gems" },
-                { "code": "game11", "reward": "x100 Currencies, x300 Gems" }
-            ],
-            "expiredCodes": [
-                "NEWUPDATESTUFF", "SORRY4BREAK", "UPDATE7ORISIT8", "DEVLOG1", "DELAYYY5"
-            ]
+    "allstartowerdefense": {
+        "workingCodes": [
+            { "code": "ultramicro", "reward": "x100 Currencies, x300 Gems" },
+            { "code": "game11", "reward": "x100 Currencies, x300 Gems" }
+        ],
+        "expiredCodes": [
+            "NEWUPDATESTUFF", "SORRY4BREAK", "UPDATE7ORISIT8", "DEVLOG1", "DELAYYY5"
+        ]
     },
     "animevanguards": {
         "workingCodes": [],
