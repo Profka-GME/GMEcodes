@@ -309,5 +309,25 @@
             "Enter your code in the text box and click the Redeem button.",
             "If the code is valid and active, you will receive a confirmation message and the reward will be added to your account."
         ]
+    },
+    {
+        "name": "Adopt Me(Roblox)",
+        "slug": "adoptme",
+        "codeKey": "adoptme",
+        "page": "games/adoptme",
+        "image": "images/logo/adoptme2.webp",
+        "picture": "images/pictures/adoptme.webp",
+        "title": "Roblox Adopt Me Codes | Working and Expired Codes | GMEcodes",
+        "metaDescription": "Discover the latest working Roblox Adopt Me codes! We provide regularly updated lists of active codes, expired codes, and step-by-step redeem instructions to help you get free rewards fast.",
+        "ogDescription": "See working and expired Roblox Adopt Me codes with frequent updates.",
+        "intro": "In Adopt Me!, the use of codes has changed significantly over the years. Unlike many other Roblox games that release weekly codes, Adopt Me! developers shifted their focus toward in-game events and daily login rewards rather than static promo codes.",
+        "redeemSteps": [
+            "Launch Adopt Me on Roblox.",
+            "Cross the bridges toward the Trade Tower (the large building with a set of scales on the roof).",
+            "Go inside the Safety Hub section.",
+            "Look for Agent Ruhi standing next to a computer/kiosk.",
+            "Interact with the Kiosk to enter a code.",
+            "If the code is valid and active, you will receive a confirmation message and the reward will be added to your account."
+        ]
     }
 ]

@@ -194,6 +194,13 @@
                 page: "volleyballlegends",
                 image: "../images/logo/volleyballlegends2.webp",
                 summary: "Competitive Roblox volleyball game with fast-paced matches and character progression."
+            },
+            {
+                id: "adoptme",
+                name: "Adopt Me",
+                page: "adoptme",
+                image: "../images/logo/adoptme2.webp",
+                summary: "Family-friendly Roblox game focused on adopting pets and role-playing."
             }
         ];
 
