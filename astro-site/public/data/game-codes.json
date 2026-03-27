@@ -106,7 +106,8 @@
             { "code": "HOOKED1KLIKES", "reward": "x300 Gold" },
             { "code": "HOOKED", "reward": "x500 Gold" },
             { "code": "HOOKED2KLIKES", "reward": "x300 Gold" },
-            { "code": "MASTEROFSKILLS", "reward": "x50 Skill Shards" }
+            { "code": "MASTEROFSKILLS", "reward": "x50 Skill Shards" },
+            { "code": "HOOKED3KLIKES", "reward": "x300 Gold" }
         ],
         "expiredCodes": []
     },
