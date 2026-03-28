@@ -163,10 +163,8 @@
     },
     "animeoverload": {
         "workingCodes": [
-            { "code": "HappyEarlyAccess", "reward": "x25 trait rerolls, x10 of every star" },
-            { "code": "Sorry4Delay", "reward": "x100 trait rerolls, x5.000 Crystals" },
-            { "code": "OurBadWeWillDoOurBest", "reward": "x100 trait rerolls" },
-            { "code": "Enjoy Release!", "reward": "x4 Cosmic Stars, x1 Stat Locker" }
+            { "code": "FULLRELEASE", "reward": "(lvl req 3) x50 trait rerolls, x2,500 crystals, x1,000 tokens, x25 basic stat cubes" },
+            { "code": "Thanks4Feedback", "reward":"(no lvl req) x50 trait rerolls, x2500 Crystals, x20 basic Stat Cubes, x7500 Bloodied chains" }
         ],
         "expiredCodes": []
     },
