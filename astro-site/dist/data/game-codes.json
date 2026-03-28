@@ -94,7 +94,8 @@
             { "code": "350KCCUINSANEE", "reward": "Rewards" },
             { "code": "365KCCUOP", "reward": "Rewards" },
             { "code": "380KCCUSOCRAZY", "reward": "Rewards" },
-            { "code": "INSANE410KCCU", "reward": "Rewards" }
+            { "code": "425KCCUYAY", "reward": "Rewards" },
+            { "code": "200MVISITS", "reward": "Rewards" }
         ],
         "expiredCodes": [
             "BIGGESTUPDATENEXT", "45KFOLLOWSTYY", "EIDMUBARAK", "260KCCUINSANE", "245KCCUGETTINGTOOCRAZY", "230KCCUYALLTHEBEST", "TYFOR215KCCU", "275KCCUOMG", "290KCCUSOMUCH", "305KCCUTYSMGUYS"
@@ -106,7 +107,8 @@
             { "code": "HOOKED1KLIKES", "reward": "x300 Gold" },
             { "code": "HOOKED", "reward": "x500 Gold" },
             { "code": "HOOKED2KLIKES", "reward": "x300 Gold" },
-            { "code": "MASTEROFSKILLS", "reward": "x50 Skill Shards" }
+            { "code": "MASTEROFSKILLS", "reward": "x50 Skill Shards" },
+            { "code": "HOOKED3KLIKES", "reward": "x300 Gold" }
         ],
         "expiredCodes": []
     },
@@ -130,13 +132,15 @@
     },
     "animecardclash": {
         "workingCodes": [
-            { "code": "ANNI1", "reward": "x5 Large Luck Potion, x5 Large Roll Speed Potion, x2 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x2 50,000x Instant Roll" },
-            { "code": "ANNI2", "reward": "(Requires 500,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x2 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x2 100,000x Instant Roll" },
-            { "code": "ANNI3", "reward": "(Requires 5,000,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x5 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x2 250,000x Instant Roll" },
-            { "code": "ANNI4", "reward": "(Requires 50,000,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x5 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x3 250,000x Instant Roll" },
-            { "code": "ANNI5", "reward": "(Requires 350,000,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x5 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x5 250,000x Instant Roll" }
+            { "code": "ANNIDELAY1", "reward": "x5 Large Luck Potion, x5 Large Roll Speed Potion, x2 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x2 50,000x Instant Roll" },
+            { "code": "ANNIDELAY2", "reward": "(Requires 500,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x2 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x2 100,000x Instant Roll" },
+            { "code": "ANNIDELAY3", "reward": "(Requires 5,000,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x5 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x2 250,000x Instant Roll" },
+            { "code": "ANNIDELAY4", "reward": "(Requires 50,000,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x5 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x3 250,000x Instant Roll" },
+            { "code": "ANNIDELAY5", "reward": "(Requires 350,000,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x5 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x5 250,000x Instant Roll" }
         ],
-        "expiredCodes": []
+        "expiredCodes": [
+            "ANNI1", "ANNI2", "ANNI3", "ANNI4", "ANNI5"
+        ]
     },
     "knockout": {
         "workingCodes": [
@@ -159,10 +163,8 @@
     },
     "animeoverload": {
         "workingCodes": [
-            { "code": "HappyEarlyAccess", "reward": "x25 trait rerolls, x10 of every star" },
-            { "code": "Sorry4Delay", "reward": "x100 trait rerolls, x5.000 Crystals" },
-            { "code": "OurBadWeWillDoOurBest", "reward": "x100 trait rerolls" },
-            { "code": "Enjoy Release!", "reward": "x4 Cosmic Stars, x1 Stat Locker" }
+            { "code": "FULLRELEASE", "reward": "(lvl req 3) x50 trait rerolls, x2,500 crystals, x1,000 tokens, x25 basic stat cubes" },
+            { "code": "Thanks4Feedback", "reward":"(no lvl req) x50 trait rerolls, x2500 Crystals, x20 basic Stat Cubes, x7500 Bloodied chains" }
         ],
         "expiredCodes": []
     },
@@ -206,5 +208,12 @@
         "expiredCodes": [
             "2xROSS", "SUMMERBREAK", "SUMMERSALE", "1B1LL1ONV1S1TS", "M0N3YTR33S", "GIFTUNWRAP", "DiscordFTW", "subbethink", "GIFTUNWRAP", "SEAcreatures"
         ]
+    },
+    "bealuckyblock": {
+        "workingCodes": [
+            { "code": "RELEASE", "reward": "Brr Brr Patapim Brainrot" },
+            { "code": "ZEUS", "reward": "Angelzini Bananini Brainrot" }
+        ],
+        "expiredCodes": []
     }
 }

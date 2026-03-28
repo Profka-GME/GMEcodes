@@ -201,7 +201,14 @@
                 page: "adoptme",
                 image: "../images/logo/adoptme2.webp",
                 summary: "Family-friendly Roblox game focused on adopting pets and role-playing."
-            }
+            },
+            {
+                id: "bealuckyblock",
+                name: "Be a Lucky Block",
+                page: "bealuckyblock",
+                image: "../images/logo/bealuckyblock2.webp",
+                summary: "Roblox game where players interact with lucky blocks for random rewards."
+            },
         ];
 
         function shuffleGames(games) {

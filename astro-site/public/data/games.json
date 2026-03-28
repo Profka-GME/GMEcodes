@@ -329,5 +329,25 @@
             "Interact with the Kiosk to enter a code.",
             "If the code is valid and active, you will receive a confirmation message and the reward will be added to your account."
         ]
+    },
+    {
+        "name": "Be a Lucky Block(Roblox)",
+        "slug": "bealuckyblock",
+        "codeKey": "bealuckyblock",
+        "page": "games/bealuckyblock",
+        "image": "images/logo/bealuckyblock2.webp",
+        "picture": "images/pictures/bealuckyblock.webp",
+        "title": "Roblox Be a Lucky Block Codes | Working and Expired Codes | GMEcodes",
+        "metaDescription": "Discover the latest working Roblox Be a Lucky Block codes! We provide regularly updated lists of active codes, expired codes, and step-by-step redeem instructions to help you get free rewards fast.",
+        "ogDescription": "See working and expired Roblox Be a Lucky Block codes with frequent updates.",
+        "intro": "In Be a Lucky Block, codes are used to instantly unlock Brainrots. Unlike most Roblox games where you play as a human hunting for loot, this game flips the script: you are the loot. You play as a Lucky Block on a conveyor belt, waiting for a \"Noob\" to pick you up and take you to their base. Once you are \"opened,\" you transform into a Brainrot—a weird, meme-inspired creature.",
+        "redeemSteps": [
+            "Launch Be a Lucky Block on Roblox.",
+            "Click the Shop button on the right side of the screen.",
+            "Click the Codes tab at the top of the shop menu.",
+            "Type the code exactly as shown (they are usually ALL CAPS).",
+            "Press Submit or Verify to transform!",
+            "If the code is valid and active, you will receive a confirmation message and the reward will be added to your account."
+        ]
     }
 ]

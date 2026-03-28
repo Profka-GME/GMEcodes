@@ -208,5 +208,12 @@
         "expiredCodes": [
             "2xROSS", "SUMMERBREAK", "SUMMERSALE", "1B1LL1ONV1S1TS", "M0N3YTR33S", "GIFTUNWRAP", "DiscordFTW", "subbethink", "GIFTUNWRAP", "SEAcreatures"
         ]
+    },
+    "bealuckyblock": {
+        "workingCodes": [
+            { "code": "RELEASE", "reward": "Brr Brr Patapim Brainrot" },
+            { "code": "ZEUS", "reward": "Angelzini Bananini Brainrot" }
+        ],
+        "expiredCodes": []
     }
 }

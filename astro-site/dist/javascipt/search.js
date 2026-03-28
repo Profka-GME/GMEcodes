@@ -85,6 +85,11 @@ image: "images/logo/volleyballlegends2.webp"
 name: "Adopt Me(Roblox)",
 page: "games/adoptme",
 image: "images/logo/adoptme2.webp"
+},
+{
+name: "Be a Lucky Block(Roblox)",
+page: "games/bealuckyblock",
+image: "images/logo/bealuckyblock2.webp"
 }
 ]
 
@@ -105,7 +110,8 @@ const availablePages = new Set([
 "games/animevanguards",
 "games/solsrng",
 "games/volleyballlegends",
-"games/adoptme"
+"games/adoptme",
+"games/bealuckyblock"
 ])
 
 const input = document.getElementById("search-input")
