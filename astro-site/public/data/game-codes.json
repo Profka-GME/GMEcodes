@@ -164,7 +164,8 @@
     "animeoverload": {
         "workingCodes": [
             { "code": "FULLRELEASE", "reward": "(lvl req 3) x50 trait rerolls, x2,500 crystals, x1,000 tokens, x25 basic stat cubes" },
-            { "code": "Thanks4Feedback", "reward":"(no lvl req) x50 trait rerolls, x2500 Crystals, x20 basic Stat Cubes, x7500 Bloodied chains" }
+            { "code": "Thanks4Feedback", "reward":"(no lvl req) x50 trait rerolls, x2500 Crystals, x20 basic Stat Cubes, x7500 Bloodied chains" },
+            { "code": "ThanksFor20kCCU!", "reward": "(no lvl req) x40 trait rerolls, x3.500 crystals, x1.000 tokens, x25 basic stat cubes, x15 advanced stat cubes x20.000 Bloodied Chains" }
         ],
         "expiredCodes": []
     },
