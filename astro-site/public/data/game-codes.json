@@ -59,15 +59,13 @@
     },
     "rerangers": {
         "workingCodes": [
-            { "code": "UNLIMITED", "reward": "x25 Trait Rerolls, x50000 Gold, x2500 Gems" },
-            { "code": "BOSSATTACK", "reward": "x25 Trait Rerolls, x12 Soul Fragments, x1000 Gems" },
-            { "code": "LEADERBOARDS", "reward": "x25 Trait Rerolls, x10 Dr. Megga Punks, x5 Stat Boosters" },
-            { "code": "RANGERSRELEASE", "reward": "x25 Trait Rerolls, x10 Dr. Megga Punks, x5 Stat Boosters" },
-            { "code": "ThanksFor50KCCU!", "reward": "x50 Trait Rerolls, x5000 Gems" }
+            { "code": "STRONGESTMAN", "reward": "x25 Trait Rerolls, x75000 Gold, x2 Stat Boosters" },
+            { "code": "INVASIONS", "reward": "x25 Trait Rerolls, x20 Dr. Megga Punk, x5000 Gems" },
+            { "code": "LEADTHEONEPIECEISREALERBOARDS", "reward": "(lvl req 20) x50 Trait Rerolls, x20 Soul Fragments, x5 Stat Boosters, x7500 Gems" }
         ],
         "expiredCodes": [
-            "LATOM", "HolyGrailRework!", "RANGERRERELEASE", "MoreQoL!", "BugFixes10.5", "RANGERSRELEASE6",
-            "ThankYouFor7KCCU!", "SERIALIZED", "DraculaQuestPatch", "OOPSRAMEN!", "KoromuBossEvent", "SorryForDelays!!","GHOULHUNT", "RAIDSAREBACK", "WeAreSorrySoSorry", "YggDrasilRaid", "SORRYFORBUGS", "ThanksFor30KCCU!","DivineEventUpdate!"
+            "LATOM", "BOSSATTACK!", "LEADERBOARDS", "MoreQoL!", "ThanksFor50KCCU.5", "RANGERSRELEASE6",
+            "UNLIMITED!", "SERIALIZED", "DraculaQuestPatch", "OOPSRAMEN!", "KoromuBossEvent", "SorryForDelays!!","GHOULHUNT", "RAIDSAREBACK", "WeAreSorrySoSorry", "YggDrasilRaid", "SORRYFORBUGS", "ThanksFor30KCCU!","DivineEventUpdate!"
         ]
     },
     "bizlineage": {
