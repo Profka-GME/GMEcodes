@@ -61,7 +61,8 @@
         "workingCodes": [
             { "code": "STRONGESTMAN", "reward": "x25 Trait Rerolls, x75000 Gold, x2 Stat Boosters" },
             { "code": "INVASIONS", "reward": "x25 Trait Rerolls, x20 Dr. Megga Punk, x5000 Gems" },
-            { "code": "LEADTHEONEPIECEISREALERBOARDS", "reward": "(lvl req 20) x50 Trait Rerolls, x20 Soul Fragments, x5 Stat Boosters, x7500 Gems" }
+            { "code": "LEADTHEONEPIECEISREALERBOARDS", "reward": "(lvl req 20) x50 Trait Rerolls, x20 Soul Fragments, x5 Stat Boosters, x7500 Gems" },
+            { "code": "FREEREROLLS!", "reward": "x10000 Trait Rerolls" }
         ],
         "expiredCodes": [
             "LATOM", "BOSSATTACK!", "LEADERBOARDS", "MoreQoL!", "ThanksFor50KCCU.5", "RANGERSRELEASE6",
@@ -96,7 +97,12 @@
             { "code": "200MVISITS", "reward": "Rewards" },
             { "code": "365KCCUOP", "reward": "Rewards" },
             { "code": "350KCCUINSANEE", "reward": "Rewards" },
-            { "code": "SORRYFORRESTARTONLYONETONIGHTT", "reward": "Rewards" }
+            { "code": "SORRYFORRESTARTONLYONETONIGHTT", "reward": "Rewards" },
+            { "code": "545KCCULETSGO", "reward": "Rewards" },
+            { "code": "560KCCUWEREINSANEE", "reward": "Rewards" },
+            { "code": "575KCCUWOWWWW", "reward": "Rewards" },
+            { "code": "590KCCUTYSMGUYS", "reward": "Rewards" },
+            { "code": "605KCCUINSANEMILESTONE", "reward": "Rewards" }
         ],
         "expiredCodes": [
             "BIGGESTUPDATENEXT", "45KFOLLOWSTYY","245KCCUGETTINGTOOCRAZY", "230KCCUYALLTHEBEST", "275KCCUOMG", "290KCCUSOMUCH", "305KCCUTYSMGUYS"
@@ -133,11 +139,11 @@
     },
     "animecardclash": {
         "workingCodes": [
-            { "code": "ANNIDELAY1", "reward": "x5 Large Luck Potion, x5 Large Roll Speed Potion, x2 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x2 50,000x Instant Roll" },
-            { "code": "ANNIDELAY2", "reward": "(Requires 500,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x2 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x2 100,000x Instant Roll" },
-            { "code": "ANNIDELAY3", "reward": "(Requires 5,000,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x5 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x2 250,000x Instant Roll" },
-            { "code": "ANNIDELAY4", "reward": "(Requires 50,000,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x5 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x3 250,000x Instant Roll" },
-            { "code": "ANNIDELAY5", "reward": "(Requires 350,000,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x5 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x5 250,000x Instant Roll" }
+            { "code": "ANNIP21", "reward": "x5 Large Luck Potion, x5 Large Roll Speed Potion, x2 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x2 50,000x Instant Roll" },
+            { "code": "ANNIP22", "reward": "(Requires 500,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x2 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x2 100,000x Instant Roll" },
+            { "code": "ANNIP23", "reward": "(Requires 5,000,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x5 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x2 250,000x Instant Roll" },
+            { "code": "ANNIP24", "reward": "(Requires 50,000,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x5 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x3 250,000x Instant Roll" },
+            { "code": "ANNIP25", "reward": "(Requires 350,000,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x5 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x5 250,000x Instant Roll" }
         ],
         "expiredCodes": [
             "ANNI1", "ANNI2", "ANNI3", "ANNI4", "ANNI5"
@@ -156,7 +162,9 @@
             { "code": "SPRING", "reward": "x5 Spins" },
             { "code": "FOLTYNADMINABUSE", "reward": "x50 Disco balls" },
             { "code": "vindooly", "reward": "Vinguin skin" },
-            { "code": "SORRYQUESTS", "reward": "x5 Spins" }
+            { "code": "SORRYQUESTS", "reward": "x5 Spins" },
+            { "code": "FOLTYNADMINABUSE", "reward": "x500 ice" },
+            { "code": "SPRING", "reward": "x5 Spins" }
         ],
         "expiredCodes": [
             "ADMINABUSE", "LUNAR", "LANARAE", "RUSSO", "VALENTINES", "SORRYVALENTINES", "TEAMS", "BUNDUN", "DELAY", "BOOGIE", "DISCO"
@@ -167,14 +175,16 @@
             { "code": "FULLRELEASE", "reward": "(lvl req 3) x50 trait rerolls, x2,500 crystals, x1,000 tokens, x25 basic stat cubes" },
             { "code": "Thanks4Feedback", "reward":"(no lvl req) x50 trait rerolls, x2500 Crystals, x20 basic Stat Cubes, x7500 Bloodied chains" },
             { "code": "ThanksFor20k", "reward": "(no lvl req) x40 trait rerolls, x3.500 crystals, x1.000 tokens, x25 basic stat cubes, x15 advanced stat cubes x20.000 Bloodied Chains" },
-            { "code": "ThanksFor25k", "reward": "(no lvl req) x1.000 tokens, x1.000 crystal shards, x5.000 bloodied chains" }
+            { "code": "ThanksFor25k", "reward": "(no lvl req) x1.000 tokens, x1.000 crystal shards, x5.000 bloodied chains" },
+            { "code": "5MILVisits", "reward": "(no lvl req) x40 trait rerolls,  x5.000 Crystal Shards, x25 Basic Stat Cubes, x10 Advanced Stat Cubes" }
         ],
         "expiredCodes": []
     },
     "allstartowerdefense": {
         "workingCodes": [
             { "code": "ultramicro", "reward": "x100 Currencies, x300 Gems" },
-            { "code": "game11", "reward": "x100 Currencies, x300 Gems" }
+            { "code": "game11", "reward": "x100 Currencies, x300 Gems" },
+            { "code": "bigcode3", "reward": "OP unit" }
         ],
         "expiredCodes": [
             "NEWUPDATESTUFF", "SORRY4BREAK", "UPDATE7ORISIT8", "DEVLOG1", "DELAYYY5"
