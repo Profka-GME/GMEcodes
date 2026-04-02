@@ -143,7 +143,9 @@
             { "code": "ANNIP22", "reward": "(Requires 500,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x2 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x2 100,000x Instant Roll" },
             { "code": "ANNIP23", "reward": "(Requires 5,000,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x5 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x2 250,000x Instant Roll" },
             { "code": "ANNIP24", "reward": "(Requires 50,000,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x5 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x3 250,000x Instant Roll" },
-            { "code": "ANNIP25", "reward": "(Requires 350,000,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x5 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x5 250,000x Instant Roll" }
+            { "code": "ANNIP25", "reward": "(Requires 350,000,000 Rolls) x5 X-Large Luck Potion, x5 X-Large Roll Speed Potion, x5 Boss Chance Potion, x3 Greater Moon Cycle Reroll Potion, x2 Border Chance Potion, x50 Trait Reroll, x5 250,000x Instant Roll" },
+            { "code": "MOONREROLLREFUND", "reward": "x10,000 Greater Moon rerolls" },
+            { "code": "APRILFOOLS2026", "reward": "Foolish Green Bomber Skin" }
         ],
         "expiredCodes": [
             "ANNI1", "ANNI2", "ANNI3", "ANNI4", "ANNI5"
