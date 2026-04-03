@@ -2,7 +2,7 @@
     "rivals": {
         "workingCodes": [
                 { "code": "COMMUNITY22", "reward": "x1 Community Wrap" },
-                { "code": "FREE163", "reward": "x3 keys" },
+                { "code": "FREE164", "reward": "x3 keys" },
                 { "code": "BONUS", "reward": "x1 key" },
                 { "code": "BOOST", "reward": "x1 key" },
                 { "code": "ROBLOX_RTC", "reward": "x5 keys" },
@@ -81,7 +81,7 @@
     "sailorpiece": {
         "workingCodes": [
             { "code": "ALTERUPDATE", "reward": "Rewards" },
-            { "code": "BIGGESTUPDATENEXT", "reward": "Rewards" },
+            { "code": "BIGGESTUPDATESEA2NEXT", "reward": "Rewards" },
             { "code": "INFINITETOWER", "reward": "Rewards" },
             { "code": "SEA2SOON", "reward": "Rewards" },
             { "code": "175KFOLLOWSTYSM", "reward": "Rewards" },
@@ -102,7 +102,8 @@
             { "code": "560KCCUWEREINSANEE", "reward": "Rewards" },
             { "code": "575KCCUWOWWWW", "reward": "Rewards" },
             { "code": "590KCCUTYSMGUYS", "reward": "Rewards" },
-            { "code": "605KCCUINSANEMILESTONE", "reward": "Rewards" }
+            { "code": "605KCCUINSANEMILESTONE", "reward": "Rewards" },
+            { "code": "500KLIKESTY", "reward": "Rewards" }
         ],
         "expiredCodes": [
             "BIGGESTUPDATENEXT", "45KFOLLOWSTYY","245KCCUGETTINGTOOCRAZY", "230KCCUYALLTHEBEST", "275KCCUOMG", "290KCCUSOMUCH", "305KCCUTYSMGUYS"
@@ -115,7 +116,9 @@
             { "code": "HOOKED", "reward": "x500 Gold" },
             { "code": "HOOKED2KLIKES", "reward": "x300 Gold" },
             { "code": "MASTEROFSKILLS", "reward": "x50 Skill Shards" },
-            { "code": "HOOKED3KLIKES", "reward": "x300 Gold" }
+            { "code": "HOOKED3KLIKES", "reward": "x300 Gold" },
+            { "code": "HOOKED4KLIKES", "reward": "x300 Gold" },
+            { "code": "PROSKILLS", "reward": "x50 Skill Shards" }
         ],
         "expiredCodes": []
     },
