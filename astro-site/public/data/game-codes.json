@@ -49,7 +49,8 @@
             { "code": "NEWYEARLANTERN", "reward": "x1 Chinese New Year's lantern" },
             { "code": "THEDEN", "reward": "rewards (been to the leviathan's den)" },
             { "code": "DIVING", "reward": "x2 luck II potions" },
-            { "code": "SCALEREFUND", "reward": "one leviathan scale (must be level 10 with the leviathan quest completed)" }
+            { "code": "SCALEREFUND", "reward": "one leviathan scale (must be level 10 with the leviathan quest completed)" },
+            { "code": "EASTER2026", "reward": "Potions" }
         ],
         "expiredCodes": [
             "FREECRYSTAL", "CELEBRATE", "PIRATEMAJA", "FREEPRESENTS", "GO2026", "1BILLION", "2BILLION", "GIFTGIVING",
@@ -103,7 +104,9 @@
             { "code": "575KCCUWOWWWW", "reward": "Rewards" },
             { "code": "590KCCUTYSMGUYS", "reward": "Rewards" },
             { "code": "605KCCUINSANEMILESTONE", "reward": "Rewards" },
-            { "code": "500KLIKESTY", "reward": "Rewards" }
+            { "code": "500KLIKESTY", "reward": "Rewards" },
+            { "code": "600KLIKESTY", "reward": "Rewards" },
+            { "code": "400MVISITSWOAHH", "reward": "Rewards" }
         ],
         "expiredCodes": [
             "BIGGESTUPDATENEXT", "45KFOLLOWSTYY","245KCCUGETTINGTOOCRAZY", "230KCCUYALLTHEBEST", "275KCCUOMG", "290KCCUSOMUCH", "305KCCUTYSMGUYS"
