@@ -168,7 +168,8 @@
             { "code": "ThanksFor20k", "reward": "(no lvl req) x40 trait rerolls, x3.500 crystals, x1.000 tokens, x25 basic stat cubes, x15 advanced stat cubes x20.000 Bloodied Chains" },
             { "code": "ThanksFor25k", "reward": "(no lvl req) x1.000 tokens, x1.000 crystal shards, x5.000 bloodied chains" },
             { "code": "5MILVisits", "reward": "(no lvl req) x40 trait rerolls,  x5.000 Crystal Shards, x25 Basic Stat Cubes, x10 Advanced Stat Cubes" },
-            { "code": "Sorry4Restart", "reward": "(no lvl req) x5 trait rerolls" }
+            { "code": "Sorry4Restart", "reward": "(no lvl req) x5 trait rerolls" },
+            { "code": "AnimeBrickload", "reward": "(no lvl req) x35 Trait Reroll Tickets, x1k Crystal Shards" }
         ],
         "expiredCodes": []
     },
