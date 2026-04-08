@@ -63,7 +63,10 @@
             { "code": "STRONGESTMAN", "reward": "x25 Trait Rerolls, x75000 Gold, x2 Stat Boosters" },
             { "code": "INVASIONS", "reward": "x25 Trait Rerolls, x20 Dr. Megga Punk, x5000 Gems" },
             { "code": "LEADTHEONEPIECEISREALERBOARDS", "reward": "(lvl req 20) x50 Trait Rerolls, x20 Soul Fragments, x5 Stat Boosters, x7500 Gems" },
-            { "code": "FREEREROLLS!", "reward": "x10000 Trait Rerolls" }
+            { "code": "FREEREROLLS!", "reward": "x10000 Trait Rerolls" },
+            { "code": "HAPPYEASTER", "reward": "35 Trait Rerolls, 1 Easter Basket, 5 Soul Fragments" },
+            { "code": "NEWSKINS", "reward": "35 Trait Rerolls, 10000 Gems, 5 Stat Boosters" },
+            { "code": "BUNNYRUSH", "reward": "35 Trait Rerolls, 15 Stat Boosters, 15 Soul Fragments, 40 Dr. Megga Punk [20 lvl req]" }
         ],
         "expiredCodes": [
             "LATOM", "BOSSATTACK!", "LEADERBOARDS", "MoreQoL!", "ThanksFor50KCCU.5", "RANGERSRELEASE6",
@@ -81,35 +84,13 @@
     },
     "sailorpiece": {
         "workingCodes": [
-            { "code": "ALTERUPDATE", "reward": "Rewards" },
-            { "code": "BIGGESTUPDATESEA2NEXT", "reward": "Rewards" },
-            { "code": "INFINITETOWER", "reward": "Rewards" },
-            { "code": "SEA2SOON", "reward": "Rewards" },
-            { "code": "175KFOLLOWSTYSM", "reward": "Rewards" },
-            { "code": "150MVISITS", "reward": "Rewards" },
-            { "code": "SORRYFORALLTHEBUGSS", "reward": "Rewards" },
-            { "code": "SORRYFORALLTHEBUGSBUTBETTER", "reward": "Rewards" },
-            { "code": "TYFOR440KCCU", "reward": "Rewards" },
-            { "code": "WOAHHH455KCCU", "reward": "Rewards" },
-            { "code": "470KCCUISCRAZY", "reward": "Rewards" },
-            { "code": "485KCCUTYSMMM ", "reward": "Rewards" },
-            { "code": "380KCCUSOCRAZY", "reward": "Rewards" },
-            { "code": "425KCCUYAY", "reward": "Rewards" },
-            { "code": "200MVISITS", "reward": "Rewards" },
-            { "code": "365KCCUOP", "reward": "Rewards" },
-            { "code": "350KCCUINSANEE", "reward": "Rewards" },
-            { "code": "SORRYFORRESTARTONLYONETONIGHTT", "reward": "Rewards" },
-            { "code": "545KCCULETSGO", "reward": "Rewards" },
-            { "code": "560KCCUWEREINSANEE", "reward": "Rewards" },
-            { "code": "575KCCUWOWWWW", "reward": "Rewards" },
-            { "code": "590KCCUTYSMGUYS", "reward": "Rewards" },
-            { "code": "605KCCUINSANEMILESTONE", "reward": "Rewards" },
-            { "code": "500KLIKESTY", "reward": "Rewards" },
-            { "code": "600KLIKESTY", "reward": "Rewards" },
-            { "code": "400MVISITSWOAHH", "reward": "Rewards" }
+            { "code": "FREECODE", "reward": "rewards" },
+            { "code": "500MVISITSWOAHH", "reward": "rewards" },
+            { "code": "ICEQUEEN", "reward": "rewards" },
+            { "code": "MINIUPDATEBIGONESOON", "reward": "rewards" }
         ],
         "expiredCodes": [
-            "BIGGESTUPDATENEXT", "45KFOLLOWSTYY","245KCCUGETTINGTOOCRAZY", "230KCCUYALLTHEBEST", "275KCCUOMG", "290KCCUSOMUCH", "305KCCUTYSMGUYS"
+            "BIGGESTUPDATENEXT", "45KFOLLOWSTYY","365KCCUOP", "230KCCUYALLTHEBEST", "275KCCUOMG", "400MVISITSWOAHH", "200MVISITS", "470KCCUISCRAZY"
         ]
     },
     "hooked": {
@@ -145,10 +126,10 @@
     },
     "animecardclash": {
         "workingCodes": [
-            { "code": "MOONREROLLREFUND", "reward": "x10,000 Greater Moon rerolls" }
+            { "code": "MOONREROLLREFUND", "reward": "x10,000 Greater Moon rerolls" },
         ],
         "expiredCodes": [
-            "ANNI1", "ANNI2", "ANNI3", "ANNI4", "ANNI5"
+            "EASTER1", "EASTER2", "EASTER3", "EASTER4", "EASTER5"
         ]
     },
     "knockout": {
@@ -169,7 +150,10 @@
             { "code": "ThanksFor25k", "reward": "(no lvl req) x1.000 tokens, x1.000 crystal shards, x5.000 bloodied chains" },
             { "code": "5MILVisits", "reward": "(no lvl req) x40 trait rerolls,  x5.000 Crystal Shards, x25 Basic Stat Cubes, x10 Advanced Stat Cubes" },
             { "code": "Sorry4Restart", "reward": "(no lvl req) x5 trait rerolls" },
-            { "code": "AnimeBrickload", "reward": "(no lvl req) x35 Trait Reroll Tickets, x1k Crystal Shards" }
+            { "code": "AnimeBrickload", "reward": "(no lvl req) x35 Trait Reroll Tickets, x1k Crystal Shards" },
+            { "code": "Delayload", "reward": "(no lvl req) x55 rerolls x2500 crystal shards!" },
+            { "code": "10MWOOO", "reward": "(no lvl req) x40 trait rerolls,  x1.000 tokens, x30 Basic Stat Cubes, x10 Advanced Stat Cubes" },
+            { "code": "Excavation", "reward": "(no lvl req) x20 Rerolls, x1000 tokens, x20 Basic Stat cubes" }
         ],
         "expiredCodes": []
     },
