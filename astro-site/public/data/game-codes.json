@@ -66,7 +66,10 @@
             { "code": "FREEREROLLS!", "reward": "x10000 Trait Rerolls" },
             { "code": "HAPPYEASTER", "reward": "35 Trait Rerolls, 1 Easter Basket, 5 Soul Fragments" },
             { "code": "NEWSKINS", "reward": "35 Trait Rerolls, 10000 Gems, 5 Stat Boosters" },
-            { "code": "BUNNYRUSH", "reward": "35 Trait Rerolls, 15 Stat Boosters, 15 Soul Fragments, 40 Dr. Megga Punk [20 lvl req]" }
+            { "code": "BUNNYRUSH", "reward": "35 Trait Rerolls, 15 Stat Boosters, 15 Soul Fragments, 40 Dr. Megga Punk [20 lvl req]" },
+            { "code": "HAPPYEASTER", "reward": "35 Trait Rerolls, 1 Easter Basket, 5 Soul Fragments" },
+            { "code": "NEWSKINS", "reward": "35 Trait Rerolls, 10000 Gems, 5 Stat Boosters" },
+            { "code": "BUNNYRUSH", "reward": "35 Trait Rerolls, 15 Stat Boosters, 15 Soul Fragments, 40 Dr. Megga Punk (20 lvl req)" }
         ],
         "expiredCodes": [
             "LATOM", "BOSSATTACK!", "LEADERBOARDS", "MoreQoL!", "ThanksFor50KCCU.5", "RANGERSRELEASE6",
@@ -87,7 +90,8 @@
             { "code": "FREECODE", "reward": "rewards" },
             { "code": "500MVISITSWOAHH", "reward": "rewards" },
             { "code": "ICEQUEEN", "reward": "rewards" },
-            { "code": "MINIUPDATEBIGONESOON", "reward": "rewards" }
+            { "code": "MINIUPDATEBIGONESOON", "reward": "rewards" },
+            { "code": "700KLIKESTYSM", "reward": "rewards" }
         ],
         "expiredCodes": [
             "BIGGESTUPDATENEXT", "45KFOLLOWSTYY","365KCCUOP", "230KCCUYALLTHEBEST", "275KCCUOMG", "400MVISITSWOAHH", "200MVISITS", "470KCCUISCRAZY"
@@ -126,7 +130,8 @@
     },
     "animecardclash": {
         "workingCodes": [
-            { "code": "MOONREROLLREFUND", "reward": "x10,000 Greater Moon rerolls" },
+            { "code": "ZEROROLLSCHALLENGE", "reward": "x1 Gold Green Bomber" },
+            { "code": "ICECOLD", "reward": "x1 Legacy Skin (Ice Empress Shinigami)" }
         ],
         "expiredCodes": [
             "EASTER1", "EASTER2", "EASTER3", "EASTER4", "EASTER5"
@@ -136,7 +141,9 @@
         "workingCodes": [
             { "code": "CRABRAVE", "reward": "x750 ice" },
             { "code": "HAPPYEASTER", "reward": "x3 Spins" },
-            { "code": "SOCIALHUB", "reward": "x350 ice" }
+            { "code": "SOCIALHUB", "reward": "x350 ice" },
+            { "code": "CIRCUSEVENT", "reward": "x5 spins" },
+            { "code": "BEMMY", "reward": "x1 Bemmy Skin" }
         ],
         "expiredCodes": [
             "SPRING", "FOLTYNADMINABUSE", "SORRYQUESTS", "vindooly", "FOLTYNADMINABUSE", "SPRING", "LAVA", "DOOMSDAY", "TEMPLETILES", "STPATRICKS", "POOLMAP"
@@ -144,18 +151,15 @@
     },
     "animeoverload": {
         "workingCodes": [
-            { "code": "FULLRELEASE", "reward": "(lvl req 3) x50 trait rerolls, x2,500 crystals, x1,000 tokens, x25 basic stat cubes" },
-            { "code": "Thanks4Feedback", "reward":"(no lvl req) x50 trait rerolls, x2500 Crystals, x20 basic Stat Cubes, x7500 Bloodied chains" },
             { "code": "ThanksFor20k", "reward": "(no lvl req) x40 trait rerolls, x3.500 crystals, x1.000 tokens, x25 basic stat cubes, x15 advanced stat cubes x20.000 Bloodied Chains" },
             { "code": "ThanksFor25k", "reward": "(no lvl req) x1.000 tokens, x1.000 crystal shards, x5.000 bloodied chains" },
-            { "code": "5MILVisits", "reward": "(no lvl req) x40 trait rerolls,  x5.000 Crystal Shards, x25 Basic Stat Cubes, x10 Advanced Stat Cubes" },
-            { "code": "Sorry4Restart", "reward": "(no lvl req) x5 trait rerolls" },
-            { "code": "AnimeBrickload", "reward": "(no lvl req) x35 Trait Reroll Tickets, x1k Crystal Shards" },
             { "code": "Delayload", "reward": "(no lvl req) x55 rerolls x2500 crystal shards!" },
-            { "code": "10MWOOO", "reward": "(no lvl req) x40 trait rerolls,  x1.000 tokens, x30 Basic Stat Cubes, x10 Advanced Stat Cubes" },
-            { "code": "Excavation", "reward": "(no lvl req) x20 Rerolls, x1000 tokens, x20 Basic Stat cubes" }
+            { "code": "Excavation!", "reward": "(no lvl req) x20 Rerolls, x1000 tokens, x20 Basic Stat cubes" },
+            { "code": "UPD0.5HERE", "reward": "(no lvl req) x40 rerolls, x1 stat locker" },
+            { "code": "EMPTYTHRONE", "reward": "(no lvl req) x30 rerolls, x1 stat locker" },
+            { "code": "UPD0.75", "reward": "(10 lvl req) x50 rerolls, x2500 crystal shards x20 basic stat cubes, x10 advanced stat cubes" }
         ],
-        "expiredCodes": []
+        "expiredCodes": ["10MWOOO", "AnimeBrickload", "Sorry4Restart", "Thanks4Feedback", "FULLRELEASE"]
     },
     "allstartowerdefense": {
         "workingCodes": [
@@ -185,12 +189,12 @@
     },
     "volleyballlegends": {
         "workingCodes": [
-            { "code": "UPDATE_64", "reward": "x5 Lucky Style Spins" },
-            { "code": "TOURNAMENTS", "reward": "x5 Lucky Style Spins" },
-            { "code": "CHALLENGER", "reward": "x5 Lucky Ability Spins" }
+            { "code": "UPDATE_65", "reward": "x5 Lucky Style Spins" },
+            { "code": "SEASON_14", "reward": "x5 Lucky Style Spins" },
+            { "code": "EASTER_UPDATE", "reward": "x5 Lucky Ability Spins" }
         ],
         "expiredCodes": [
-            "UPDATE_63", "UPDATE_62", "EVO_RARITY", "STRETCH", "SUPER_TILTS"
+            "UPDATE_64", "TOURNAMETS", "CHALLANGER", "STRETCH", "SUPER_TILTS"
         ]
     },
     "adoptme": {
@@ -201,11 +205,10 @@
     },
     "bealuckyblock": {
         "workingCodes": [
-            { "code": "RELEASE", "reward": "Brr Brr Patapim Brainrot" },
-            { "code": "ZEUS", "reward": "Angelzini Bananini Brainrot" },
             { "code": "DEVIL", "reward": "reward" },
-            { "code": "GOD", "reward": "reward" }
+            { "code": "GOD", "reward": "reward" },
+            { "code": "EASTER", "reward": "reward" }
         ],
-        "expiredCodes": []
+        "expiredCodes": ["RELEASE", "ZEUS"]
     }
 }
